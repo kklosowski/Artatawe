@@ -1,7 +1,5 @@
 # Artatawe design document
 
----
-
 ## How to contribute to the content:
 
 In order to allow for easy contribution to the project, we are using GitHub; it is easy to keep track of changes
@@ -14,8 +12,6 @@ The code from `content.md` will later be imported into some more advanced word p
 Following is the code from [Wikipedia - Markdown](https://en.wikipedia.org/wiki/Markdown#Example):
 
 ## Sample Code:
-
----
 
 ```
 # Heading
@@ -52,8 +48,6 @@ A [link](http://example.com).
 ```
 
 ## Sample Output:
-
----
 
 # Heading
 
