@@ -1,42 +1,55 @@
+import java.sql.Timestamp;
+
 class User{
 	private final String firstName;
 	private final String lastName;
 	private final String userName;
-	private final Timestamp firstJoined;
 	private String mobileNo;
 	private Address address;
 	private Timestamp lastLoggedIn;
 	private Avatar avatar;
 
-	String public getFirstName(){
+	public User(String firstName,
+				String lastName,
+				String userName,
+				String mobileNo,
+				Address address,
+				Avatar avatar){
+//		Timestamp currentTime = new Timestamp();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.mobileNo = mobileNo;
+		this.address = address;
+//		this.lastLoggedIn = currentTime.getTime();
+		this.avatar = avatar;
+	}
+
+	public String getFirstName(){
 		return this.firstName;
 	}
 
-	String public getLastName(){
+	public String getLastName(){
 		return this.lastName;
 	}
 
-	String public getUserName(){
+	public String getUserName(){
 		return this.userName;
 	}
 
-	Timestamp public getFirstJoined(){
-		return this.firstJoined;
-	}
-
-	String public getMobileNo(){
+	public String getMobileNo(){
 		return this.mobileNo;
 	}
 
-	Address public getAddress(){
+	public Address getAddress(){
 		return this.address;
 	}
 
-	Timestamp public getLastLoggedIn(){
+	public Timestamp getLastLoggedIn(){
 		return this.lastLoggedIn;
 	}
 
-	Avatar public getAvatar(){
+	public Avatar getAvatar(){
 		return this.avatar;
 	}
 }
