@@ -2,8 +2,8 @@
 
 ## Quick links:
 
-  * (Assignment One A1 - Design)[https://bb.swan.ac.uk/bbcswebdav/pid-2681270-dt-content-rid-2424416_2/courses/1718_CS-230/Assignments/A1.pdf] - the assignment sheet
-  * (Asana workspace)[https://app.asana.com/0/454724081405125/board]
+  * [Assignment One A1 - Design](https://bb.swan.ac.uk/bbcswebdav/pid-2681270-dt-content-rid-2424416_2/courses/1718_CS-230/Assignments/A1.pdf)
+  * [Asana workspace](https://app.asana.com/0/454724081405125/board)
 
 ## How to contribute to the content:
 
