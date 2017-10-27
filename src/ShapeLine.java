@@ -12,11 +12,11 @@ import java.awt.Graphics;
  *
  * @author shuyu6
  */
-public class Line extends Shape {
-     public Line() {
+public class ShapeLine extends Shape {
+     public ShapeLine() {
     }
 
-    public Line(int x1, int x2, int y1, int y2, Color filledColor) {
+    public ShapeLine(int x1, int x2, int y1, int y2, Color filledColor) {
         super(x1, x2, y1, y2, filledColor);
     }
 
