@@ -1,3 +1,9 @@
+/**
+* Contains data and methods which apply to all artwork types.
+* @author  Morgan David
+* @version 1.0
+* @since   27-10-17 
+*/
 
 import java.time.Year;
 import java.util.Date;
