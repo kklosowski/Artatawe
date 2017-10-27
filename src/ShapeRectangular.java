@@ -12,12 +12,12 @@ import java.awt.Graphics;
  *
  * @author shuyu6
  */
-public class Rectangular extends Shape {
+public class ShapeRectangular extends Shape {
 
-    public Rectangular() {
+    public ShapeRectangular() {
     }
 
-    public Rectangular(int x1, int x2, int y1, int y2, Color filledColor) {
+    public ShapeRectangular(int x1, int x2, int y1, int y2, Color filledColor) {
         super(x1, x2, y1, y2, filledColor);
     }
 
