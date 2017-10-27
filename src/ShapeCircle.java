@@ -12,12 +12,12 @@ import java.awt.Graphics;
  *
  * @author shuyu6
  */
-public class Circle extends Shape{
+public class ShapeCircle extends Shape{
 
-    public Circle() {
+    public ShapeCircle() {
     }
     
-    public Circle(int x1, int x2, int y1, int y2, Color filledColor) {
+    public ShapeCircle(int x1, int x2, int y1, int y2, Color filledColor) {
         super(x1, x2, y1, y2, filledColor);
     }   
     
