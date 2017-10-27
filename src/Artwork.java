@@ -17,12 +17,12 @@ public class Artwork {
 	protected double reservePrice; 
 	protected List[String] images;
 	protected int primaryImageIndex; //Primary image to display larger than others in the list
-	protected Dimension dimensions;
+	protected Dimensions dimensions;
 	protected Year yearCreated;
 	protected Date dateAdded;
 	protected int maxBids;
 	
-	public Artwork(String title, String description, double reservePrice, int maxBids, Dimension dimension,Year yearCreated){
+	public Artwork(String title, String description, double reservePrice, int maxBids, Dimensions dimension,Year yearCreated){
 		this.title = title;
 		this.price = price;
 		this.description = description;
@@ -94,14 +94,14 @@ public class Artwork {
 	 * Gets the dimensions of this artwork.
 	 * @return the dimensions of this artwork
 	 */
-	public Dimension getDimensions(){
+	public Dimensions getDimensions(){
 		return dimensions;
 	}
 	/**
 	 * Sets the dimensions of this artwork.
 	 * @param dimensions the dimensions of this artwork
 	 */
-	public void setDimensions(Dimension dimensions){
+	public void setDimensions(Dimensions dimensions){
 		this.dimensions = dimensions;
 	}
 	/**
