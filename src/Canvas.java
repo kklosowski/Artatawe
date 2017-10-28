@@ -74,4 +74,6 @@ public class Canvas {
     private void refreshCanvas(){
         
     }
+    public void convertGraphicToImage(){
+    }
 }
