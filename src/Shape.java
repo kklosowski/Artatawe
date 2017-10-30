@@ -20,7 +20,7 @@ public abstract class Shape {
     protected Color color;
 
     public Shape(){
-        this(0,0,0,0,Color.Black);
+        this(0,0,0,0,Color.BLACK);
     }
     public Shape(int x1, int x2, int y1, int y2, Color color) {
         this.x1 = x1;

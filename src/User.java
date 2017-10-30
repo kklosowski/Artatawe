@@ -60,15 +60,14 @@ class User{
 				String userName,
 				String mobileNo,
 				Address address,
+				Timestamp lastLoggedIn,
 				Avatar avatar){
-		Date date = new Date();
-		Timestamp currentTime = new Timestamp(date.getTime());
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.mobileNo = mobileNo;
 		this.address = address;
-		this.lastLoggedIn = currentTime;
+		this.lastLoggedIn = lastLoggedIn;
 		this.avatar = avatar;
 	}
 

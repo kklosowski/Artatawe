@@ -17,8 +17,8 @@ public class Sculpture extends Artwork {
 	 *Additional photos added
 	 */
 	private List<String> photos;
-	
-	
+
+
 	/**
 	 * Constructs an object of type Sculpture
 	 * @param material
@@ -26,14 +26,11 @@ public class Sculpture extends Artwork {
 	 * @param photos
 	 * 				List of photos added
 	 */
-	public Sculpture (String material, List<String> photos){
-		super (title, description, reservePrice, maxBids, dimension,yearCreated);
+	public Sculpture (String title, String description, int reservePrice, int maxBids, Dimensions dimensions, int yearCreated, String material, List<String> photos){
+		super (title, description, reservePrice, maxBids, dimensions, yearCreated);
 		this.material = material;
 		this.photos = photos;
-		
 	}
-	
-
 
 	/**
 	 * Method getting the material of a sculpture
