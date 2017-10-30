@@ -22,7 +22,7 @@ public abstract class Shape {
     public Shape(){
         this(0,0,0,0,Color.Black);
     }
-    public Shape(int x1, int x2, int y1, int y2, Color filledColor) {
+    public Shape(int x1, int x2, int y1, int y2, Color color) {
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
