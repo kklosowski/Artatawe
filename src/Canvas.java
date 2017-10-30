@@ -6,6 +6,7 @@
 package canvas;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,8 @@ public class Canvas {
     public Shape currentShape;
     public Color currentColor;
     private boolean filledShape;
+    public BufferedImage drawingImage;
+    public String imageLocation;
 
     /**
      * @param args the command line arguments
@@ -65,6 +68,23 @@ public class Canvas {
     public void setFilledShape(boolean filledShape) {
         this.filledShape = filledShape;
     }
+
+    public BufferedImage getDrawingImage() {
+        return drawingImage;
+    }
+
+    public void setDrawingImage(BufferedImage drawingImage) {
+        this.drawingImage = drawingImage;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
+    }    
+    
     public void undoLastShape(){
         shapesList.remove(shapesList.size()-1);
     }
@@ -74,6 +94,17 @@ public class Canvas {
     private void refreshCanvas(){
         
     }
-    public void convertGraphicToImage(){
+    public BufferedImage convertDrawingToImage(){
+        return null;
     }
+    public void usersDrawing(String chosenShape){
+        //if line is chosen 
+        if(chosenShape.equals(this.ShapeType[0])){
+            shapesList.add(new ShapeLine(1, 1, 1, 1, currentColor));
+        }else{
+            // if the circle is chosen 
+            shapesList.add(new ShapeCircle(2,2,2,2,currentColor));
+        }
+    }          
+
 }
