@@ -6,6 +6,7 @@
  *
  */
 import java.util.List;
+import java.sql.Timestamp;
 
 public class Sculpture extends Artwork {
 
@@ -26,8 +27,8 @@ public class Sculpture extends Artwork {
 	 * @param photos
 	 * 				List of photos added
 	 */
-	public Sculpture (String title, String description, int reservePrice, int maxBids, Dimensions dimensions, int yearCreated, String material, List<String> photos){
-		super (title, description, reservePrice, maxBids, dimensions, yearCreated);
+	public Sculpture (String title, String description, int reservePrice, int maxBids, Dimensions dimensions, int yearCreated, Timestamp dateAdded, String material, List<String> photos){
+		super (title, description, reservePrice, maxBids, dimensions, yearCreated, dateAdded);
 		this.material = material;
 		this.photos = photos;
 	}
