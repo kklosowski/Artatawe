@@ -66,8 +66,4 @@ public class Address{
         this.postcode = postcode;
         this.country = country;
     }
-
-    public Address getAddress(){
-        return new Address(address1, address2, address3, city, postcode, country);
-    }
 }
