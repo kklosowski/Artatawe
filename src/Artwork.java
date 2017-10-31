@@ -109,7 +109,7 @@ public class Artwork {
 	 * Gets the date this artwork was added.
 	 * @return the date this artwork was added
 	 */
-	public Date getDateAdded(){
+	public Timestamp getDateAdded(){
 		return dateAdded;
 	}
 	/**
