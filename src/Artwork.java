@@ -23,15 +23,14 @@ public class Artwork {
 	protected Timestamp dateAdded;
 	protected int maxBids;
 
-	public Artwork(String title, String description, double reservePrice, int maxBids, Dimensions dimension,int yearCreated){
+	public Artwork(String title, String description, double reservePrice, int maxBids, Dimensions dimension, int yearCreated, Timestamp dateAdded){
 		this.title = title;
 		this.price = price;
 		this.description = description;
 		this.reservePrice = reservePrice;
 		this.dimensions = dimensions;
 		this.yearCreated = yearCreated;
-		Date date = new Date();
-		this.dateAdded = new Timestamp(date.getTime());
+		this.dateAdded = dateAdded;
 		this.maxBids = maxBids;
 	}
 	/**
