@@ -13,7 +13,7 @@ public class Artwork {
 	protected String title;
 	protected String description;
 	protected User creator; //The user who created the auction
-	protected String artCreator; //the artist who created the art
+	protected String artist; //the artist who created the art
 	protected double price;
 	protected double reservePrice;
 	protected List<String> images;
