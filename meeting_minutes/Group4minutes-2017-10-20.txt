@@ -1,0 +1,27 @@
+Second meeting
+
+Minutes Of Meeting: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+-----------------------------------------
+Date: 20 Oct 2017
+Start Time: 13:00
+End Time: 14:00
+
+Date and time of next meeting: 24 Oct 2017, 13:00
+
+Topics discussed:
+--Discussed in more detail what functions should the Artatawe System have
+--Discussed the User/ System Requirements for the project, meaning everyone understands the specification
+
+Progress since last meeting: 
+--Assigned roles to team members
+--Now the team has a GitHub account for the project, a slack workplace 
+and an Asana workplace where we can track our progress
+--A list of all the actions the system is supposed to have
+--The team has wireframes for most of the project
+
+TODO(for next meeting):
+
+--Distribute the classes between team members
+--Marceli:  List all the diagrams that we will use
+	 :  Create scaffolding for the design
+--Tereza :  Create additional wireframes
