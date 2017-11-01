@@ -22,3 +22,5 @@ TODO(for next meeting):
 --Each person has to create the CRC cards for their classes.
 
 --Diagrams for the project
+
+--Database setup for the project
