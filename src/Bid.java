@@ -7,14 +7,24 @@
 import java.sql.Timestamp;
 
 public class Bid{
-    private User user; //The user who placed the bid
-    private double amount; //Amount of the bid
-    private Timestamp timePlaced; //Timestamp of the bid
+
+    /**
+     * The user who placed the bid
+     */
+    private User user;
+    /**
+     * Amount of the bid
+     */
+    private double amount;
+    /**
+     * Timestamp of the bid
+     */
+    private Timestamp timePlaced;
 
     public Bid(User user, double amount){
         this.user = user;
         this.amount = amount;
-        //Timestamp currentTime = new Timestamp();
+        this.timePlaced = new Timestamp(System.currentTimeMillis());
     }
     /**
     * Gets the user who placed this bid

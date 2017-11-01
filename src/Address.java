@@ -1,5 +1,13 @@
+//TODO: Add comments (including the creator)
+
 public class Address{
-    String address1, address2, address3, city, postcode, country;
+
+    private String address1;
+    private String address2;
+    private String address3;
+    private String city;
+    private String postcode;
+    private String country;
 
     public Address(String address1, String address2, String address3, String city, String postcode, String country){
         this.address1 = address1;
@@ -58,6 +66,8 @@ public class Address{
         this.country = country;
     }
 
+
+    //TODO: Discuss if this is needed
     public void updateAddress(String address1, String address2, String address3, String city, String postcode, String country){
         this.address1 = address1;
         this.address2 = address2;

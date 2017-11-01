@@ -1,5 +1,4 @@
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * User is the class that stores user-related data and thier last
@@ -7,6 +6,10 @@ import java.util.Date;
  * @author	Marceli Wac
  */
 class User{
+	/**
+	 * user's id
+	 */
+	private int userId;
 
 	/**
 	 * user's first name
@@ -41,7 +44,7 @@ class User{
     /**
      * user's profile picture
      */
-	private Avatar avatar;
+	private String avatar;
 
 	/**
 	 * Class constructor specifying all of user information except
@@ -55,13 +58,16 @@ class User{
 	 * @param address		user's postal address
 	 * @param avatar		user's profile picture
 	 */
-	public User(String firstName,
+	public User(int userId,
+				String firstName,
 				String lastName,
 				String userName,
 				String mobileNo,
 				Address address,
 				Timestamp lastLoggedIn,
-				Avatar avatar){
+				String avatar){
+		//TODO: Find a way to get a next unique id for the user
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -95,7 +101,7 @@ class User{
 		return this.lastLoggedIn;
 	}
 
-	public Avatar getAvatar(){
+	public String getAvatar(){
 		return this.avatar;
 	}
 
@@ -111,7 +117,7 @@ class User{
 		this.lastLoggedIn = newLastLoggedIn;
 	}
 
-	public void setAvatar(Avatar newAvatar){
+	public void setAvatar(String newAvatar){
 		this.avatar = newAvatar;
 	}
 }

@@ -27,8 +27,9 @@ public class Sculpture extends Artwork {
 	 * @param photos
 	 * 				List of photos added
 	 */
-	public Sculpture (String title, String description, int reservePrice, int maxBids, Dimensions dimensions, int yearCreated, Timestamp dateAdded, String material, List<String> photos){
-		super (title, description, reservePrice, maxBids, dimensions, yearCreated, dateAdded);
+
+	public Sculpture(String title, String description, String artist, List<String> images, int primaryImageIndex, Dimensions dimensions, int yearCreated, String material, List<String> photos) {
+		super(title, description, artist, images, primaryImageIndex, dimensions, yearCreated);
 		this.material = material;
 		this.photos = photos;
 	}
@@ -44,7 +45,7 @@ public class Sculpture extends Artwork {
 
 	/**
 	 * Resets the material.
-	 * @param The material of the sculpture.
+	 * @param material The material of the sculpture.
 	 */
 	public void setMaterial(String material) {
 		this.material = material;
@@ -60,11 +61,11 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Method adding photos.
-	 * @param list of photos
+	 * Method adding a photo to the list.
+	 * @param photo of photos
 	 */
-	public void addPhoto(List<String>photos){
-		this.photos = photos;
+	public void addPhoto(String photo){
+		photos.add(photo);
 	}
 	
 }
