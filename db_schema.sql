@@ -48,7 +48,7 @@ auction_id integer primary key,
 artwork_id integer unique,
 bids_total integer,
 bids_left integer,
-reserved_price real
+reserved_price real,
 FOREIGN KEY(artwork_id) REFERENCES artwork(artwork_id)
 );
 
