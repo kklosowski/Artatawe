@@ -1,7 +1,11 @@
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-//TODO: Add creator comment
+/**
+* Contains informations about an auction
+* @author randompasser (Michael)
+* @since 27-10-17 
+*/
 
 public class Auction {
     /**
@@ -91,27 +95,45 @@ public class Auction {
         return bids.get(index);
     }
 
-
+    /**
+     * Gets the artwork being placed on auction
+     * @return A Artwork object
+     */
     public Artwork getArtwork() {
         return artwork;
     }
-
+    /**
+    * Gets the user who created the auction
+    * @return A user object
+    */
     public User getCreator() {
         return creator;
     }
-
+    /**
+     * Gets the current price of the auction
+     * @return Current price of the auction
+     */
     public double getCurrentPrice() {
         return currentPrice;
     }
-
+    /**
+     * Gets the reserve price of the auction
+     * @return Reserve price of the auction
+     */
     public double getReservePrice() {
         return reservePrice;
     }
-
+    /**
+     * Gets the creation date of the auction
+     * @return Creation date of the auction
+     */
     public Timestamp getDateAdded() {
         return dateAdded;
     }
-
+    /**
+     * Gets the maximum amount of bids allowed
+     * @return Maximum amount of bids allowed
+     */
     public int getMaxBids() {
         return maxBids;
     }
