@@ -1,4 +1,5 @@
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 /**
  * User is the class that stores user-related data and thier last
@@ -45,6 +46,11 @@ class User{
      * user's profile picture
      */
 	private String avatar;
+
+	/**
+	 * user's list of all favourite users
+	 */
+	private ArrayList<User> favouriteUsers;
 
 	/**
 	 * Class constructor specifying all of user information except
@@ -119,5 +125,13 @@ class User{
 
 	public void setAvatar(String newAvatar){
 		this.avatar = newAvatar;
+	}
+
+	public void addFavourite(User nextFav){
+		this.favouriteUsers.add(nextFav);
+	}
+
+	public ArrayList<User> getFavouriteUsers(){
+		return this.favouriteUsers;
 	}
 }
