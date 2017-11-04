@@ -1,0 +1,24 @@
+Sixth Meeting
+
+Minutes of Meeting: Marcelli,Kamil,Tereza,Shu Yu,Michael,Morgan
+------------------------------------------------
+Date:3 Nov 2017
+Start Time: 12:00
+End Time: 15:00
+
+Date and time of next meeting: Not applicable(Last Meeting)
+
+Topics discussed:
+
+--Subsystems
+
+--Class Diagrams
+
+Progress since last meeting:
+
+--Class diagrams for our classes
+
+--Subsystem diagrams for our system
+
+TODO(for next meeting):
+Not applicable(Last meeting)
