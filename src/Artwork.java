@@ -59,7 +59,22 @@ public class Artwork {
 	public void setDescription(String description){
 		this.description = description;
 	}
-
+	/**
+	 * Sets the artist of this artwork.
+	 * @return the artist of this artwork.
+	 */
+	public String getArtist(){
+		return artist;
+	}
+	
+	/**
+	 * Sets the artist of this artwork.
+	 * @param artist the artist of this artwork.
+	 */
+	public void setArtist(String artist){
+		this.artist = artist;
+	}
+	
 	/**
 	 * Gets the dimensions of this artwork.
 	 * @return the dimensions of this artwork
