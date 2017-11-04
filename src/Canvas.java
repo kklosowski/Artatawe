@@ -14,56 +14,11 @@ import java.util.ArrayList;
  * @author shuyu6
  */
 public class Canvas {
-    private ArrayList<Shape> shapesList ;
-    private String[] ShapeType;
-    public Shape currentShape;
-    public Color currentColor;
-    private boolean filledShape;
+    private ArrayList<Object> shapesList;
     public BufferedImage drawingImage;
     public String imageLocation;
 
-
-    public ArrayList<Shape> getShapesList() {
-        return shapesList;
-    }
-
-    public void setShapesList(ArrayList<Shape> shapesList) {
-        this.shapesList = shapesList;
-    }
-
-    public String[] getShapeType() {
-        return ShapeType;
-    }
-
-    public void setShapeType(String[] ShapeType) {
-        this.ShapeType = ShapeType;
-    }
-
-    public Shape getCurrentShape() {
-        return currentShape;
-    }
-
-    public void setCurrentShape(Shape currentShape) {
-        this.currentShape = currentShape;
-    }
-
-    public Color getCurrentColor() {
-        return currentColor;
-    }
-
-    public void setCurrentColor(Color currentColor) {
-        this.currentColor = currentColor;
-    }
-
-    public boolean isFilledShape() {
-        return filledShape;
-    }
-
-    public void setFilledShape(boolean filledShape) {
-        this.filledShape = filledShape;
-    }
-
-    public BufferedImage getDrawingImage() {
+	public BufferedImage getDrawingImage() {
         return drawingImage;
     }
 
@@ -77,28 +32,26 @@ public class Canvas {
 
     public void setImageLocation(String imageLocation) {
         this.imageLocation = imageLocation;
-    }    
-    
+    }
+
     public void undoLastShape(){
         shapesList.remove(shapesList.size()-1);
     }
+
     public void cleanCanvas(){
         shapesList.clear();
     }
+
     private void refreshCanvas(){
-        
+
     }
+
     public BufferedImage convertDrawingToImage(){
         return null;
     }
-    public void usersDrawing(String chosenShape){
-        //if line is chosen 
-        if(chosenShape.equals(this.ShapeType[0])){
-            shapesList.add(new ShapeLine(1, 1, 1, 1, currentColor));
-        }else{
-            // if the circle is chosen 
-            shapesList.add(new ShapeCircle(2,2,2,2,currentColor));
-        }
-    }          
+
+	public void usersDrawing(String chosenShape){
+
+    }
 
 }

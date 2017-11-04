@@ -45,7 +45,7 @@ class User{
     /**
      * user's profile picture
      */
-	private String avatar;
+	private ProfilePicture profilePicture;
 
 	/**
 	 * user's list of all favourite users
@@ -57,12 +57,12 @@ class User{
 	 * the last login date which is set automatically to the current
 	 * date.
 	 *
-	 * @param firstName		user's first name
-	 * @param lastName		user's last name
-	 * @param userName		user's nickname (or username)
-	 * @param mobileNo		user's mobile number
-	 * @param address		user's postal address
-	 * @param avatar		user's profile picture
+	 * @param firstName			user's first name
+	 * @param lastName			user's last name
+	 * @param userName			user's nickname (or username)
+	 * @param mobileNo			user's mobile number
+	 * @param address			user's postal address
+	 * @param profilePicture	user's profile picture
 	 */
 	public User(int userId,
 				String firstName,
@@ -71,7 +71,7 @@ class User{
 				String mobileNo,
 				Address address,
 				Timestamp lastLoggedIn,
-				String avatar){
+				ProfilePicture profilePicture){
 		//TODO: Find a way to get a next unique id for the user
 		this.userId = userId;
 		this.firstName = firstName;
@@ -80,7 +80,11 @@ class User{
 		this.mobileNo = mobileNo;
 		this.address = address;
 		this.lastLoggedIn = lastLoggedIn;
-		this.avatar = avatar;
+		this.profilePicture = profilePicture;
+	}
+
+	public int getUserId(){
+		return this.userId;
 	}
 
 	public String getFirstName(){
@@ -107,8 +111,8 @@ class User{
 		return this.lastLoggedIn;
 	}
 
-	public String getAvatar(){
-		return this.avatar;
+	public ProfilePicture getProfilePicture(){
+		return this.profilePicture;
 	}
 
 	public void setMobileNo(String newMobileNo){
@@ -123,8 +127,8 @@ class User{
 		this.lastLoggedIn = newLastLoggedIn;
 	}
 
-	public void setAvatar(String newAvatar){
-		this.avatar = newAvatar;
+	public void setProfilePicture(ProfilePicture newProfilePicture){
+		this.profilePicture = newProfilePicture;
 	}
 
 	public void addFavourite(User nextFav){

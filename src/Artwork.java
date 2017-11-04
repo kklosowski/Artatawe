@@ -10,22 +10,27 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Artwork {
+	protected int artworkId;
 	protected String title;
 	protected String description;
 	protected String artist; //the artist who created the art
-	protected List<String> images;
-	protected int primaryImageIndex; //Primary image to display larger than others in the list
+	protected List<ArtworkPicture> pictures;
+	protected int primaryPictureIndex; //Primary picture to display larger than others in the list
 	protected Dimensions dimensions;
 	protected int yearCreated;
 
-	public Artwork(String title, String description, String artist, List<String> images, int primaryImageIndex, Dimensions dimensions, int yearCreated) {
+	public Artwork(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, Dimensions dimensions, int yearCreated) {
 		this.title = title;
 		this.description = description;
 		this.artist = artist;
-		this.images = images;
-		this.primaryImageIndex = primaryImageIndex;
+		this.pictures = pictures;
+		this.primaryPictureIndex = primaryPictureIndex;
 		this.dimensions = dimensions;
 		this.yearCreated = yearCreated;
+	}
+
+	public int getArtworkId(){
+		return this.artworkId;
 	}
 
 	/**
@@ -109,19 +114,23 @@ public class Artwork {
 	}
 
 	/**
-	 * Gets the list of images for this artwork.
-	 * @return the list of images of this artwork
+	 * Gets the list of pictures for this artwork.
+	 * @return the list of pictures of this artwork
 	 */
-	public List<String> getImages(){
-		return images;
+	public List<ArtworkPicture> getPictures(){
+		return pictures;
 	}
 
 	/**
-	 * Sets the list of images for this artwork.
-	 * @param images the list of images of this artwork
+	 * Sets the list of pictures for this artwork.
+	 * @param pictures the list of pictures of this artwork
 	 */
-	public void setImages(List<String> images){
-		this.images = images;
+	public void setPictures(List<ArtworkPicture> pictures){
+		this.pictures = pictures;
+	}
+
+	public ArtworkPicture getPrimaryPicture(){
+		return this.pictures.get(this.primaryPictureIndex);
 	}
 
 }

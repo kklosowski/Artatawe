@@ -1,5 +1,5 @@
-class Picture{
-	private String path;
+abstract class Picture{
+	protected String path;
 
 	public Picture(String path){
 		this.path = path;

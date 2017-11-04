@@ -28,8 +28,8 @@ public class Sculpture extends Artwork {
 	 * 				List of photos added
 	 */
 
-	public Sculpture(String title, String description, String artist, List<String> images, int primaryImageIndex, Dimensions dimensions, int yearCreated, String material, List<String> photos) {
-		super(title, description, artist, images, primaryImageIndex, dimensions, yearCreated);
+	public Sculpture(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, Dimensions dimensions, int yearCreated, String material, List<String> photos) {
+		super(title, description, artist, pictures, primaryPictureIndex, dimensions, yearCreated);
 		this.material = material;
 		this.photos = photos;
 	}
