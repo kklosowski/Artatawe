@@ -9,7 +9,7 @@ import java.util.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class Artwork {
+public abstract class Artwork {
 	protected int artworkId;
 	protected String title;
 	protected String description;
