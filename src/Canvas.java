@@ -26,16 +26,8 @@ public class Canvas {
         shapesList.clear();
     }
 
-    private void refreshCanvas(){
-
-    }
-
     public BufferedImage convertDrawingToImage(){
         return null;
-    }
-
-	public void usersDrawing(String chosenShape){
-
     }
 
 }
