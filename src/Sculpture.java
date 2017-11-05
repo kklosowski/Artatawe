@@ -11,13 +11,9 @@ import java.sql.Timestamp;
 public class Sculpture extends Artwork {
 
 	/**
-	 *The material of the sculpture 
+	 *The material of the sculpture
 	 */
 	private String material;
-	/**
-	 *Additional photos added
-	 */
-	private List<String> photos;
 
 
 	/**
@@ -27,11 +23,9 @@ public class Sculpture extends Artwork {
 	 * @param photos
 	 * 				List of photos added
 	 */
-
-	public Sculpture(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, Dimensions dimensions, int yearCreated, String material, List<String> photos) {
+	public Sculpture(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, Dimensions dimensions, int yearCreated, String material) {
 		super(title, description, artist, pictures, primaryPictureIndex, dimensions, yearCreated);
 		this.material = material;
-		this.photos = photos;
 	}
 
 	/**
@@ -50,22 +44,4 @@ public class Sculpture extends Artwork {
 	public void setMaterial(String material) {
 		this.material = material;
 	}
-
-
-	/**
-	 * Method getting the list of photos
-	 * @return List of photos
-	 */
-	public List<String> getPhotos() {
-		return photos;
-	}
-
-	/**
-	 * Method adding a photo to the list.
-	 * @param photo of photos
-	 */
-	public void addPhoto(String photo){
-		photos.add(photo);
-	}
-	
 }
