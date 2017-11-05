@@ -5,7 +5,7 @@ username text unique,
 mobile_number text,
 address_id integer,
 avatar_filename text,
-user_id integer primary key
+user_id integer primary key autoincrement
 );
 
 CREATE TABLE address (
@@ -34,7 +34,7 @@ FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE artwork (
-artwork_id integer primary key,
+artwork_id integer primary key autoincrement,
 artwork_type text,
 artwork_spec_id integer unique,
 title text,
@@ -44,7 +44,7 @@ year_created integer
 );
 
 CREATE TABLE auction (
-auction_id integer primary key,
+auction_id integer primary key autoincrement,
 artwork_id integer unique,
 bids_total integer,
 bids_left integer,
