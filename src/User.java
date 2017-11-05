@@ -135,6 +135,10 @@ class User{
 		this.favouriteUsers.add(nextFav);
 	}
 
+	public void removeFavourite(int UserId){
+
+	}
+
 	public ArrayList<User> getFavouriteUsers(){
 		return this.favouriteUsers;
 	}

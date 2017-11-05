@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
 * Contains informations about an auction
 * @author randompasser (Michael)
-* @since 27-10-17 
+* @since 27-10-17
 */
 
 public class Auction {
@@ -54,17 +54,21 @@ public class Auction {
      */
     public int placeBid(User user, double amount) {
         //Check if the bid is above reserve price and the current highest bidder
-        if (amount < reservePrice || amount < currentPrice) {
+        if (amount < reservePrice || amount <= currentPrice) {
             return 1; //Placed bid below reserve price or highest bidder
         }
         //Check if the max amount of bids has already been exceeded
         else if (bids.size() >= maxBids) {
             return 2; //Maximum amount of bids has been exceeded
         }
+		//Check if user is not the last one that placed bid
+		else if (bids.get(bids.size() - 1).getUser().equals(user)){
+			return 3;
+		}
         //Add a new Bid entry if all both checks are postive
         else {
             bids.add(new Bid(user, amount));
-            currentPrice += amount;
+            currentPrice = amount;
             return 0; //Bid successfully placed
         }
     }

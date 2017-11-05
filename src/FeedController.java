@@ -20,6 +20,11 @@ private Timestamp lastLogin;
 		return auctions;
 	}
 
+	public Auction[] getNewAuctionsUserParticipatesIn(boolean paintings, boolean sculptures){
+		Auction[] auctions = new Auction[0];
+		return auctions;
+	}
+
 	public Auction[] getMyAuctions(boolean paintings, boolean sculptures){
 		Auction[] auctions = new Auction[0];
 		return auctions;
