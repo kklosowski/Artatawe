@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package AvatarSubsystem;
-
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -16,7 +9,6 @@ import java.util.ArrayList;
 public class Canvas {
     private ArrayList<Object> shapesList;
     public BufferedImage drawingImage;
-    public String imageLocation;
 
 	public BufferedImage getDrawingImage() {
         return drawingImage;
@@ -24,14 +16,6 @@ public class Canvas {
 
     public void setDrawingImage(BufferedImage drawingImage) {
         this.drawingImage = drawingImage;
-    }
-
-    public String getImageLocation() {
-        return imageLocation;
-    }
-
-    public void setImageLocation(String imageLocation) {
-        this.imageLocation = imageLocation;
     }
 
     public void undoLastShape(){
