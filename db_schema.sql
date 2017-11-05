@@ -3,7 +3,6 @@ first_name text,
 last_name text,
 username text unique,
 mobile_number text,
-address_id integer,
 avatar_filename text,
 user_id integer primary key autoincrement
 );
