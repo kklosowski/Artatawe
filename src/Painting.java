@@ -7,8 +7,8 @@ public class Painting extends Artwork{
 	private double width;
 	private double height;
 
-	public Painting(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, int yearCreated, double width, double height) {
-		super(title, description, artist, pictures, primaryPictureIndex, yearCreated);
+	public Painting(String title, String description, String artist, ArtworkPicture primaryPicture, int yearCreated, double width, double height) {
+		super(title, description, artist, primaryPicture, yearCreated);
 		this.width = width;
 		this.height = height;
 	}
