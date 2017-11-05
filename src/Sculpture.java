@@ -8,12 +8,16 @@
 import java.util.List;
 import java.sql.Timestamp;
 
+
 public class Sculpture extends Artwork {
 
 	/**
 	 *The material of the sculpture
 	 */
 	private String material;
+	private double width;
+	private double height;
+	private double depth;
 
 
 	/**
@@ -23,9 +27,12 @@ public class Sculpture extends Artwork {
 	 * @param photos
 	 * 				List of photos added
 	 */
-	public Sculpture(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, Dimensions dimensions, int yearCreated, String material) {
-		super(title, description, artist, pictures, primaryPictureIndex, dimensions, yearCreated);
+	public Sculpture(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, int yearCreated, String material, double width, double height, double depth) {
+		super(title, description, artist, pictures, primaryPictureIndex, yearCreated);
 		this.material = material;
+		this.width = width;
+		this.height = height;
+		this.depth = depth;
 	}
 
 	/**
@@ -43,5 +50,17 @@ public class Sculpture extends Artwork {
 	 */
 	public void setMaterial(String material) {
 		this.material = material;
+	}
+
+	public double getWidth(){
+		return this.width;
+	}
+
+	public double getHeight(){
+		return this.height;
+	}
+
+	public double getDepth(){
+		return this.depth;
 	}
 }

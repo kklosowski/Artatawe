@@ -25,4 +25,8 @@ private Timestamp lastLogin;
 		return auctions;
 	}
 
+	public Auction[] getAuctionsByQuery(boolean paintings, boolean sculptures, String query){
+		Auction[] auctions = new Auction[0];
+		return auctions;
+	}
 }

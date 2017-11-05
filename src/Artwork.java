@@ -16,16 +16,14 @@ public abstract class Artwork {
 	protected String artist; //the artist who created the art
 	protected List<ArtworkPicture> pictures;
 	protected int primaryPictureIndex; //Primary picture to display larger than others in the list
-	protected Dimensions dimensions;
 	protected int yearCreated;
 
-	public Artwork(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, Dimensions dimensions, int yearCreated) {
+	public Artwork(String title, String description, String artist, List<ArtworkPicture> pictures, int primaryPictureIndex, int yearCreated) {
 		this.title = title;
 		this.description = description;
 		this.artist = artist;
 		this.pictures = pictures;
 		this.primaryPictureIndex = primaryPictureIndex;
-		this.dimensions = dimensions;
 		this.yearCreated = yearCreated;
 	}
 
@@ -71,29 +69,13 @@ public abstract class Artwork {
 	public String getArtist(){
 		return artist;
 	}
-	
+
 	/**
 	 * Sets the artist of this artwork.
 	 * @param artist the artist of this artwork.
 	 */
 	public void setArtist(String artist){
 		this.artist = artist;
-	}
-	
-	/**
-	 * Gets the dimensions of this artwork.
-	 * @return the dimensions of this artwork
-	 */
-	public Dimensions getDimensions(){
-		return dimensions;
-	}
-
-	/**
-	 * Sets the dimensions of this artwork.
-	 * @param dimensions the dimensions of this artwork
-	 */
-	public void setDimensions(Dimensions dimensions){
-		this.dimensions = dimensions;
 	}
 
 
