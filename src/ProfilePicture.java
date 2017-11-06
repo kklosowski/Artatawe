@@ -1,12 +1,12 @@
 class ProfilePicture extends Picture {
-	private User user;
+	private int userId;
 
-	public ProfilePicture(String path, User user){
+	public ProfilePicture(String path, int userId){
 		super(path);
-		this.user = user;
+		this.userId = userId;
 	}
 
-	public User getUser(){
-		return this.user;
+	public int getUserId(){
+		return this.userId;
 	}
 }
