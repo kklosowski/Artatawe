@@ -1,0 +1,28 @@
+Seventh Meeting
+
+Minutes of Minutes: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+---------------------------
+Date: 17.11.2017
+Start Time: 13:00
+End Time: 14:00
+
+Date and time of next meeting: 24 Nov 2017, 13:00
+
+
+Topics discussed:
+--We discussed the feedback we got from A1 and the changes we will need 
+to make to our project, based on the feedback.
+--We discussed the GUIs we will need to make for the project. After a long discussion we decided on what GUIs to build.
+--We also discussed the tools we can use for making the GUIs and eventually decided on SceneBuilder.
+--We also agreed on distributing the work for the fxml files.
+
+Progress since the last meeting:
+--Everyone has better understanding of what the project must be at the end.
+
+TODO (for next meeting):
+Fxml files:
+--Marceli : Registration/Login/Layout
+--Morgan  : Add auction
+--Michael : Auction view
+--Shu Yu  : Auction browsing/User browsing/History
+--Tereza  : My Profile   
