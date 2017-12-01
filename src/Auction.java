@@ -64,7 +64,7 @@ public class Auction {
             return 2; //Maximum amount of bids has been exceeded
         }
 		//Check if user is not the last one that placed bid
-		else if (bids.get(bids.size() - 1).getUser().equals(user)){
+		else if (bids.get(bids.size() - 1).getUserId().equals(user)){
 			return 3;
 		}
         //Add a new Bid entry if all both checks are postive

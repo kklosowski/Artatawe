@@ -45,7 +45,7 @@ class User{
     /**
      * user's profile picture
      */
-	private ProfilePicture profilePicture;
+	private String profilePicture;
 
 	/**
 	 * user's list of all favourite users
@@ -71,7 +71,7 @@ class User{
 				String mobileNo,
 				Address address,
 				Timestamp lastLoggedIn,
-				ProfilePicture profilePicture){
+				String profilePicture){
 		//TODO: Find a way to get a next unique id for the user
 		this.userId = userId;
 		this.firstName = firstName;
@@ -111,7 +111,7 @@ class User{
 		return this.lastLoggedIn;
 	}
 
-	public ProfilePicture getProfilePicture(){
+	public String getProfilePicture(){
 		return this.profilePicture;
 	}
 
@@ -127,7 +127,7 @@ class User{
 		this.lastLoggedIn = newLastLoggedIn;
 	}
 
-	public void setProfilePicture(ProfilePicture newProfilePicture){
+	public void setProfilePicture(String newProfilePicture){
 		this.profilePicture = newProfilePicture;
 	}
 

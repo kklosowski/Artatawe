@@ -1,3 +1,6 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -6,27 +9,53 @@ import java.util.List;
  * @since   1/12/2017
  */
 public class BidDao {
-    public List<Bid> getUserBids(int userId){
-        return null;
+
+    private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
+
+    public List<Bid> getUserBids(int userId) throws SQLException {
+
+        List<Bid> bids = new ArrayList<>();
+        ResultSet bidsResultSet = connection.query(
+                String.format("SELECT * FROM Bid WHERE user_id = %s", userId));
+
+        while (bidsResultSet.next()){
+            bids.add(DBUtils.constructBidFromRS(bidsResultSet));
+        }
+
+        return bids;
     }
 
-    public List<Bid> getUserBids(User user){
+    public List<Bid> getUserBids(User user) throws SQLException {
         return getUserBids(user.getUserId());
     }
 
-    public List<Bid> getAuctionBids(int auctionId){
-        return null;
+    public List<Bid> getAuctionBids(int auctionId) throws SQLException {
+
+        List<Bid> bids = new ArrayList<>();
+        ResultSet bidsResultSet = connection.query(
+                String.format("SELECT * FROM Bid WHERE auction_id = %s", auctionId));
+
+        while (bidsResultSet.next()){
+            bids.add(DBUtils.constructBidFromRS(bidsResultSet));
+        }
+        return bids;
     }
 
-    public int insertBid(Bid bid, Auction auction){
-        return insertBid(bid, auction.getAuctionId());
+    public void insertBid(Bid bid, Auction auction) throws SQLException {
+        insertBid(bid, auction.getAuctionId());
     }
 
-    public int insertBid(Bid bid, int auctionId){
-        return 0;
+    public void insertBid(Bid bid, int auctionId) throws SQLException {
+        connection.insert(String.format("INSERT INTO Bid (%1%s, %2%s, %3%s, %4%s)",
+                bid.getUserId(),
+                bid.getAmount(),
+                bid.getTimestamp(),
+                auctionId));
     }
 
-    public int deleteBid(Bid bid){
-        return 0;
+    public void deleteBid(Bid bid) throws SQLException {
+        connection.query(String.format("DELETE FROM Bid WHERE user_id = %1%s AND timestamp = %2%s",
+                bid.getUserId(),
+                bid.getTimestamp()));
     }
 }

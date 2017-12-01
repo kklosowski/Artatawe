@@ -1,28 +1,26 @@
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
 
-    public static List<User> constructUsersFromRS(ResultSet rs){
-        return new ArrayList<>();
+    public static User constructUserFromRS(ResultSet rs){
+        return null;
     }
 
-    public static List<Auction> constructAuctionsFromRS(ResultSet rs){
-        return new ArrayList<>();
+    public static Auction constructAuctionFromRS(ResultSet rs){
+        return null;
     }
 
-    public static List<Artwork> constructArtworksFromRS(ResultSet rs){
-        return new ArrayList<>();
+    public static Artwork constructArtworkFromRS(ResultSet rs){
+        return null;
     }
 
-    public static List<Bid> constructBidsFromRS(ResultSet rs){
-        return new ArrayList<>();
+    public static Bid constructBidFromRS(ResultSet rs) throws SQLException {
+        return new Bid(rs.getInt("user_id"),
+                rs.getDouble("amount"),
+                rs.getTimestamp("timestamp"));
     }
-
-    public static List<Address> constructAddressesFromRS(ResultSet rs){
-        return new ArrayList<>();
-    }
-
 
 }

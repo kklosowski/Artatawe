@@ -5,19 +5,15 @@
 * @since   27-10-17
 */
 
-import java.util.Date;
-import java.sql.Timestamp;
-import java.util.List;
-
 public abstract class Artwork {
 	protected int artworkId;
 	protected String title;
 	protected String description;
 	protected String artist; //the artist who created the art
-	protected ArtworkPicture primaryPicture;
+	protected String primaryPicture;
 	protected int yearCreated;
 
-	public Artwork(String title, String description, String artist, ArtworkPicture primaryPicture, int yearCreated) {
+	public Artwork(String title, String description, String artist, String primaryPicture, int yearCreated) {
 		this.title = title;
 		this.description = description;
 		this.artist = artist;
@@ -93,7 +89,7 @@ public abstract class Artwork {
 		this.yearCreated = yearCreated;
 	}
 
-	public ArtworkPicture getPrimaryPicture(){
+	public String getPrimaryPicture(){
 		return this.primaryPicture;
 	}
 

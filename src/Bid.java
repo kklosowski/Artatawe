@@ -11,7 +11,7 @@ public class Bid{
     /**
      * The user who placed the bid
      */
-    private User user;
+    private int userId;
     /**
      * Amount of the bid
      */
@@ -21,17 +21,24 @@ public class Bid{
      */
     private Timestamp timePlaced;
 
-    public Bid(User user, double amount){
-        this.user = user;
+    public Bid(int user, double amount){
+        this.userId = user;
         this.amount = amount;
         this.timePlaced = new Timestamp(System.currentTimeMillis());
     }
+
+    public Bid(int user, double amount, Timestamp timePlaced) {
+        this.userId = user;
+        this.amount = amount;
+        this.timePlaced = timePlaced;
+    }
+
     /**
     * Gets the user who placed this bid
     * @return the user who placed this bid
     */
-    public User getUser(){
-        return user;
+    public int getUserId(){
+        return userId;
     }
     /**
     * Gets the amount of this bid
