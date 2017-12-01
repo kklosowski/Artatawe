@@ -8,6 +8,8 @@ import java.util.ArrayList;
 */
 
 public class Auction {
+
+    private int auctionId;
     /**
      * Bid history
      */
@@ -140,5 +142,9 @@ public class Auction {
      */
     public int getMaxBids() {
         return maxBids;
+    }
+
+    public int getAuctionId() {
+        return auctionId;
     }
 }
