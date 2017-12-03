@@ -2,6 +2,15 @@
 
 public class Address{
 
+    /**
+     * Address is a class to store full address in detail
+     *
+     *  @author Shu Yu
+     * */
+
+    /**
+     *
+     * */
     private String address1;
     private String address2;
     private String address3;
@@ -9,6 +18,15 @@ public class Address{
     private String postcode;
     private String country;
 
+    /**
+     *  Address constructor which
+     *  @param address1 first line of the address
+     *  @param address2 second line of the address, it is optional
+     *  @param address3 third line of the address, it is optional
+     *  @param city     city of the address
+     *  @param country  country of the address
+     *  @param postcode postcode of the address
+     * */
     public Address(String address1, String address2, String address3, String city, String postcode, String country){
         this.address1 = address1;
         this.address2 = address2;
@@ -75,5 +93,8 @@ public class Address{
         this.city = city;
         this.postcode = postcode;
         this.country = country;
+    }
+    public String toString(){
+        return address1+" "+address2+" "+address3+ " "+postcode+ " "+city + " " + country;
     }
 }

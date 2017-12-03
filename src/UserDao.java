@@ -1,12 +1,24 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author  Kamil Klosowski
- * @since   1/12/2017
+ * @author  Goh Shu Yu
+ * @since   2/12/2017
  */
 public class UserDao {
-    public List<User> getAllUsers(){
+
+    private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
+
+    public List<User> getAllUsers()throws SQLException{
+        String getAllUsersSQL = "SELECT * FROM user";
+        List<User> users = new ArrayList<>();
+        ResultSet usersResultSet = connection.query(getAllUsersSQL);
+        while (usersResultSet.next()){
+            users.add(DBUtils.constructUserFromRS(usersResultSet));
+        }
         return null;
     }
 
@@ -37,4 +49,5 @@ public class UserDao {
     public int deleteUser(int userId){
         return 0;
     }
+    public void updateLoginLog(int userId){};
 }

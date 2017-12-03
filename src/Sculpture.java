@@ -17,23 +17,23 @@ public class Sculpture extends Artwork {
 	private double width;
 	private double height;
 	private double depth;
-	private List<ArtworkPicture> additionalPictures;
+	private List<String> additionalPictures;
 
 
 	/**
 	 * Constructs an object of type Sculpture
 	 * @param material
 	 * 				The material of the sculpture.
-	 * @param photos
+//	 * @param photos
 	 * 				List of photos added
 	 */
-	public Sculpture(String title, String description, String artist, String primaryPicture, List<ArtworkPicture> additionalPictures, int yearCreated, String material, double width, double height, double depth) {
+	public Sculpture(String title, String description, String artist, String primaryPicture, List<String> additionalPictures, int yearCreated, String material, double width, double height, double depth) {
 		super(title, description, artist, primaryPicture, yearCreated);
 		this.material = material;
 		this.width = width;
 		this.height = height;
 		this.depth = depth;
-		this.additionalPictures = additionalPictures;
+//		this.additionalPictures = additionalPictures;
 	}
 
 	/**
