@@ -28,9 +28,11 @@ public class DBUtils {
                 rs.getString("country"));
     }
 
-    public static Auction constructAuctionFromRS(ResultSet rs){
-        return new Auction(rs.getInt("artwork_id"),//Don't know how to handle the fact that the Auction constructor takes an Auction, and User object rather than an ID. Using ID for now. 
-                           rs.getInt("user_id"),
+    public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException{
+        UserDao userDao = new UserDao();
+        Artwork artwork = new Sculpture();
+        return new Auction(artwork,//Don't know how to handle the fact that the Auction constructor takes an Auction, and User object rather than an ID. Using ID for now.
+                           userDao.getUser(rs.getInt("user_id")),
                            rs.getDouble("current_price"),
                            rs.getDouble("reserve_price"),
                            rs.getInt("max_bids"));

@@ -13,6 +13,10 @@ public abstract class Artwork {
 	protected String primaryPicture;
 	protected int yearCreated;
 
+	//TODO delete if this is not longer using
+	public Artwork(){
+
+	}
 	public Artwork(String title, String description, String artist, String primaryPicture, int yearCreated) {
 		this.title = title;
 		this.description = description;
