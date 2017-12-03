@@ -1,3 +1,6 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -6,23 +9,50 @@ import java.util.List;
  * @since   1/12/2017
  */
 public class AutionDao {
-    public List<Auction> getAllAuctions(){
-        return null;
+    private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
+
+    public List<Auction> getAllAuctions() throws SQLException{
+        List<Auction> auctions = new ArrayList<>();
+        ResultSet auctionResultSet = connection.query(
+                String.format("SELECT * FROM Auction"));
+
+        while (auctionResultSet.next()){
+            auctions.add(DBUtils.constructAuctionFromRS(auctionResultSet));
+        }
+
+        return auctions;
     }
 
-    public Auction getAuction(int autionId){
-        return null;
+    public Auction getAuction(int auctionId){
+        ResultSet auctionResultSet = connection.query(
+                String.format("SELECT * FROM Auction WHERE auction_id = %s", auctionId));
+        return DBUtils.constructAuctionFromRS(auctionResultSet);
     }
 
-    public int updateAuction(Auction auction){
-        return 0;
+    public void updateAuction(Auction auction, int auctionId){
+        connection.query(String.format("UPDATE Auction SET artwork_id = %1%s, user_id = %2%s, current_price = %3%s, reserve_price = %4%s, date_added = %5%s, max_bids = %6%s WHERE auction_id = %7%s",
+                auction.getArtwork().getArtworkId(),
+                auction.getUser().getUserId(),
+                auction.getCurrentPrice(),
+                auction.getReservePrice(),
+                auction.getDateAdded(),
+                auction.getMaxBids(),
+                auction.getAuctionId()));
     }
 
-    public int insertAuction(Auction auction){
-        return 0;
+    public void insertAuction(Auction auction){
+        connection.insert(String.format("INSERT INTO Auction (%1%s, %2%s, %3%s, %4%s, %5%s, %6%s, %7%s)",
+                auction.getAuctionId(),
+                auction.getArtwork().getArtworkId(),
+                auction.getUser().getUserId(),
+                auction.getCurrentPrice(),
+                auction.getReservePrice(),
+                auction.getDateAdded(),
+                auction.getMaxBids()));
     }
 
-    public int deleteAuction(Auction auction){
-        return 0;
+    public void deleteAuction(Auction auction){
+        connection.query(String.format("DELETE FROM Auction WHERE auction_id = %1%s",
+                auction.getAuctionId()));
     }
 }
