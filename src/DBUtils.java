@@ -29,7 +29,12 @@ public class DBUtils {
     }
 
     public static Auction constructAuctionFromRS(ResultSet rs){
-        return null;
+        return new Auction(rs.getInt("artwork_id"),//Don't know how to handle the fact that the Auction constructor takes an Auction, and User object rather than an ID. Using ID for now. 
+                           rs.getInt("user_id"),
+                           rs.getDouble("current_price"),
+                           rs.getDouble("reserve_price"),
+                           rs.getInt("max_bids"));
+      
     }
 
     public static Artwork constructArtworkFromRS(ResultSet rs){
