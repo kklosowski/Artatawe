@@ -113,6 +113,7 @@ public class CanvasController {
 			canvas.snapshot(null, writableImage);
 			String format = "png";
 			//Create an empty file.
+			//TODO: change the file into username/userid
 			File file = new File("drawnAvatar.png");
 			//Try to write image to file.
 			try {

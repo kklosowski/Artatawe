@@ -11,7 +11,7 @@ import java.sql.SQLException;
  */
 public class AddressDao {
     /**
-     * Get the connection form the class - sqlitegingleton.
+     * Get the connection form the class - SQLiteSingleton.
      * */
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
     /**
