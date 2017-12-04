@@ -31,7 +31,7 @@ public class DBUtils {
 
     public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException{
         UserDao userDao = new UserDao();
-        Artwork artworkDao = new ArtworkDao();
+        ArtworkDao artworkDao = new ArtworkDao();
         return new Auction(artworkDao.getArtwork(rs.getInt("artwork_id")),
                            userDao.getUser(rs.getInt("user_id")),
                            rs.getDouble("current_price"),
@@ -40,8 +40,13 @@ public class DBUtils {
       
     }
     //TODO: Handle primary picture
-    public static Artwork constructArtworkFromRS(ResultSet rs){
-        return new Artwork(rs.getString("title"), rs.getString("description"), rs.getString("artist"), null, rs.getInt("year_created"));
+    public static Artwork constructArtworkFromRS(ResultSet rs) throws SQLException{
+        return null;
+//        return new Artwork(rs.getString("title"),
+//                rs.getString("description"),
+//                rs.getString("artist"),
+//                null,
+//                rs.getInt("year_created"));
     }
 
     public static Bid constructBidFromRS(ResultSet rs) throws SQLException {

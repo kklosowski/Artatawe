@@ -101,6 +101,21 @@ public class UserDao {
         }
         return null;
     }
+    /**
+     * Get specific user's inform from database by user name.
+     * @param userName User's id
+     * @throws SQLException throws sql exception.
+     * @return Return a user from database by given userid.
+     * */
+    public User getUserByUsername(String userName)throws SQLException{
+        String searchUser = String.format("SELECT * FROM %s WHERE username = '%s'",USER_TABLE,userName);
+
+        ResultSet rs = connection.query(searchUser);
+        if (rs.next()){
+            return DBUtils.constructUserFromRS(rs);
+        }
+        return null;
+    }
 
     /**
      * Update user's inform in the database.
@@ -123,17 +138,17 @@ public class UserDao {
      * @return If insert successfully it will return any integer except 0, if unable to insert it will return 0.
      * */
     public int insertUser(User user)throws SQLException{
-        int lastUserId = getAllUsers().get(getAllUsers().size()-1).getUserId();
 
         String insertQuery = String.format("INSERT INTO %s " +
-                "(first_name,last_name,username,mobile_number,avatar_filename,user_id) " +
+                "(first_name,last_name,username,mobile_number,avatar_filename) " +
                 "VALUES ('%s','%s','%s','%s','%s')",USER_TABLE,user.getFirstName(),user.getLastName(),
                 user.getUserName(),user.getMobileNo(),
-                user.getProfilePicture(),++lastUserId);
+                user.getProfilePicture());
         int result = connection.insert(insertQuery);
+        System.out.println("result insert user " + result);
         if (result>0){
             AddressDao addressDao = new AddressDao();
-            result = addressDao.insertAddress(user.getAddress(),lastUserId);
+            result = addressDao.insertAddress(user.getAddress(),getUserByUsername(user.getUserName()).getUserId());
         }
         return result;
     }

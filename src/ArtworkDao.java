@@ -25,7 +25,7 @@ public class ArtworkDao {
         ResultSet rs = connection.query(searchArtworkQuery);
 
         if (rs.next()) {
-            return DBUtils.constructAddressFromRS(rs);
+            return DBUtils.constructArtworkFromRS(rs);
         }
         return null;
     }
@@ -39,13 +39,13 @@ public class ArtworkDao {
         int yearCreated = artwork.getYearCreated();
 
         String updateArtworkQuery = String.format("UPDATE %s SET artwork_id = %1%s, ");
-        connection.query(updateArtworkQuery);
+        return connection.insert(updateArtworkQuery);
     }
 
     public int deleteArtwork(Artwork artwork) throws SQLException{
         int artwork_id = artwork.getArtworkId();
         String deleteArtworkQuery = String.format("DELETE * from %s WHERE artwork_id = %d", ADDRESS_TABLE_NAME, artwork_id);
-        connection.query(deleteArtworkQuery);
+        return connection.insert(deleteArtworkQuery);
     }
 
     public int insertArtwork(Artwork artwork) throws SQLException{
