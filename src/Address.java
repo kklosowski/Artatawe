@@ -1,21 +1,33 @@
-//TODO: Add comments (including the creator)
-
+/**
+ * Address is a class to store full address in detail.
+ *
+ *  @author Shu Yu
+ * */
 public class Address{
 
     /**
-     * Address is a class to store full address in detail
-     *
-     *  @author Shu Yu
-     * */
-
-    /**
-     *
+     * First address line
      * */
     private String address1;
+    /**
+     * Second address line
+     * */
     private String address2;
+    /**
+     * Third address line
+     * */
     private String address3;
+    /**
+     * City of the address
+     * */
     private String city;
+    /**
+     * Postcode of the address
+     * */
     private String postcode;
+    /**
+     * Country of the address
+     * */
     private String country;
 
     /**
