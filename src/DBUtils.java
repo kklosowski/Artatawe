@@ -31,8 +31,8 @@ public class DBUtils {
 
     public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException{
         UserDao userDao = new UserDao();
-        Artwork artwork = new Sculpture();
-        return new Auction(artwork,//Don't know how to handle the fact that the Auction constructor takes an Auction, and User object rather than an ID. Using ID for now.
+        Artwork artworkDao = new ArtworkDao();
+        return new Auction(artworkDao.getArtwork(rs.getInt("artwork_id")),
                            userDao.getUser(rs.getInt("user_id")),
                            rs.getDouble("current_price"),
                            rs.getDouble("reserve_price"),
