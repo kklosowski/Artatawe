@@ -9,13 +9,14 @@ public class DBUtils {
 
     public static User constructUserFromRS(ResultSet rs)throws SQLException{
         AddressDao addressDao = new AddressDao();
+        UserDao userDao = new UserDao();
         return new User(rs.getInt("user_id"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
                 rs.getString("username"),
-                rs.getString("mobile_phone"),
+                rs.getString("mobile_number"),
                 addressDao.getAddress(rs.getInt("user_id")),
-                new Timestamp(Calendar.getInstance().getTimeInMillis()),
+                new Timestamp(userDao.getLoginLog(rs.getInt("user_id"))),
                 rs.getString("avatar_filename")
                 );
     }
@@ -47,6 +48,12 @@ public class DBUtils {
         return new Bid(rs.getInt("user_id"),
                 rs.getDouble("amount"),
                 rs.getTimestamp("timestamp"));
+    }
+    public static long constructLoginLogFromRS(ResultSet rs) throws SQLException{
+        return rs.getLong("timestamp");
+    }
+    public static int constructFavouriteFromRS(ResultSet rs) throws SQLException{
+        return rs.getInt("fav_id");
     }
 
 }

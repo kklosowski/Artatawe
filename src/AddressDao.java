@@ -6,15 +6,28 @@ import java.sql.SQLException;
 
 /**
  *
- * @author  Kamil Klosowski
- * @since   1/12/2017
+ * @author  Goh Shu Yu
+ * @since   2/12/2017
  */
 public class AddressDao {
+    /**
+     * Get the connection form the class - sqlitegingleton.
+     * */
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
+    /**
+     * Address table name in database.
+     * */
     private final String ADDRESS_TABLE_NAME = "address";
 
+    /**
+     * Retrieve specific address by user id from database.
+     *  @param userId  The user's id.
+     *  @throws SQLException Throws sql exception if there is any connection error.
+     *  @return Return user's address if the address is found if not return null.
+     * */
+
     public Address getAddress(int userId) throws SQLException{
-        String searchAddressQuery = "SELECT * FROM "+ ADDRESS_TABLE_NAME+" WHERE user_id =" + userId;
+        String searchAddressQuery = String.format("SELECT * FROM %s WHERE user_id = %d",ADDRESS_TABLE_NAME, userId);
         ResultSet rs = connection.query(searchAddressQuery);
 
         if (rs.next()) {
@@ -22,26 +35,44 @@ public class AddressDao {
         }
         return null;
     }
-
-    public void updateAddress(Address address, int user_id) throws SQLException{
-        String updateQuery = "UPDATE "+ADDRESS_TABLE_NAME+" SET address_line1 = '"+ address.getAddress1()
-                + "', address_line2 = '"+ address.getAddress2()+ "' , address_line3 = '"+ address.getAddress3()
-                + "', city ='" + address.getCity()+ "' , postcode = '"+ address.getPostcode()
-                + "', country = '"+address.getCountry() + "' WHERE user_id = "+user_id;
-        System.out.println("update address query " + updateQuery);
-        connection.insert(updateQuery);
+    /**
+     * Update address by user id in database.
+     * @param address New address that required to update the database.
+     * @param user_id The user's is that requested to update address.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * @return If update successfully it will return any integer that is not 0, if unable to update it will return 0.
+     * */
+    public int  updateAddress(Address address, int user_id) throws SQLException{
+        String updateQuery = String.format("UPDATE %s SET address_line1 = '%s', address_line2 = '%s' " +
+                ", address_line3 = '%s', city ='%s' , postcode = '%s', country = '%s' WHERE user_id = %d",
+                ADDRESS_TABLE_NAME,address.getAddress1(),address.getAddress2(),address.getAddress3()
+                ,address.getCity(),address.getPostcode(),address.getCountry(),user_id);
+        return connection.insert(updateQuery);
+    }
+    /**
+     * Delete specific address by user id from database.
+     * @param userId The user's id that request to delete address.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * @return If delete successfully it will return any integer except 0, if unable to update it will return 0.
+     * */
+    public int deleteAddress(int userId) throws SQLException{
+        String deleteQuery = String.format("DELETE FROM %s WHERE user_id = %d",ADDRESS_TABLE_NAME,userId);
+        return connection.insert(deleteQuery);
     }
 
-    public void deleteAddress(int userId) throws SQLException{
-        String deleteQuery = "DELETE FROM "+ ADDRESS_TABLE_NAME+" WHERE user_id = "+userId;
-        connection.query(deleteQuery);
-    }
-
+    /**
+     * Insert new address into database.
+     * @param address User's address.
+     * @param userId User's id.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * @return If insert successfully it will return any integer except 0, if unable to update it will return 0.
+     * */
     public int insertAddress(Address address,int userId) throws SQLException{
-        String insertQeury = " INSERT INTO " +ADDRESS_TABLE_NAME + " (address_line1,address_line2,address_line3,city,postcode,country,user_id) VALUES ('"
-                +address.getAddress1()+"','"+address.getAddress2()+"','"+address.getAddress3()+"','"+address.getCity()+"','"
-                +address.getPostcode()+"','"+address.getCountry()+"',"+userId+")";
-        connection.insert(insertQeury);
-        return 0;
+        String insertQeury = String.format(" INSERT INTO %s " +
+                "(address_line1,address_line2,address_line3,city,postcode,country,user_id) " +
+                "VALUES ('%s','%s','%s','%s','%s','%s',%d)",
+                ADDRESS_TABLE_NAME,address.getAddress1(), address.getAddress2(),address.getAddress3(),address.getCity(),
+                        address.getPostcode(),address.getCountry(),userId);
+        return connection.insert(insertQeury);
     }
 }

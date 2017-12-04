@@ -64,3 +64,10 @@ dimension_y real,
 dimension_z real,
 material text
 );
+CREATE TABLE favourite(
+user_id text,
+fav_id text,
+unique(user_id, fav_id)
+FOREIGN KEY(user_id) REFERENCES user(user_id),
+FOREIGN KEY(fav_id) REFERENCES user(user_id)
+);
