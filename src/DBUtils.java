@@ -39,9 +39,9 @@ public class DBUtils {
                            rs.getInt("max_bids"));
       
     }
-
+    //TODO: Handle primary picture
     public static Artwork constructArtworkFromRS(ResultSet rs){
-        return null;
+        return new Artwork(rs.getString("title"), rs.getString("description"), rs.getString("artist"), null, rs.getInt("year_created"));
     }
 
     public static Bid constructBidFromRS(ResultSet rs) throws SQLException {
