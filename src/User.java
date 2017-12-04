@@ -52,28 +52,6 @@ class User{
 	 */
 	private ArrayList<User> favouriteUsers;
 
-	public User(String firstName, String lastName, String userName, String mobileNo, Address address, String profilePicture) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userName = userName;
-		this.mobileNo = mobileNo;
-		this.address = address;
-		this.profilePicture = profilePicture;
-	}
-
-	public User(int userId,
-				String firstName,
-				String lastName,
-				String userName, String mobileNo, String profilePicture, Address address) {
-		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userName = userName;
-		this.mobileNo = mobileNo;
-		this.profilePicture = profilePicture;
-		this.address = address;
-	}
-
 	/**
 	 * Class constructor specifying all of user information except
 	 * the last login date which is set automatically to the current

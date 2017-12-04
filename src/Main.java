@@ -23,10 +23,10 @@ public class Main {
 
             List<User> userList =  user.getAllUsers();
 
-            User user1 = new User("testing ","shu","testing4","07523698541",address,"avatar.jpg");
+//            User user1 = new User("testing ","shu","testing4","07523698541",address,"avatar.jpg");
 //            User user1 = user.getUserByUsername("testing3");
 //            System.out.println("hi" + user1.getUserId());
-            user.insertUser(user1);
+//            user.insertUser(user1);
 //            User user1 = user.getUser(2);
 //            System.out.println(user1.toString());
 //            user1.setMobileNo("123456789");
