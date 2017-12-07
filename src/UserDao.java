@@ -1,4 +1,3 @@
-import com.sun.org.apache.regexp.internal.RE;
 import org.sqlite.core.DB;
 
 import java.sql.ResultSet;
