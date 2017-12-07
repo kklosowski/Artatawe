@@ -3,10 +3,14 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.Parent;
-import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
 public class UITester extends Application {
+    private final double WINDOW_WIDTH = 800;
+    private final double WINDOW_HEIGHT = 650;
+    private final boolean MAXIMISED = false;
+    private final boolean FULLSCREEN = false;
+
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -17,6 +21,10 @@ public class UITester extends Application {
             try{
                 dc = new UIDisplayController((Pane) layoutFXML, (Pane) auctionFXML);
                 Scene s = dc.getView();
+                primaryStage.setWidth(WINDOW_WIDTH);
+                primaryStage.setHeight(WINDOW_HEIGHT);
+                primaryStage.setMaximized(MAXIMISED);
+                primaryStage.setFullScreen(FULLSCREEN);
                 primaryStage.setScene(s);
                 primaryStage.setTitle("DEMO");
                 primaryStage.show();
