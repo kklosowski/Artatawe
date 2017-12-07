@@ -8,7 +8,11 @@ public class LayoutDisplayController {
     private Pane currentContent;
     private Pane currentLayoutContentPane;
 
-    public LayoutDisplayController(Pane layout, Pane content) throws IllegalArgumentException{
+    public LayoutDisplayController(Pane content){
+        this.currentContent = content;
+    }
+
+    public LayoutDisplayController(Pane layout, Pane content){
         this.currentLayout = layout;
         this.currentContent = content;
         this.bindContent();

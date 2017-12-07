@@ -13,6 +13,7 @@ public class UITester extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        /*
         try {
             // Load the main scene.
             Parent layoutFXML = FXMLLoader.load(getClass().getResource("/views/_layout.fxml"));
@@ -34,6 +35,27 @@ public class UITester extends Application {
         } catch(Exception e) {
             e.printStackTrace();
         }
+        */
+
+        primaryStage.setWidth(WINDOW_WIDTH);
+        primaryStage.setHeight(WINDOW_HEIGHT);
+        primaryStage.setMaximized(MAXIMISED);
+        primaryStage.setFullScreen(FULLSCREEN);
+        primaryStage.setTitle("DEMO");
+
+        Parent layoutFXML = null;
+        Parent auctionFXML = null;
+        try {
+            layoutFXML = FXMLLoader.load(getClass().getResource("/views/_layout.fxml"));
+            auctionFXML = FXMLLoader.load(getClass().getResource("/views/auction.fxml"));
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        AuctionController auctionController = new AuctionController((Pane) layoutFXML, (Pane) auctionFXML);
+        Scene s = auctionController.getView();
+        primaryStage.setScene(s);
+        primaryStage.show();
     }
 
     public static void main(String args[]){

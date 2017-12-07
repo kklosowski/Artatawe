@@ -9,20 +9,21 @@ public class ErrorController {
     private Scene view;
     private String DEFAULT_ERROR_MESSAGE = "Unknown error";
     private String errorMessage;
-
-    @FXML
     private Text errorTextTarget;
 
-    public ErrorController(){
+    public ErrorController(Exception e){
         this.loadView();
         this.errorMessage = DEFAULT_ERROR_MESSAGE;
-        this.errorTextTarget.setText(errorMessage);
+        this.errorMessage += "\n" + e.toString();
+        this.errorTextTarget = (Text) view.lookup("#error-info");
+        errorTextTarget.setText(errorMessage);
     }
 
     public ErrorController(String errorText){
         this.loadView();
         this.errorMessage = errorText;
-        this.errorTextTarget.setText(errorMessage);
+        this.errorTextTarget = (Text) view.lookup("#error-info");
+        errorTextTarget.setText(errorMessage);
     }
 
     public Scene getView(){
