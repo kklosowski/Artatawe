@@ -1,0 +1,21 @@
+Eighth Meeting
+
+Minutes of Meeting: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+---------------------------
+Date: 24.11.2017
+Start Time: 13:00
+End Time: 13:20
+
+Date and time of next meeting: 1 Dec 2017, 13:00
+
+
+Topics discussed:
+--We discussed the possible options of how to handle the database in our project.
+--After a discussion and considering the advantages and disadvantages of different options, we decided to use Hibernate.
+
+Progress since the last meeting:
+--Now we have fxml files for all our GUIs except the Drawing System.
+
+TODO (for next meeting):
+--Kamil   : Build the database.
+--Marceli : Connect all the fxml files.

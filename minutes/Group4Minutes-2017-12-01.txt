@@ -1,0 +1,25 @@
+Ninth Meeting
+
+Minutes of Meeting: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+----------------------------
+Date: 1.12.2017
+Start time: 13:00
+End time: 13:30
+
+Date and time of next meeting: 8 Dec 2017, 13:00
+
+
+Topics discussed:
+--We discussed what files we will need for the database.
+--We also discussed how we will handle the "Drawing Avatar" function of the 
+project.
+
+Progress since last meeting:
+--Now we have the database set up.
+
+TODO(for next meeting):
+--Marceli: Make controllers.
+--Tereza : Build the drawing system.
+--Michael: Artwork DAO
+--Morgan : Auction DAO
+--Shu Yu : User DAO
