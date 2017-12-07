@@ -17,9 +17,9 @@ public class UITester extends Application {
             // Load the main scene.
             Parent layoutFXML = FXMLLoader.load(getClass().getResource("/views/_layout.fxml"));
             Parent auctionFXML = FXMLLoader.load(getClass().getResource("/views/auction.fxml"));
-            UIDisplayController dc;
+            LayoutDisplayController dc;
             try{
-                dc = new UIDisplayController((Pane) layoutFXML, (Pane) auctionFXML);
+                dc = new LayoutDisplayController((Pane) layoutFXML, (Pane) auctionFXML);
                 Scene s = dc.getView();
                 primaryStage.setWidth(WINDOW_WIDTH);
                 primaryStage.setHeight(WINDOW_HEIGHT);
