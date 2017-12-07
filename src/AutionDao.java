@@ -44,7 +44,7 @@ public class AutionDao {
         connection.insert(String.format("INSERT INTO Auction (%1%s, %2%s, %3%s, %4%s, %5%s, %6%s, %7%s)",
                 auction.getAuctionId(),
                 auction.getArtwork().getArtworkId(),
-                1,
+                auction.getCreator().getUserId(),
                 auction.getCurrentPrice(),
                 auction.getReservePrice(),
                 auction.getDateAdded(),
