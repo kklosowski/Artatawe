@@ -64,7 +64,6 @@ class User{
 	 * @param address			user's postal address
 	 * @param profilePicture	user's profile picture
 	 */
-
 	public User(int userId,
 				String firstName,
 				String lastName,
@@ -82,6 +81,14 @@ class User{
 		this.address = address;
 		this.lastLoggedIn = lastLoggedIn;
 		this.profilePicture = profilePicture;
+	}
+
+	public User(String firstName, String lastName, String userName, String mobileNo, Address address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.mobileNo = mobileNo;
+		this.address = address;
 	}
 
 	public int getUserId(){

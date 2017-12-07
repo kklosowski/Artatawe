@@ -39,7 +39,10 @@ artwork_spec_id integer unique,
 title text,
 description text,
 artist text,
-year_created integer
+user_id integer,
+year_created integer,
+picture_location text,
+FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE auction (
@@ -48,7 +51,8 @@ artwork_id integer unique,
 bids_total integer,
 bids_left integer,
 reserved_price real,
-FOREIGN KEY(artwork_id) REFERENCES artwork(artwork_id)
+timestamp integer,
+FOREIGN KEY(artwork_id) REFERENCES artwork(artwork_id) ON DELETE CASCADE
 );
 
 CREATE TABLE painting (
