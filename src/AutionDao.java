@@ -54,5 +54,6 @@ public class AutionDao {
     public void deleteAuction(Auction auction) throws SQLException{
         connection.query(String.format("DELETE FROM Auction WHERE auction_id = %1%s",
                 auction.getAuctionId()));
+
     }
 }

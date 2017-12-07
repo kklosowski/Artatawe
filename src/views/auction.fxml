@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- USE 900x800 as default size of window!-->
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- My code -->
+    <children>
+        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" prefHeight="642.0" prefWidth="884.0">
+            <children>
+
+
+                <VBox maxHeight="1.7976931348623157E308" prefHeight="602.0" prefWidth="368.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Artwork Name" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Text>
+                        <ImageView fitHeight="301.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Image_Placeholder.jpg" />
+                            </image></ImageView>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="false">
+                                    <HBox.margin>
+                                        <Insets right="13.0" top="2.0" />
+                                    </HBox.margin>
+                                    <image>
+                                        <Image url="@Image_Placeholder.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="false">
+                                    <HBox.margin>
+                                        <Insets right="13.0" top="2.0" />
+                                    </HBox.margin>
+                                    <image>
+                                        <Image url="@Image_Placeholder.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="false">
+                                    <HBox.margin>
+                                        <Insets right="12.0" top="2.0" />
+                                    </HBox.margin>
+                                    <image>
+                                        <Image url="@Image_Placeholder.jpg" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <VBox maxHeight="1.7976931348623157E308" prefHeight="183.0" prefWidth="368.0" spacing="1.0" style="-fx-background-color: &quot;cfe9fc&quot;; -fx-border-width: 1; -fx-border-color: &quot;222222&quot;;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Information">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </Text>
+                                <Line endX="255.0" startX="-100.0">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" />
+                                    </VBox.margin>
+                                </Line>
+                                <TextArea editable="false" prefHeight="144.0" prefWidth="356.0" style="-fx-background-color: &quot;cfe9fc&quot;;" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#10;Aenean vel tortor lobortis, fermentum turpis eget, sagittis urna. Proin commodo elit a rutrum facilisis. Phasellus hendrerit libero. &#10;Aarcu hendrerit pellentesque. Nulla dictum, turpis ullamcorper &#10;aliquet vestibulum, lorem justo vehicula metus, at condimentum " wrapText="true">
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </TextArea>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: &quot;000000&quot;; -fx-background-color: &quot;cfe9fc&quot;;">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="£2000">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5 Bids">
+                                    <font>
+                                        <Font size="11.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="8.0" />
+                                    </VBox.margin>
+                                </Text>
+                                <TextField promptText="Bid Amount" />
+                                <Button mnemonicParsing="false" prefWidth="200.0" style="-fx-background-color: &quot;4285F4&quot;;" text="Place Bid" textFill="WHITE">
+                                    <VBox.margin>
+                                        <Insets bottom="2.0" top="15.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font></Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: &quot;e2aa03&quot;;" text="Favourite" textFill="WHITE">
+                                    <VBox.margin>
+                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font></Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </padding>
+                        </VBox>
+                        <VBox prefHeight="86.0" prefWidth="111.0" style="-fx-background-color: &quot;cfe9fc&quot;; -fx-border-color: &quot;000000&quot;;">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                            <children>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details" textAlignment="CENTER" />
+                                        <Line endX="50.0" startX="-54.0" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Artwork Type: Painting" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                        </Text>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dimensions:200x200" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets left="15.0" />
+                    </HBox.margin>
+                </VBox>
+            </children>
+            <VBox.margin>
+                <Insets top="40.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+    </padding>
+</VBox>

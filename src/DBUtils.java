@@ -37,7 +37,6 @@ public class DBUtils {
                            rs.getDouble("current_price"),
                            rs.getDouble("reserve_price"),
                            rs.getInt("max_bids"));
-      
     }
     //TODO: Handle primary picture
     public static Artwork constructArtworkFromRS(ResultSet rs) throws SQLException{
