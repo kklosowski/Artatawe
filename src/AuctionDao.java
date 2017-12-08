@@ -15,7 +15,7 @@ public class AuctionDao {
     public List<Auction> getAllAuctions() throws SQLException{
         List<Auction> auctions = new ArrayList<>();
         ResultSet auctionResultSet = connection.query(
-                String.format("SELECT * FROM Auction"));
+                String.format("SELECT * FROM auction INNER JOIN artwork ON auction.artwork_id = artwork.artwork_id INNER JOIN (SELECT * FROM BID ORDER BY timestamp DESC LIMIT 1) b ON b.auction_id = auction.auction_id"));
 
         while (auctionResultSet.next()){
             auctions.add(DBUtils.constructAuctionFromRS(auctionResultSet));

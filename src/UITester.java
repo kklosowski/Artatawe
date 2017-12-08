@@ -36,6 +36,15 @@ public class UITester extends Application {
             e.printStackTrace();
         }
         */
+    try {
+        AuctionDao ad = new AuctionDao();
+        System.out.println(ad.getAllAuctions().toString());
+    }catch(Exception e){
+        System.out.println("========= Caught e =========");
+        System.out.println(e);
+        e.printStackTrace();
+        System.out.println("============================");
+    }
 
         primaryStage.setWidth(WINDOW_WIDTH);
         primaryStage.setHeight(WINDOW_HEIGHT);

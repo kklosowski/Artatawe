@@ -39,27 +39,27 @@ public class DBUtils {
                            rs.getInt("max_bids"));
     }
 
-        public static Sculpture constructSculpture(ResultSet rsArtwrok, ResultSet rsSculture) throws SQLException{
+        public static Sculpture constructSculpture(ResultSet rsArtwork, ResultSet rsSculture) throws SQLException{
         return new Sculpture(
-                rsArtwrok.getInt("artwork_id"),
-                rsArtwrok.getString("title"),
-                rsArtwrok.getString("description"),
-                rsArtwrok.getString("artist"),
-                rsArtwrok.getString("primary_picture"),
-                rsArtwrok.getInt("year_created"),
+                rsArtwork.getInt("artwork_id"),
+                rsArtwork.getString("title"),
+                rsArtwork.getString("description"),
+                rsArtwork.getString("artist"),
+                rsArtwork.getString("primary_picture_url"),
+                rsArtwork.getInt("year_created"),
                 rsSculture.getString("material"),
                 rsSculture.getDouble("dimension_x"),
                 rsSculture.getDouble("dimension_y"),
                 rsSculture.getDouble("dimension_z"));
     }
-    public static Painting constructPaintingFromRS(ResultSet rsArtwrok, ResultSet rsPainting) throws SQLException{
+    public static Painting constructPaintingFromRS(ResultSet rsArtwork, ResultSet rsPainting) throws SQLException{
         return new Painting(
-                rsArtwrok.getInt("artwork_id"),
-                rsArtwrok.getString("title"),
-                rsArtwrok.getString("description"),
-                rsArtwrok.getString("artist"),
-                rsArtwrok.getString("primary_picture"),
-                rsArtwrok.getInt("year_created"),
+                rsArtwork.getInt("artwork_id"),
+                rsArtwork.getString("title"),
+                rsArtwork.getString("description"),
+                rsArtwork.getString("artist"),
+                rsArtwork.getString("primary_picture_url"),
+                rsArtwork.getInt("year_created"),
                 rsPainting.getDouble("dimension_x"),
                 rsPainting.getDouble("dimension_y"));
     }
