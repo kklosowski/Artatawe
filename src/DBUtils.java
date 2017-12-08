@@ -30,9 +30,10 @@ public class DBUtils {
     public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException {
         UserDao userDao = new UserDao();
         ArtworkDao artworkDao = new ArtworkDao();
+        BidDao bidDao = new BidDao();
         return new Auction(rs.getInt("auction_id"),
                 userDao.getUser(rs.getInt("user_id")),
-                rs.getDouble("current_price"),
+                bidDao.getHighestBid(rs.getInt("user_id")).getAmount(),
                 rs.getDouble("reserved_price"),
                 rs.getInt("bids_left"),
                 artworkDao.getArtwork(rs.getInt("artwork_id")));

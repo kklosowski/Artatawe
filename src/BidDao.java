@@ -1,6 +1,7 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -38,6 +39,16 @@ public class BidDao {
             bids.add(DBUtils.constructBidFromRS(bidsResultSet));
         }
         return bids;
+    }
+
+    public Bid getHighestBid(int auctionId){
+        Bid highestBid = null;
+        try {
+            highestBid = getAuctionBids(auctionId).stream().sorted(Comparator.comparing(Bid::getAmount)).findFirst().get();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return highestBid;
     }
 
     public void insertBid(Bid bid, Auction auction) throws SQLException {
