@@ -36,14 +36,6 @@ public class UITester extends Application {
             e.printStackTrace();
         }
         */
-    try {
-        AuctionDao ad = new AuctionDao();
-    }catch(Exception e){
-        System.out.println("========= Caught e =========");
-        System.out.println(e);
-        e.printStackTrace();
-        System.out.println("============================");
-    }
 
         primaryStage.setWidth(WINDOW_WIDTH);
         primaryStage.setHeight(WINDOW_HEIGHT);
@@ -52,16 +44,16 @@ public class UITester extends Application {
         primaryStage.setTitle("DEMO");
 
         Parent layoutFXML = null;
-        Parent auctionFXML = null;
+        Parent browsingAuctionsFXML = null;
         try {
             layoutFXML = FXMLLoader.load(getClass().getResource("/views/_layout.fxml"));
-            auctionFXML = FXMLLoader.load(getClass().getResource("/views/auction.fxml"));
+            browsingAuctionsFXML = FXMLLoader.load(getClass().getResource("/views/browsing_auctions.fxml"));
         }catch(Exception e) {
             e.printStackTrace();
         }
 
-        BrowseAuctionsController browseAuctionsController = new BrowseAuctionsController((Pane) layoutFXML, (Pane) auctionFXML);
-        Scene s = browseAuctionsController.getView();
+        BrowseAuctionsController browseAuctionsController = new BrowseAuctionsController((Pane) layoutFXML, (Pane) browsingAuctionsFXML);
+        Scene s = browseAuctionsController.getAllAuctions();
         primaryStage.setScene(s);
         primaryStage.show();
     }

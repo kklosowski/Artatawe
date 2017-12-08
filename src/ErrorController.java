@@ -12,16 +12,14 @@ public class ErrorController {
     private Text errorTextTarget;
 
     public ErrorController(Exception e){
+        this.printExceptionTraceToStream(e);
         this.loadView();
-        this.errorMessage = DEFAULT_ERROR_MESSAGE;
-        this.errorMessage += "\n" + e.toString();
-        this.errorTextTarget = (Text) view.lookup("#error-info");
-        errorTextTarget.setText(errorMessage);
-    }
-
-    public ErrorController(String errorText){
-        this.loadView();
-        this.errorMessage = errorText;
+        if(e.getMessage() == null){
+            this.errorMessage = DEFAULT_ERROR_MESSAGE;
+        }else{
+            this.errorMessage = e.getMessage();
+        }
+        this.errorMessage += "\n" + e.getClass().getCanonicalName();
         this.errorTextTarget = (Text) view.lookup("#error-info");
         errorTextTarget.setText(errorMessage);
     }
@@ -38,5 +36,11 @@ public class ErrorController {
             System.out.println("Fatal error occurred while loading error message.");
             System.out.println("Previous error message to display: '" + this.errorMessage + "'");
         }
+    }
+
+    private void printExceptionTraceToStream(Exception e){
+        System.out.println("========== Printing exception stack trace from ErrorController class ==========");
+        e.printStackTrace();
+        System.out.println("===============================================================================");
     }
 }
