@@ -18,7 +18,11 @@ public class AuctionDao {
                 String.format("SELECT * FROM (SELECT *, bid.amount AS current_price FROM auction LEFT JOIN bid ON auction.auction_id = bid.auction_id GROUP BY bid.auction_id ORDER BY bid.timestamp DESC) auction INNER JOIN artwork ON auction.artwork_id = artwork.artwork_id;"));
 
         while (auctionResultSet.next()){
-            auctions.add(DBUtils.constructAuctionFromRS(auctionResultSet));
+            Auction au = DBUtils.constructAuctionFromRS(auctionResultSet);
+
+            BidDao bDao = new BidDao();
+
+            auctions.add(this.getAuction(au.getAuctionId()));
         }
 
         return auctions;
@@ -27,7 +31,13 @@ public class AuctionDao {
     public Auction getAuction(int auctionId) throws SQLException{
         ResultSet auctionResultSet = connection.query(
                 String.format("SELECT * FROM Auction WHERE auction_id = %s", auctionId));
-        return DBUtils.constructAuctionFromRS(auctionResultSet);
+        Auction au = DBUtils.constructAuctionFromRS(auctionResultSet);
+
+        BidDao bDao = new BidDao();
+
+        au.setNewBidList(bDao.getAuctionBids(auctionId));
+
+        return au;
     }
 
     public void updateAuction(Auction auction, int auctionId) throws SQLException{

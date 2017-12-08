@@ -1,5 +1,6 @@
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
 * Contains informations about an auction
@@ -13,7 +14,7 @@ public class Auction {
     /**
      * Bid history
      */
-    private ArrayList<Bid> bids = new ArrayList<>();
+    private List<Bid> bids = new ArrayList<>();
     /**
      * The artwork being placed on auction
      */
@@ -73,6 +74,13 @@ public class Auction {
             currentPrice = amount;
             return 0; //Bid successfully placed
         }
+    }
+    /**
+     * assigns a new list, all values from old list are lost.
+     * @param bids amount
+     */
+    public void setNewBidList(List<Bid> bids){
+        this.bids = bids;
     }
 
     /**
