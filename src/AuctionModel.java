@@ -1,5 +1,5 @@
-package models;
+//package models;
 
-public class auctionModel {
-    private Artwork artwork;
+public class AuctionModel {
+//    private Artwork artwork;
 }

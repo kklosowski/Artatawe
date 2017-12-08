@@ -38,14 +38,30 @@ public class DBUtils {
                            rs.getDouble("reserve_price"),
                            rs.getInt("max_bids"));
     }
-    //TODO: Handle primary picture
-    public static Artwork constructArtworkFromRS(ResultSet rs) throws SQLException{
-        return null;
-//        return new Artwork(rs.getString("title"),
-//                rs.getString("description"),
-//                rs.getString("artist"),
-//                null,
-//                rs.getInt("year_created"));
+
+        public static Sculpture constructSculpture(ResultSet rsArtwrok, ResultSet rsSculture) throws SQLException{
+        return new Sculpture(
+                rsArtwrok.getInt("artwork_id"),
+                rsArtwrok.getString("title"),
+                rsArtwrok.getString("description"),
+                rsArtwrok.getString("artist"),
+                rsArtwrok.getString("primary_picture"),
+                rsArtwrok.getInt("year_created"),
+                rsSculture.getString("material"),
+                rsSculture.getDouble("dimension_x"),
+                rsSculture.getDouble("dimension_y"),
+                rsSculture.getDouble("dimension_z"));
+    }
+    public static Painting constructPaintingFromRS(ResultSet rsArtwrok, ResultSet rsPainting) throws SQLException{
+        return new Painting(
+                rsArtwrok.getInt("artwork_id"),
+                rsArtwrok.getString("title"),
+                rsArtwrok.getString("description"),
+                rsArtwrok.getString("artist"),
+                rsArtwrok.getString("primary_picture"),
+                rsArtwrok.getInt("year_created"),
+                rsPainting.getDouble("dimension_x"),
+                rsPainting.getDouble("dimension_y"));
     }
 
     public static Bid constructBidFromRS(ResultSet rs) throws SQLException {

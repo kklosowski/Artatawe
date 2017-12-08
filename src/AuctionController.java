@@ -1,8 +1,8 @@
-package controllers;
+//package controllers;
 
 import javafx.scene.layout.Pane;
 
-public class auctionController {
+public class AuctionController {
     private Pane view;
-    private auctionModel model;
+//    private auctionModel model;
 }

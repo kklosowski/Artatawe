@@ -17,6 +17,16 @@ public abstract class Artwork {
 	public Artwork(){
 
 	}
+
+	public Artwork(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated) {
+		this.artworkId = artworkId;
+		this.title = title;
+		this.description = description;
+		this.artist = artist;
+		this.primaryPicture = primaryPicture;
+		this.yearCreated = yearCreated;
+	}
+
 	public Artwork(String title, String description, String artist, String primaryPicture, int yearCreated) {
 		this.title = title;
 		this.description = description;
