@@ -20,8 +20,6 @@ public class AuctionDao {
         while (auctionResultSet.next()){
             Auction au = DBUtils.constructAuctionFromRS(auctionResultSet);
 
-            BidDao bDao = new BidDao();
-
             auctions.add(this.getAuction(au.getAuctionId()));
         }
 
