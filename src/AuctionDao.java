@@ -8,7 +8,7 @@ import java.util.List;
  * @author  Kamil Klosowski
  * @since   1/12/2017
  */
-public class AutionDao {
+public class AuctionDao {
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
     //TODO : error here
 
