@@ -45,7 +45,7 @@ public class DBUtils {
                 rsArtwrok.getString("title"),
                 rsArtwrok.getString("description"),
                 rsArtwrok.getString("artist"),
-                rsArtwrok.getString("primary_picture"),
+                rsArtwrok.getString("picture_location"),
                 rsArtwrok.getInt("year_created"),
                 rsSculture.getString("material"),
                 rsSculture.getDouble("dimension_x"),
@@ -58,7 +58,7 @@ public class DBUtils {
                 rsArtwrok.getString("title"),
                 rsArtwrok.getString("description"),
                 rsArtwrok.getString("artist"),
-                rsArtwrok.getString("primary_picture"),
+                rsArtwrok.getString("picture_location"),
                 rsArtwrok.getInt("year_created"),
                 rsPainting.getDouble("dimension_x"),
                 rsPainting.getDouble("dimension_y"));
