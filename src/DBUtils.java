@@ -1,13 +1,10 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 public class DBUtils {
 
-    public static User constructUserFromRS(ResultSet rs)throws SQLException{
+    public static User constructUserFromRS(ResultSet rs) throws SQLException {
         AddressDao addressDao = new AddressDao();
         UserDao userDao = new UserDao();
         return new User(rs.getInt("user_id"),
@@ -18,28 +15,30 @@ public class DBUtils {
                 addressDao.getAddress(rs.getInt("user_id")),
                 new Timestamp(userDao.getLoginLog(rs.getInt("user_id"))),
                 rs.getString("avatar_filename")
-                );
+        );
     }
-    public static Address constructAddressFromRS(ResultSet rs) throws SQLException{
+
+    public static Address constructAddressFromRS(ResultSet rs) throws SQLException {
         return new Address(rs.getString("address_line1"),
                 rs.getString("address_line2"),
-                rs.getString("address_line2"),
+                rs.getString("address_line3"),
                 rs.getString("city"),
                 rs.getString("postcode"),
                 rs.getString("country"));
     }
 
-    public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException{
+    public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException {
         UserDao userDao = new UserDao();
         ArtworkDao artworkDao = new ArtworkDao();
-        return new Auction(artworkDao.getArtwork(rs.getInt("artwork_id")),
-                           userDao.getUser(rs.getInt("user_id")),
-                           rs.getDouble("current_price"),
-                           rs.getDouble("reserved_price"),
-                           rs.getInt("bids_total"));
+        return new Auction(rs.getInt("auction_id"),
+                userDao.getUser(rs.getInt("user_id")),
+                rs.getDouble("current_price"),
+                rs.getDouble("reserved_price"),
+                rs.getInt("bids_left"),
+                artworkDao.getArtwork(rs.getInt("artwork_id")));
     }
 
-        public static Sculpture constructSculpture(ResultSet rsArtwork, ResultSet rsSculture) throws SQLException{
+    public static Sculpture constructSculpture(ResultSet rsArtwork, ResultSet rsSculture) throws SQLException {
         return new Sculpture(
                 rsArtwork.getInt("artwork_id"),
                 rsArtwork.getString("title"),
@@ -52,7 +51,8 @@ public class DBUtils {
                 rsSculture.getDouble("dimension_y"),
                 rsSculture.getDouble("dimension_z"));
     }
-    public static Painting constructPaintingFromRS(ResultSet rsArtwork, ResultSet rsPainting) throws SQLException{
+
+    public static Painting constructPaintingFromRS(ResultSet rsArtwork, ResultSet rsPainting) throws SQLException {
         return new Painting(
                 rsArtwork.getInt("artwork_id"),
                 rsArtwork.getString("title"),
@@ -69,10 +69,12 @@ public class DBUtils {
                 rs.getDouble("amount"),
                 rs.getTimestamp("timestamp"));
     }
-    public static long constructLoginLogFromRS(ResultSet rs) throws SQLException{
+
+    public static long constructLoginLogFromRS(ResultSet rs) throws SQLException {
         return rs.getLong("timestamp");
     }
-    public static int constructFavouriteFromRS(ResultSet rs) throws SQLException{
+
+    public static int constructFavouriteFromRS(ResultSet rs) throws SQLException {
         return rs.getInt("fav_id");
     }
 

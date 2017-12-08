@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* Contains informations about an auction
-* @author randompasser (Michael)
-* @since 27-10-17
-*/
+ * Contains information about an auction
+ *
+ * @author randompasser (Michael)
+ * @since 27-10-17
+ */
 
 public class Auction {
 
@@ -24,30 +25,34 @@ public class Auction {
      */
     private User creator;
     /**
-     *  Current price of an item
+     * Current price of an item
      */
     private double currentPrice;
     /**
-     *  Minimum reservation price
+     * Minimum reservation price
      */
     private double reservePrice;
     /**
-     *  Date the auction was created
+     * Date the auction was created
      */
     private Timestamp dateAdded;
     /**
-     *  Maximum number of bids
+     * Maximum number of bids
      */
     private int maxBids;
 
-
-    public Auction(Artwork artwork, User creator, double currentPrice, double reservePrice, int maxBids) {
+    public Auction(User creator, double currentPrice, double reservePrice, int maxBids, Artwork artwork) {
         this.artwork = artwork;
         this.creator = creator;
         this.currentPrice = currentPrice;
         this.reservePrice = reservePrice;
         this.maxBids = maxBids;
-        dateAdded = new Timestamp(System.currentTimeMillis());
+        this.dateAdded = new Timestamp(System.currentTimeMillis());
+    }
+
+    public Auction(int actionId, User creator, double currentPrice, double reservePrice, int maxBids, Artwork artwork) {
+        this(creator, currentPrice, reservePrice, maxBids, artwork);
+        this.auctionId = actionId;
     }
 
     /**
@@ -64,10 +69,10 @@ public class Auction {
         else if (bids.size() >= maxBids) {
             return 2; //Maximum amount of bids has been exceeded
         }
-		//Check if user is not the last one that placed bid
-		else if (bids.get(bids.size() - 1).getUserId()==user.getUserId()){
-			return 3;
-		}
+        //Check if user is not the last one that placed bid
+        else if (bids.get(bids.size() - 1).getUserId() == user.getUserId()) {
+            return 3;
+        }
         //Add a new Bid entry if all both checks are postive
         else {
             bids.add(new Bid(user.getUserId(), amount));
@@ -75,19 +80,22 @@ public class Auction {
             return 0; //Bid successfully placed
         }
     }
+
     /**
      * assigns a new list, all values from old list are lost.
+     *
      * @param bids amount
      */
-    public void setNewBidList(List<Bid> bids){
+    public void setNewBidList(List<Bid> bids) {
         this.bids = bids;
     }
 
     /**
      * Number of allowed bids left
+     *
      * @return bids amount
      */
-    public int bidsLeft(){
+    public int bidsLeft() {
         return maxBids - bids.size();
     }
 
@@ -111,41 +119,52 @@ public class Auction {
 
     /**
      * Gets the artwork being placed on auction
+     *
      * @return A Artwork object
      */
     public Artwork getArtwork() {
         return artwork;
     }
+
     /**
-    * Gets the user who created the auction
-    * @return A user object
-    */
+     * Gets the user who created the auction
+     *
+     * @return A user object
+     */
     public User getCreator() {
         return creator;
     }
+
     /**
      * Gets the current price of the auction
+     *
      * @return Current price of the auction
      */
     public double getCurrentPrice() {
         return currentPrice;
     }
+
     /**
      * Gets the reserve price of the auction
+     *
      * @return Reserve price of the auction
      */
     public double getReservePrice() {
         return reservePrice;
     }
+
     /**
      * Gets the creation date of the auction
+     *
      * @return Creation date of the auction
      */
     public Timestamp getDateAdded() {
         return dateAdded;
     }
+
     /**
      * Gets the maximum amount of bids allowed
+     *
      * @return Maximum amount of bids allowed
      */
     public int getMaxBids() {

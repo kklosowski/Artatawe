@@ -5,22 +5,19 @@ import java.util.List;
 
 /**
  *
- * @author  Kamil Klosowski
+ * @author  Kamil Klosowski, Morgan David
  * @since   1/12/2017
  */
 public class AuctionDao {
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
-    //TODO : error here
 
     public List<Auction> getAllAuctions() throws SQLException{
         List<Auction> auctions = new ArrayList<>();
-        ResultSet auctionResultSet = connection.query(
-                String.format("SELECT * FROM (SELECT *, bid.amount AS current_price FROM auction LEFT JOIN bid ON auction.auction_id = bid.auction_id GROUP BY bid.auction_id ORDER BY bid.timestamp DESC) auction INNER JOIN artwork ON auction.artwork_id = artwork.artwork_id;"));
+        ResultSet auctionResultSet = connection.query(String.format("SELECT * FROM Auction"));
 
         while (auctionResultSet.next()){
-            Auction au = DBUtils.constructAuctionFromRS(auctionResultSet);
-
-            auctions.add(this.getAuction(au.getAuctionId()));
+            Auction auction = DBUtils.constructAuctionFromRS(auctionResultSet);
+            auctions.add(this.getAuction(auction.getAuctionId()));
         }
 
         return auctions;
@@ -29,17 +26,19 @@ public class AuctionDao {
     public Auction getAuction(int auctionId) throws SQLException{
         ResultSet auctionResultSet = connection.query(
                 String.format("SELECT * FROM Auction WHERE auction_id = %s", auctionId));
-        Auction au = DBUtils.constructAuctionFromRS(auctionResultSet);
+        Auction auction = DBUtils.constructAuctionFromRS(auctionResultSet);
 
-        BidDao bDao = new BidDao();
+        BidDao bidDao = new BidDao();
 
-        au.setNewBidList(bDao.getAuctionBids(auctionId));
+        auction.setNewBidList(bidDao.getAuctionBids(auctionId));
 
-        return au;
+        return auction;
     }
 
     public void updateAuction(Auction auction, int auctionId) throws SQLException{
-        connection.query(String.format("UPDATE Auction SET artwork_id = %1%s, user_id = %2%s, current_price = %3%s, reserve_price = %4%s, date_added = %5%s, max_bids = %6%s WHERE auction_id = %7%s",
+        connection.query(String.format("UPDATE Auction " +
+                        "SET artwork_id = %s, user_id = %s, current_price = %s, reserve_price = %s, date_added = %s, max_bids = %s " +
+                        "WHERE auction_id = %s",
                 auction.getArtwork().getArtworkId(),
                 1,
                 auction.getCurrentPrice(),
@@ -49,7 +48,7 @@ public class AuctionDao {
                 auction.getAuctionId()));
     }
     public void insertAuction(Auction auction) throws SQLException{
-        connection.insert(String.format("INSERT INTO Auction (%1%s, %2%s, %3%s, %4%s, %5%s, %6%s, %7%s)",
+        connection.insert(String.format("INSERT INTO Auction (%s, %s, %s, %s, %s, %s, %s)",
                 auction.getAuctionId(),
                 auction.getArtwork().getArtworkId(),
                 auction.getCreator().getUserId(),
