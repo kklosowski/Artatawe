@@ -52,8 +52,8 @@ public class UITester extends Application {
             e.printStackTrace();
         }
 
-        AuctionController auctionController = new AuctionController((Pane) layoutFXML, (Pane) auctionFXML);
-        Scene s = auctionController.getView();
+        BrowseAuctionsController browseAuctionsController = new BrowseAuctionsController((Pane) layoutFXML, (Pane) auctionFXML);
+        Scene s = browseAuctionsController.getView();
         primaryStage.setScene(s);
         primaryStage.show();
     }
