@@ -114,7 +114,7 @@ public class ArtworkDao {
         }else if (artwork instanceof Painting){
             type = PAINTING;
         }
-        String inserQuery = String.format("INSERT INTO %s (artwork_id,artwork_type,artwork_spec_id,title,description,artist,year_created,picture_location) VALUES (%d,'%s',%d,'%s','%s','%s',%d, '%s')",ARTWORK_TABLE,
+        String inserQuery = String.format("INSERT INTO %s (artwork_id,artwork_type,artwork_spec_id,title,description,artist,year_created,primary_picture_url) VALUES (%d,'%s',%d,'%s','%s','%s',%d, '%s')",ARTWORK_TABLE,
                 ++lastId,type,lastId,artwork.getTitle(),artwork.getDescription(),artwork.getArtist(),artwork.getYearCreated(),artwork.getPrimaryPicture());
         int result = connection.insert(inserQuery);
         if (result>0){

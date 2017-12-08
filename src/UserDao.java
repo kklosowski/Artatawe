@@ -135,10 +135,13 @@ public class UserDao {
      * @return If insert successfully it will return any integer except 0, if unable to insert it will return 0.
      * */
     public int insertUser(User user)throws SQLException{
+        List<User> userList = getAllUsers();
+        int lastUserId = userList.size();
+        System.out.println("last user id  " + lastUserId);
 
         String insertQuery = String.format("INSERT INTO %s " +
-                "(first_name,last_name,username,mobile_number,avatar_filename) " +
-                "VALUES ('%s','%s','%s','%s','%s')",USER_TABLE,user.getFirstName(),user.getLastName(),
+                "(user_id, first_name,last_name,username,mobile_number,avatar_filename) " +
+                "VALUES (%d, '%s','%s','%s','%s','%s')",USER_TABLE,++lastUserId,user.getFirstName(),user.getLastName(),
                 user.getUserName(),user.getMobileNo(),
                 user.getProfilePicture());
         int result = connection.insert(insertQuery);

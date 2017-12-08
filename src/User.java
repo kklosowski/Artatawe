@@ -91,6 +91,15 @@ class User{
 		this.address = address;
 	}
 
+	public User(String firstName, String lastName, String userName, String mobileNo, Address address, String profilePicture) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.mobileNo = mobileNo;
+		this.address = address;
+		this.profilePicture = profilePicture;
+	}
+
 	public int getUserId(){
 		return this.userId;
 	}
