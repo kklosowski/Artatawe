@@ -33,22 +33,26 @@ FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE artwork (
-artwork_id integer primary key autoincrement,
-artwork_type text,
-artwork_spec_id integer unique,
-title text,
-description text,
-artist text,
-year_created integer
+  artwork_id integer primary key autoincrement,
+  artwork_type text,
+  artwork_spec_id integer unique,
+  title text,
+  description text,
+  artist text,
+  year_created integer,
+  picture_location text
 );
 
 CREATE TABLE auction (
-auction_id integer primary key autoincrement,
-artwork_id integer unique,
-bids_total integer,
-bids_left integer,
-reserved_price real,
-FOREIGN KEY(artwork_id) REFERENCES artwork(artwork_id)
+  auction_id integer primary key autoincrement,
+  artwork_id integer unique,
+  bids_total integer,
+  bids_left integer,
+  reserved_price real,
+  timestamp integer,
+  user_id integer,
+  FOREIGN KEY(artwork_id) REFERENCES artwork(artwork_id) ON DELETE CASCADE,
+  FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE painting (

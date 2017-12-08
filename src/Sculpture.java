@@ -31,13 +31,22 @@ public class Sculpture extends Artwork {
 //	 * @param photos
 	 * 				List of photos added
 	 */
-	public Sculpture(String title, String description, String artist, String primaryPicture, List<String> additionalPictures, int yearCreated, String material, double width, double height, double depth) {
+	//TODO add list
+	public Sculpture(String title, String description, String artist, String primaryPicture, int yearCreated, String material, double width, double height, double depth) {
 		super(title, description, artist, primaryPicture, yearCreated);
 		this.material = material;
 		this.width = width;
 		this.height = height;
 		this.depth = depth;
 //		this.additionalPictures = additionalPictures;
+	}
+
+	public Sculpture(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated, String material, double width, double height, double depth) {
+		super(artworkId, title, description, artist, primaryPicture, yearCreated);
+		this.material = material;
+		this.width = width;
+		this.height = height;
+		this.depth = depth;
 	}
 
 	/**

@@ -9,6 +9,12 @@ public class Painting extends Artwork{
 		this.height = height;
 	}
 
+	public Painting(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated, double width, double height) {
+		super(artworkId, title, description, artist, primaryPicture, yearCreated);
+		this.width = width;
+		this.height = height;
+	}
+
 	public double getWidth(){
 		return this.width;
 	}

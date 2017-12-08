@@ -11,12 +11,11 @@ import java.util.List;
 public class BidDao {
 
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
-
     public List<Bid> getUserBids(int userId) throws SQLException {
 
         List<Bid> bids = new ArrayList<>();
         ResultSet bidsResultSet = connection.query(
-                String.format("SELECT * FROM Bid WHERE user_id = %s", userId));
+                String.format("SELECT * FROM Bid WHERE user_id = %d", userId));
 
         while (bidsResultSet.next()){
             bids.add(DBUtils.constructBidFromRS(bidsResultSet));
@@ -33,7 +32,7 @@ public class BidDao {
 
         List<Bid> bids = new ArrayList<>();
         ResultSet bidsResultSet = connection.query(
-                String.format("SELECT * FROM Bid WHERE auction_id = %s", auctionId));
+                String.format("SELECT * FROM Bid WHERE auction_id = %d", auctionId));
 
         while (bidsResultSet.next()){
             bids.add(DBUtils.constructBidFromRS(bidsResultSet));
@@ -45,17 +44,17 @@ public class BidDao {
         insertBid(bid, auction.getAuctionId());
     }
 
-    public void insertBid(Bid bid, int auctionId) throws SQLException {
-        connection.insert(String.format("INSERT INTO Bid (%1%s, %2%s, %3%s, %4%s)",
+    public int insertBid(Bid bid, int auctionId) throws SQLException {
+        return connection.insert(String.format("INSERT INTO Bid VALUES(%d, %.2f, %d, %d)",
                 bid.getUserId(),
                 bid.getAmount(),
-                bid.getTimestamp(),
+                bid.getTimestamp().getTime(),
                 auctionId));
     }
 
-    public void deleteBid(Bid bid) throws SQLException {
-        connection.query(String.format("DELETE FROM Bid WHERE user_id = %1%s AND timestamp = %2%s",
+    public int deleteBid(Bid bid) throws SQLException {
+        return connection.insert(String.format("DELETE FROM Bid WHERE user_id = %d AND timestamp = %d",
                 bid.getUserId(),
-                bid.getTimestamp()));
+                bid.getTimestamp().getTime()));
     }
 }
