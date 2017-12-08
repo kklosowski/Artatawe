@@ -35,8 +35,8 @@ public class DBUtils {
         return new Auction(artworkDao.getArtwork(rs.getInt("artwork_id")),
                            userDao.getUser(rs.getInt("user_id")),
                            rs.getDouble("current_price"),
-                           rs.getDouble("reserve_price"),
-                           rs.getInt("max_bids"));
+                           rs.getDouble("reserved_price"),
+                           rs.getInt("bids_total"));
     }
 
         public static Sculpture constructSculpture(ResultSet rsArtwork, ResultSet rsSculture) throws SQLException{

@@ -38,7 +38,6 @@ public class UITester extends Application {
         */
     try {
         AuctionDao ad = new AuctionDao();
-        System.out.println(ad.getAllAuctions().toString());
     }catch(Exception e){
         System.out.println("========= Caught e =========");
         System.out.println(e);
