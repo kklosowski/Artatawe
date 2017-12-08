@@ -12,14 +12,11 @@ public class BrowseAuctionsController {
     private AuctionModel model;
     private Pane[] auctionPanes;
     private LayoutDisplayController ldc;
-    private Pane auctionPaneScaffolding;
 
     public BrowseAuctionsController(Pane layout, Pane view){
         try{
             ldc = new LayoutDisplayController(layout, view);
             this.view = ldc.getView();
-            //TODO move this to general loader
-            auctionPaneScaffolding = FXMLLoader.load(getClass().getResource("/views/browsing_auctions.fxml"));
         }catch(Exception e){
             ErrorController ec = new ErrorController(e);
             this.view = ec.getView();
@@ -36,8 +33,11 @@ public class BrowseAuctionsController {
                 Auction currAuction = auctions.get(i);
                 Artwork currArtwork = currAuction.getArtwork();
 
-                auctionPanes[i] = new AuctionPane(
-                        getAuctionPaneScaffolding(),
+
+                AuctionPane ap = FXMLLoader.load(getClass().getResource("/views/browsing_auctions.fxml"));
+
+                auctionPanes[i] = ap;
+                ap.setAttributes(
                         currArtwork.getTitle(),
                         currArtwork.getDescription(),
                         currAuction.getCurrentPrice(),
@@ -45,6 +45,7 @@ public class BrowseAuctionsController {
                         currArtwork.getPrimaryPicture()
                 );
             }
+            this.view.getRoot().applyCss();
             VBox auctionsTarget = (VBox) this.view.lookup("#auctions");
             if(auctionsTarget == null){
                 throw new IllegalArgumentException("The auction view does not contain container to display auctions in");
@@ -58,11 +59,6 @@ public class BrowseAuctionsController {
         }finally{
             return this.view;
         }
-    }
-
-    private Pane getAuctionPaneScaffolding(){
-        Pane p = this.auctionPaneScaffolding;
-        return p;
     }
 
     //TODO remove this dummy method once done with testing
