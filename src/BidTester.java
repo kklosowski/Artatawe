@@ -74,6 +74,7 @@ public class BidTester {
 //                artworkDao.insertArtwork(artworkList.get(i));
 //            }
 
+            artworkList = artworkDao.getAllArtwork();
             for (int i=0 ; i<artworkList.size();i++){
                 auctionsList.add(new Auction(artworkList.get(i),userList.get((int)Math.round(Math.random()*8)),10000,2000,8));
             }
