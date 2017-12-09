@@ -16,9 +16,9 @@
    <children>
       <VBox maxHeight="150.0" maxWidth="580.0" minHeight="150.0" minWidth="580.0" prefHeight="150.0" prefWidth="580.0">
          <children>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="58.0">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="58.0">
                <children>
-                  <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Artwork title" wrappingWidth="445.0">
+                  <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Artwork title" wrappingWidth="345.0">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -26,12 +26,17 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Text id="current-price" strokeType="OUTSIDE" strokeWidth="0.0" text="159" textAlignment="RIGHT" wrappingWidth="100.0">
+                  <Text id="bids-left" strokeType="OUTSIDE" strokeWidth="0.0" text="winning bid:" wrappingWidth="100.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text id="current-price" strokeType="OUTSIDE" strokeWidth="0.0" text="159" wrappingWidth="100.0">
+                     <font>
+                        <Font size="14.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="15.0" right="10.0" />
+                        <Insets left="15.0" />
                      </HBox.margin>
                   </Text>
                </children>
@@ -39,9 +44,9 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </HBox>
-            <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="580.0">
+            <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="580.0">
                <children>
-                  <Text id="type" strokeType="OUTSIDE" strokeWidth="0.0" text="Painting" wrappingWidth="170.0">
+                  <Text id="type" strokeType="OUTSIDE" strokeWidth="0.0" text="Painting" wrappingWidth="345.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -49,12 +54,17 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Text id="bids-left" strokeType="OUTSIDE" strokeWidth="0.0" text="5 bids left" textAlignment="RIGHT" wrappingWidth="390.0">
+                  <Text id="bids-left" strokeType="OUTSIDE" strokeWidth="0.0" text="date:" wrappingWidth="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text id="current-price" strokeType="OUTSIDE" strokeWidth="0.0" text="10 / 12 / 2017" wrappingWidth="100.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="5.0" right="10.0" />
+                        <Insets left="15.0" />
                      </HBox.margin>
                   </Text>
                </children>
