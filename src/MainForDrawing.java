@@ -20,7 +20,7 @@ public class MainForDrawing extends Application {
 	@Override
 	public void start(Stage arg0) throws Exception {
 		FXMLLoader l = new FXMLLoader();
-		Pane p = l.load(getClass().getResourceAsStream(File.separator + "Canvas.fxml"));
+		Pane p = l.load(getClass().getResourceAsStream(File.separator + "views/Canvas.fxml"));
 		arg0.setScene(new Scene(p));
 		arg0.show();
 	}
