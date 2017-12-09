@@ -3,8 +3,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BrowseAuctionsController {
@@ -34,7 +32,7 @@ public class BrowseAuctionsController {
                 Artwork currArtwork = currAuction.getArtwork();
 
 
-                AuctionPane ap = FXMLLoader.load(getClass().getResource("/views/browsing_auctions.fxml"));
+                AuctionPane ap = FXMLLoader.load(getClass().getResource("/views/browse_auctions.fxml"));
 
                 auctionPanes[i] = ap;
                 ap.setAttributes(

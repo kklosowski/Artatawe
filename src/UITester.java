@@ -49,7 +49,7 @@ public class UITester extends Application {
         Parent browsingAuctionsFXML = null;
         try {
             layoutFXML = FXMLLoader.load(getClass().getResource("/views/_layout.fxml"));
-            browsingAuctionsFXML = FXMLLoader.load(getClass().getResource("/views/browsing_auctions.fxml"));
+            browsingAuctionsFXML = FXMLLoader.load(getClass().getResource("/views/browse_auctions.fxml"));
         }catch(Exception e) {
             e.printStackTrace();
         }
