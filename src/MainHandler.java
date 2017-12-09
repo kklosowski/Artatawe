@@ -6,6 +6,7 @@ public class MainHandler extends Application{
     private final double WINDOW_HEIGHT = 650;
     private final boolean MAXIMISED = false;
     private final boolean FULLSCREEN = false;
+    private final boolean RESIZABLE = false;
 
     @Override
     public void start(Stage primaryStage) {
@@ -13,6 +14,7 @@ public class MainHandler extends Application{
         primaryStage.setHeight(WINDOW_HEIGHT);
         primaryStage.setMaximized(MAXIMISED);
         primaryStage.setFullScreen(FULLSCREEN);
+        primaryStage.setResizable(RESIZABLE);
         primaryStage.setTitle("DEMO");
         //AuctionController ac = new AuctionController();
     }
