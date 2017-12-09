@@ -1,0 +1,144 @@
+Seventh Meeting
+
+Minutes of Meeting: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+---------------------------
+Date: 17.11.2017
+Start Time: 13:00
+End Time: 14:00
+
+Date and time of next meeting: 24 Nov 2017, 13:00
+
+
+Topics discussed:
+--We discussed the feedback we got from A1 and the changes we will need 
+to make to our project, based on the feedback.
+--We discussed the GUIs we will need to make for the project.
+After a long discussion we decided on what GUIs to build.
+--We also discussed the tools we can use for making the GUIs
+and eventually decided on SceneBuilder.
+--We also agreed on distributing the work for the fxml files.
+--We also agreed on removing the classes "Picture" and "ProfilePicture",
+because in our opinion we do not need classes for just one constructor.
+
+Progress since the last meeting:
+--Everyone has better understanding of what the project must be at the end.
+
+TODO (for next meeting):
+Fxml files:
+--Marceli : Registration/Login/Layout
+--Morgan  : Add auction
+--Michael : Auction view
+--Shu Yu  : Auction browsing/User browsing/History
+--Tereza  : My Profile 
+
+
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Eighth Meeting
+
+Minutes of Minutes: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+---------------------------
+Date: 24.11.2017
+Start Time: 13:00
+End Time: 13:20
+
+Date and time of next meeting: 1 Dec 2017, 13:00
+
+
+Topics discussed:
+--We discussed the possible options of how to handle the database in our project.
+--After a discussion and considering the advantages and disadvantages 
+of different options,and taking in consideration each person's abilities 
+in our group, we decided to use Data Access Object pattern.
+
+Progress since the last meeting:
+--Marceli : Created FXML files for "Registration", "Login", "Layout"
+--Morgan  : Created FXML file  for "Add auction"
+--Michael : Created FXML file  for "Auction view"
+--Shu Yu  : Created FXML files for "Auction browsing", "User browsing", "History"
+--Tereza  : Created FXML file  for "My Profile"  
+
+TODO (for next meeting):
+--Kamil   : Build the database.
+--Marceli : Connect the "Layout" fxml file with the rest of the fxmls files.
+
+
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Ninth Meeting
+
+Minutes of Meeting: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+----------------------------
+Date: 1.12.2017
+Start Time: 13:00
+End Time: 13:30
+
+Date and time of next meeting: 8 Dec 2017, 13:00
+
+Topics discussed:
+--We discussed what files we will need to create for the database.
+--We also discussed how we will handle the "Drawing Avatar" function of the 
+project.
+--We also decided we will distribute the work for the database between
+Michael, Shu Yu and Morgan, and distribute the rest of the work between
+Marceli, Tereza and Kamil.
+
+Progress since last meeting:
+--Kamil  : Set the database up.
+--Kamil  : Created Bid DAO.
+--Marceli: Connected the "Layout" fxml file with the rest of the fxmls files.
+
+
+TODO(for next meeting):
+--Marceli: Make the controllers needed for the project except the one needed
+for the "Drawing subsystem".
+--Tereza : Build the "Drawing subsystem".
+--Michael: Create the "Artwork DAO".
+--Morgan : Create the "Auction DAO".
+--Shu Yu : Create the "User DAO".
+
+
+
+
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Tenth Meeting
+
+Minutes of Meeting: Marceli,Kamil,Tereza,Shu Yu,Michael,Morgan
+----------------------------------
+Date: 8.12.2017
+Start Time: 13:00
+End Time: 13:30
+
+Date and time of next meeting: Not applicable (last meeting for A3)
+
+Topics discussed:
+--We discussed what else we need to do for project (outside implementation).
+--We also discussed what functionalities the project needs to have, in order
+to double check if we did not miss some functionality.
+--We also discussed how best to merge everyone's work and when to upload.
+--Ensuring that everyone does their work on time.
+
+Progress since last meeting:
+--Marceli: Made the controllers needed for the project except the one needed
+for the "Drawing subsystem".
+--Tereza : Created the "Drawing subsystem".
+--Michael: Created the "Artwork DAO".
+--Morgan : Created the "Auction DAO".
+--Shu Yu : Created the "User DAO".
+
+TODO(for next meeting):
+Everyone has to:
+--Make sure their class/classes meets the Coding Conventions from the lecture notes.
+--Write their part for the Contribution Report in our shared Google Doc.
+--Ensure that they have checked and are satisfied with all
+aspects of the submission files before we submit them.
+
+--Tereza : Format and check the Minutes of Meeting.
+--Kamil  : Refactor the code after it is done.
+--Marceli: Merge the classes together.
+--Shu Yu : Input data in the database. 
