@@ -36,6 +36,25 @@ public class AuctionDao {
         return auctions;
     }
     /**
+     * Retrieve those auctions that user participated from database.
+     * @return Return a list of auction from database.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
+    public List<Auction> getAllAuctionsUserParticipated(int userId) throws SQLException {
+        List<Auction> auctions = new ArrayList<>();
+        String retrieveQuery = String.format("SELECT * FROM auction a, " +
+                "(SELECT auction_id FROM bid WHERE user_id = %d ) b " +
+                "WHERE a.auction_id = b.auction_id ",userId);
+        ResultSet auctionResultSet = connection.query(retrieveQuery);
+
+        while (auctionResultSet.next()) {
+            Auction auction = DBUtils.constructAuctionFromRS(auctionResultSet);
+            auctions.add(this.getAuction(auction.getAuctionId()));
+        }
+
+        return auctions;
+    }
+    /**
      * Get an auction from database by auction id.
      * @param auctionId The id of an auction that wanted to search.
      * @return Return an searched auction.
