@@ -23,15 +23,6 @@ user_id integer,
 timestamp integer,
 FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
-
-CREATE TABLE bid ( 
-user_id integer,
-amount real,
-timestamp integer,
-auction_id integer,
-FOREIGN KEY(user_id) REFERENCES user(user_id)
-);
-
 CREATE TABLE artwork (
   artwork_id integer primary key autoincrement,
   artwork_type text,
@@ -40,9 +31,27 @@ CREATE TABLE artwork (
   description text,
   artist text,
   year_created integer,
-  picture_location text
+  primary_picture_url text
 );
 
+CREATE TABLE painting (
+  artwork_spec_id integer primary key,
+  dimension_x real,
+  dimension_y real
+);
+
+CREATE TABLE sculpture (
+  artwork_spec_id integer primary key,
+  dimension_x real,
+  dimension_y real,
+  dimension_z real,
+  material text
+);
+CREATE TABLE sculpturepic(
+  artwork_spec_id integer,
+  picture_url text,
+  FOREIGN KEY(artwork_spec_id) REFERENCES sculpture(artwork_spec_id) ON DELETE CASCADE
+);
 CREATE TABLE auction (
   auction_id integer primary key autoincrement,
   artwork_id integer unique,
@@ -54,24 +63,19 @@ CREATE TABLE auction (
   FOREIGN KEY(artwork_id) REFERENCES artwork(artwork_id) ON DELETE CASCADE,
   FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
-
-CREATE TABLE painting (
-artwork_spec_id integer primary key,
-dimension_x real,
-dimension_y real
+CREATE TABLE bid (
+  user_id integer,
+  amount real,
+  timestamp integer,
+  auction_id integer,
+  FOREIGN KEY(user_id) REFERENCES user(user_id),
+  FOREIGN KEY (auction_id) REFERENCES auction(auction_id)
 );
 
-CREATE TABLE sculpture (
-artwork_spec_id integer primary key,
-dimension_x real,
-dimension_y real,
-dimension_z real,
-material text
-);
 CREATE TABLE favourite(
 user_id text,
 fav_id text,
-unique(user_id, fav_id)
+unique(user_id, fav_id),
 FOREIGN KEY(user_id) REFERENCES user(user_id),
 FOREIGN KEY(fav_id) REFERENCES user(user_id)
 );
