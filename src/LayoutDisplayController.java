@@ -8,13 +8,9 @@ public class LayoutDisplayController {
     private Pane currentContent;
     private Pane currentLayoutContentPane;
 
-    public LayoutDisplayController(Pane content){
+    public LayoutDisplayController(Pane content, Pane layout){
         this.currentContent = content;
-    }
-
-    public LayoutDisplayController(Pane layout, Pane content){
         this.currentLayout = layout;
-        this.currentContent = content;
         this.bindContent();
     }
 
