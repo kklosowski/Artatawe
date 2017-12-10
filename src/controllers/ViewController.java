@@ -2,27 +2,29 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import models.DataModel;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public abstract class ViewController {
     private Scene view;
     private Scene errorView;
-    private Pane content;
+    public Pane content;
     private Pane layout;
     private DataModel model;
 
-    @FXML
+
     public void loadViewController(String contentFxmlUrl) {
         this.errorView = null;
         this.loadContent(contentFxmlUrl);
     }
 
-    @FXML
     public void loadViewController(String contentFxmlUrl, String layoutFxmlUrl) {
         this.errorView = null;
         this.loadContent(contentFxmlUrl);
@@ -41,9 +43,11 @@ public abstract class ViewController {
     private void loadContent(String FxmlUrl) {
         try {
             this.content = FXMLLoader.load(getClass().getResource(FxmlUrl));
-        } catch (IOException e) {
-            ErrorController ec = new ErrorController(e);
-            this.errorView = ec.getView();
+        } catch (IOException e){
+            e.printStackTrace();
+            //TODO implement ErrorController
+            //ErrorController ec = new ErrorController(e);
+            //this.errorView = ec.getView();
         }
     }
 
@@ -51,8 +55,8 @@ public abstract class ViewController {
         try {
             this.layout = FXMLLoader.load(getClass().getResource(FxmlUrl));
         } catch (IOException e) {
-            ErrorController ec = new ErrorController(e);
-            this.errorView = ec.getView();
+            //ErrorController ec = new ErrorController(e);
+            //this.errorView = ec.getView();
         }
     }
 
@@ -66,6 +70,10 @@ public abstract class ViewController {
 
     protected void setModel(DataModel newModel) {
         this.model = newModel;
+    }
+
+    protected Pane getContent(){
+        return this.content;
     }
 
     protected Stage getCurrentStage(){

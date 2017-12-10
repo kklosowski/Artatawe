@@ -3,6 +3,9 @@ package artatawe;
 import controllers.AuctionController;
 import controllers.LoginController;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import models.SessionData;
 
@@ -25,8 +28,11 @@ public class MainHandler extends Application {
         primaryStage.setTitle("Artatawe bidding");
         SessionData sd = new SessionData();
 
-        LoginController l = new LoginController(sd);
-        primaryStage.setScene(l.getView());
+        try {
+            primaryStage.setScene(new Scene((Pane)FXMLLoader.load(getClass().getResource("/views/login.fxml"))));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         primaryStage.show();
 
