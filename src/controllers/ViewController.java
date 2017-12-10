@@ -1,8 +1,10 @@
+package controllers;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
+import models.DataModel;
 
 public abstract class ViewController {
     private Scene view;
@@ -31,7 +33,7 @@ public abstract class ViewController {
         }
     }
 
-    public void loadContent(String FxmlUrl){
+    private void loadContent(String FxmlUrl){
         try {
             this.content = FXMLLoader.load(getClass().getResource(FxmlUrl));
         }catch(IOException e){
@@ -40,7 +42,7 @@ public abstract class ViewController {
         }
     }
 
-    public void loadLayout(String FxmlUrl){
+    private void loadLayout(String FxmlUrl){
         try {
             this.layout = FXMLLoader.load(getClass().getResource(FxmlUrl));
         }catch(IOException e){

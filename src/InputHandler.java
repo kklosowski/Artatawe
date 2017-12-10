@@ -1,7 +1,9 @@
-class InputHandler {
-	private Canvas targetCanvas;
+package artatawe;
 
-	public InputHandler(Canvas targetCanvas){
+class InputHandler {
+	private artatawe.Canvas targetCanvas;
+
+	public InputHandler(artatawe.Canvas targetCanvas){
 		this.targetCanvas = targetCanvas;
 	}
 

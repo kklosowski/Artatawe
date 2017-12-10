@@ -1,5 +1,7 @@
+package controllers;
+
 /**
- * CanvasController.java
+ * controllers.CanvasController.java
  * @version 1.0
  * @author Tereza
  */

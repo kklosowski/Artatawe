@@ -1,3 +1,5 @@
+package controllers;
+
 import javafx.scene.layout.Pane;
 
 public class LoginController extends ViewController{

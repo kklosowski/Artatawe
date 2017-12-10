@@ -1,3 +1,5 @@
+package artatawe;
+
 /**
 * Contains an entry of a successfully placed bid
 * @author randompasser (Michael)

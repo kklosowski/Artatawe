@@ -1,3 +1,5 @@
+package artatawe;
+
 /**
  * Class for creating a sculpture object.
  * @author Tereza Pashinska
@@ -8,7 +10,7 @@
 import java.util.List;
 
 
-public class Sculpture extends Artwork {
+public class Sculpture extends artatawe.Artwork {
 
 	/**
 	 *The material of the sculpture

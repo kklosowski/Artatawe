@@ -1,9 +1,21 @@
+package controllers;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+/*
+public class ErrorController extends ViewController{
+
+    private final String CONTENT_FXML_URL = "/views/error.fxml";
+
+    public ErrorController(){
+        loadViewController();
+    }
+}
+*/
 
 public class ErrorController {
     private Scene view;
@@ -39,7 +51,7 @@ public class ErrorController {
     }
 
     private void printExceptionTraceToStream(Exception e){
-        System.out.println("========== Printing exception stack trace from ErrorController class ==========");
+        System.out.println("========== Printing exception stack trace from controllers.ErrorController class ==========");
         e.printStackTrace();
         System.out.println("===============================================================================");
     }

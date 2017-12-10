@@ -1,4 +1,6 @@
-public class Painting extends Artwork{
+package artatawe;
+
+public class Painting extends artatawe.Artwork{
 
 	private double width;
 	private double height;

@@ -1,3 +1,6 @@
+package artatawe;
+
+import controllers.BrowseAuctionsController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -19,9 +22,9 @@ public class UITester extends Application {
             // Load the main scene.
             Parent layoutFXML = FXMLLoader.load(getClass().getResource("/views/_layout.fxml"));
             Parent auctionFXML = FXMLLoader.load(getClass().getResource("/views/auction.fxml"));
-            LayoutDisplayController dc;
+            controllers.LayoutDisplayController dc;
             try{
-                dc = new LayoutDisplayController((Pane) layoutFXML, (Pane) auctionFXML);
+                dc = new controllers.LayoutDisplayController((Pane) layoutFXML, (Pane) auctionFXML);
                 Scene s = dc.getView();
                 primaryStage.setWidth(WINDOW_WIDTH);
                 primaryStage.setHeight(WINDOW_HEIGHT);

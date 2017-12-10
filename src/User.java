@@ -1,3 +1,5 @@
+package artatawe;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
@@ -6,7 +8,7 @@ import java.util.ArrayList;
  * login date.
  * @author	Marceli Wac
  */
-class User{
+public class User{
 	/**
 	 * user's id
 	 */
@@ -35,7 +37,7 @@ class User{
     /**
      * user's postal address
      */
-	private Address address;
+	private artatawe.Address address;
 
     /**
      * timestamp of user's last log-in
@@ -69,7 +71,7 @@ class User{
 				String lastName,
 				String userName,
 				String mobileNo,
-				Address address,
+				artatawe.Address address,
 				Timestamp lastLoggedIn,
 				String profilePicture){
 		//TODO: Find a way to get a next unique id for the user
@@ -83,7 +85,7 @@ class User{
 		this.profilePicture = profilePicture;
 	}
 
-	public User(String firstName, String lastName, String userName, String mobileNo, Address address) {
+	public User(String firstName, String lastName, String userName, String mobileNo, artatawe.Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -91,7 +93,7 @@ class User{
 		this.address = address;
 	}
 
-	public User(String firstName, String lastName, String userName, String mobileNo, Address address, String profilePicture) {
+	public User(String firstName, String lastName, String userName, String mobileNo, artatawe.Address address, String profilePicture) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
@@ -120,7 +122,7 @@ class User{
 		return this.mobileNo;
 	}
 
-	public Address getAddress(){
+	public artatawe.Address getAddress(){
 		return this.address;
 	}
 
@@ -136,7 +138,7 @@ class User{
 		this.mobileNo = newMobileNo;
 	}
 
-	public void setAddress(Address newAddress){
+	public void setAddress(artatawe.Address newAddress){
 		this.address = newAddress;
 	}
 

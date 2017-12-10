@@ -5,6 +5,8 @@
 * @since   27-10-17
 */
 
+package artatawe;
+
 public abstract class Artwork {
 	protected int artworkId;
 	protected String title;

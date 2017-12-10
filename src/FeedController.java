@@ -1,3 +1,5 @@
+package artatawe;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -10,28 +12,28 @@ private Timestamp lastLogin;
 		this.lastLogin = lastLogin;
 	}
 
-	public Auction[] getAllAuctions(boolean paintings, boolean sculptures){
-		Auction[] auctions = new Auction[0];
+	public artatawe.Auction[] getAllAuctions(boolean paintings, boolean sculptures){
+		artatawe.Auction[] auctions = new artatawe.Auction[0];
 		return auctions;
 	}
 
-	public Auction[] getNewAuctions(boolean paintings, boolean sculptures){
-		Auction[] auctions = new Auction[0];
+	public artatawe.Auction[] getNewAuctions(boolean paintings, boolean sculptures){
+		artatawe.Auction[] auctions = new artatawe.Auction[0];
 		return auctions;
 	}
 
-	public Auction[] getNewAuctionsUserParticipatesIn(boolean paintings, boolean sculptures){
-		Auction[] auctions = new Auction[0];
+	public artatawe.Auction[] getNewAuctionsUserParticipatesIn(boolean paintings, boolean sculptures){
+		artatawe.Auction[] auctions = new artatawe.Auction[0];
 		return auctions;
 	}
 
-	public Auction[] getMyAuctions(boolean paintings, boolean sculptures){
-		Auction[] auctions = new Auction[0];
+	public artatawe.Auction[] getMyAuctions(boolean paintings, boolean sculptures){
+		artatawe.Auction[] auctions = new artatawe.Auction[0];
 		return auctions;
 	}
 
-	public Auction[] getAuctionsByQuery(boolean paintings, boolean sculptures, String query){
-		Auction[] auctions = new Auction[0];
+	public artatawe.Auction[] getAuctionsByQuery(boolean paintings, boolean sculptures, String query){
+		artatawe.Auction[] auctions = new artatawe.Auction[0];
 		return auctions;
 	}
 }

@@ -3,6 +3,9 @@
  *
  *  @author Shu Yu
  * */
+
+package artatawe;
+
 public class Address{
 
     /**
