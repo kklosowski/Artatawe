@@ -1,3 +1,5 @@
+package controllers;
+
 public class AuctionController extends ViewController{
 
     private final String LAYOUT_FXML_URL  = "/views/_layout.fxml";

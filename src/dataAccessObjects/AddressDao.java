@@ -1,3 +1,5 @@
+package dataAccessObjects;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -10,7 +12,7 @@ public class AddressDao {
     /**
      * Get the connection form the class - SQLiteSingleton.
      */
-    private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
+    private final artatawe.SQLiteSingleton connection = artatawe.SQLiteSingleton.getConnection();
 
     /**
      * Address table name in database.
@@ -24,12 +26,12 @@ public class AddressDao {
      * @return Return user's address if the address is found if not return null.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public Address getAddress(int userId) throws SQLException {
+    public artatawe.Address getAddress(int userId) throws SQLException {
         String searchAddressQuery = String.format("SELECT * FROM %s WHERE user_id = %d", ADDRESS_TABLE_NAME, userId);
         ResultSet rs = connection.query(searchAddressQuery);
 
         if (rs.next()) {
-            return DBUtils.constructAddressFromRS(rs);
+            return artatawe.DBUtils.constructAddressFromRS(rs);
         }
         return null;
     }
@@ -42,7 +44,7 @@ public class AddressDao {
      * @return If update successfully it will return any integer that is not 0, if unable to update it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int updateAddress(Address address, int user_id) throws SQLException {
+    public int updateAddress(artatawe.Address address, int user_id) throws SQLException {
         String updateQuery = String.format("UPDATE %s " +
                         "SET address_line1 = '%s', " +
                         "address_line2 = '%s', " +
@@ -83,7 +85,7 @@ public class AddressDao {
      * @return If insert successfully it will return any integer except 0, if unable to update it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int insertAddress(Address address, int userId) throws SQLException {
+    public int insertAddress(artatawe.Address address, int userId) throws SQLException {
         String insertQeury = String.format("INSERT INTO %s " +
                         "(address_line1,address_line2,address_line3,city,postcode,country,user_id) " +
                         "VALUES ('%s','%s','%s','%s','%s','%s',%d)",

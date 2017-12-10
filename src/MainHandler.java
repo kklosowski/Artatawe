@@ -1,7 +1,9 @@
+package artatawe;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
-
 import java.util.HashMap;
+import controllers.*;
 
 public class MainHandler extends Application{
     private final double WINDOW_WIDTH = 800;

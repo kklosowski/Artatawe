@@ -1,4 +1,5 @@
-import java.awt.Color;
+package artatawe;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 

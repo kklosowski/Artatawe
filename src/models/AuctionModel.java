@@ -1,3 +1,7 @@
+package models;
+
+import dataAccessObjects.AuctionDao;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -8,7 +12,7 @@ public class AuctionModel {
         ad = new AuctionDao();
     }
 
-    public List<Auction> getAllAuctions() throws SQLException{
+    public List<artatawe.Auction> getAllAuctions() throws SQLException{
         try{
             return ad.getAllAuctions();
         }catch(SQLException e){
