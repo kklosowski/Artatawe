@@ -8,22 +8,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Kamil Klosowski, Michael Lam, Goh Shu Yu
+ * @author  Goh Shu Yu,Michael Lam
  * @since 4/12/2017
  */
 public class ArtworkDao {
     /**
-     * Get the connection form the class - sqlitegingleton.
+     * Get the connection form the class - SQLiteSingleton.
      */
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
     /**
-     * Artwork table name in database.
+     * Name of artwork table in database.
      */
     private final String ARTWORK_TABLE = "artwork";
+    /**
+     * Name of painting table in database.
+     */
     private final String SCULPTURE = "sculpture";
+    /**
+     * Name of painting table in database.
+     */
     private final String PAINTING = "painting";
 
 
+    /**
+     * Retrieve an artwork from database by given artwork's id.
+     * @param artwork_id The artwork's id that want to search.
+     * @return Return an artwork by given artwork id, return null if it doesn't exist in database.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public Artwork getArtwork(int artwork_id) throws SQLException {
         String searchArtworkQuery = String.format("SELECT * FROM %s WHERE artwork_id = %d",
                 ARTWORK_TABLE, artwork_id);
@@ -34,6 +46,11 @@ public class ArtworkDao {
         return null;
     }
 
+    /**
+     * Retrieve all artworks from database.
+     * @return Return list of artworks.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public List<Artwork> getAllArtwork() throws SQLException {
         List<Artwork> artworks = new ArrayList<>();
         String getQuery = String.format("SELECT * FROM %s", ARTWORK_TABLE);
@@ -43,7 +60,7 @@ public class ArtworkDao {
         }
         return artworks;
     }
-
+// A method to search and return an artwork from database regarding to different type of artwork (sculpture / painting)
     private Artwork searchArtworkByType(ResultSet rs) throws SQLException {
         if (rs.getString("artwork_type").equals(SCULPTURE)) {
             String searchSculpture = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", SCULPTURE, rs.getInt("artwork_id"));
@@ -61,6 +78,12 @@ public class ArtworkDao {
         return null;
     }
 
+    /**
+     * Update the artwork information into database.
+     * @param artwork The artwork that wanted to update into database.
+     * @return Return any integer except 0 if update successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public int updateArtwork(Artwork artwork) throws SQLException {
         System.out.println("trying ");
         String updateArtworkQuery = String.format("UPDATE %s SET title = '%s', description = '%s'," +
@@ -87,6 +110,12 @@ public class ArtworkDao {
         return 0;
     }
 
+    /**
+     * Delete an artwork from database.
+     * @param artwork The artwork that wanted to remove from database.
+     * @return Return any integer except 0 if delete successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public int deleteArtwork(Artwork artwork) throws SQLException {
         int result = 0;
         if (artwork instanceof Sculpture) {
@@ -103,8 +132,13 @@ public class ArtworkDao {
         }
         return 0;
     }
-
-    int insertArtwork(Artwork artwork) throws SQLException {
+    /**
+     * Insert an artwork into database.
+     * @param artwork The artwork that wanted to insert into database.
+     * @return Return any integer except 0 if insert successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
+    public int insertArtwork(Artwork artwork) throws SQLException {
         List<Artwork> artworks = getAllArtwork();
         int lastId = 0;
         if (artworks.size() > 0) {

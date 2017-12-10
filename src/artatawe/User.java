@@ -53,7 +53,7 @@ public class User {
     /**
      * user's list of all favourite users
      */
-    private ArrayList<User> favouriteUsers;
+    private ArrayList<Integer> favouriteUsers;
 
     /**
      * Class constructor specifying all of user information except
@@ -75,7 +75,6 @@ public class User {
                 Address address,
                 Timestamp lastLoggedIn,
                 String profilePicture) {
-        //TODO: Find a way to get a next unique id for the user
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -102,64 +101,113 @@ public class User {
         this.address = address;
         this.profilePicture = profilePicture;
     }
-
+    /**
+     * Gets the ID of the user .
+     * @return Return user's id.
+     */
     public int getUserId() {
         return this.userId;
     }
-
+    /**
+     * Gets the first name of the user .
+     * @return Return user's first name.
+     */
     public String getFirstName() {
         return this.firstName;
     }
-
+    /**
+     * Gets the last name of the user.
+     * @return Return user's last name.
+     */
     public String getLastName() {
         return this.lastName;
     }
-
+    /**
+     * Gets the user name of the user .
+     * @return Return user's username.
+     */
     public String getUserName() {
         return this.userName;
     }
-
+    /**
+     * Gets the mobile number of the user .
+     * @return Return user's mobile number.
+     */
     public String getMobileNo() {
         return this.mobileNo;
     }
-
+    /**
+     * Gets the address of the user.
+     * @return Return an address object that stored user's address detail.
+     */
     public Address getAddress() {
         return this.address;
     }
-
+    /** Gets the timpstamp of the last successful login
+     * @return Return user's last logged in timestamp
+    */
     public Timestamp getLastLoggedIn() {
         return this.lastLoggedIn;
     }
-
+    /**
+     *  Gets the name of the profile picture
+     *  @return Return user's profile picture url.
+     */
     public String getProfilePicture() {
         return this.profilePicture;
     }
-
+    /**
+    * Sets the mobile number of the user
+    * @param newMobileNo New mobile number of the user.
+    */
     public void setMobileNo(String newMobileNo) {
         this.mobileNo = newMobileNo;
     }
-
+    /**
+    * Sets the address of the user
+    * @param newAddress A new address that stored user's address detail.
+    */    
     public void setAddress(Address newAddress) {
         this.address = newAddress;
     }
-
+    /**
+    * Sets the last logged in timestamp of the user
+    * @param newLastLoggedIn Timestamp of the last login
+    */
     public void setLastLoggedIn(Timestamp newLastLoggedIn) {
         this.lastLoggedIn = newLastLoggedIn;
     }
-
+    /**
+    * Sets the name of the profile picture of the user
+    * @param newProfilePicture URL of the profile picture
+    */
     public void setProfilePicture(String newProfilePicture) {
         this.profilePicture = newProfilePicture;
     }
-
-    public void addFavourite(User nextFav) {
+    /**
+    * Add an user to the favourite list
+    * @param nextFav A favourite user object
+    */
+    public void addFavourite(int nextFav) {
         this.favouriteUsers.add(nextFav);
     }
-
-    public void removeFavourite(int UserId) {
-
+    /**
+    * Remove an user from the favourite list
+    * @param favId UserID of the user to be removed
+    */
+    public void removeFavourite(int favId) {
+        for (int i = 0; i<favouriteUsers.size();i++){
+            if (favouriteUsers.get(i)==favId){
+                favouriteUsers.remove(i);
+                return;
+            }
+        }
     }
-
-    public ArrayList<User> getFavouriteUsers() {
+    /**
+    * Gets the list of favourite users of this user
+    * @return ArrayList of favourite users
+    */
+    public ArrayList<Integer> getFavouriteUsers() {
         return this.favouriteUsers;
     }
 }
