@@ -56,11 +56,6 @@ public class UITester extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        BrowseAuctionsController browseAuctionsController = new BrowseAuctionsController((Pane) layoutFXML, (Pane) browsingAuctionsFXML);
-        Scene s = browseAuctionsController.getAllAuctions();
-        primaryStage.setScene(s);
-        primaryStage.show();
     }
 
     public static void main(String args[]) {
