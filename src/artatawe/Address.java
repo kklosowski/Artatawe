@@ -1,12 +1,12 @@
 /**
  * Address is a class to store full address in detail.
  *
- *  @author Shu Yu
- * */
+ * @author Shu Yu
+ */
 
 package artatawe;
 
-public class Address{
+public class Address {
 
     /**
      * First address line
@@ -42,7 +42,7 @@ public class Address{
      *  @param country  country of the address
      *  @param postcode postcode of the address
      * */
-    public Address(String address1, String address2, String address3, String city, String postcode, String country){
+    public Address(String address1, String address2, String address3, String city, String postcode, String country) {
         this.address1 = address1;
         this.address2 = address2;
         this.address3 = address3;
@@ -74,6 +74,7 @@ public class Address{
     public String getAddress2() {
         return address2;
     }
+
     /**
      * Method to update value of address2.
      * @param address2 New value for address2.
@@ -113,6 +114,7 @@ public class Address{
     public void setCity(String city) {
         this.city = city;
     }
+
     /**
      * Get postcode.
      * @return Return postcode.
@@ -149,7 +151,7 @@ public class Address{
      * Get full address.
      * @return Return full address in string type.
      * */
-    public String toString(){
-        return address1+" "+address2+" "+address3+ " "+postcode+ " "+city + " " + country;
+    public String toString() {
+        return address1 + " " + address2 + " " + address3 + " " + postcode + " " + city + " " + country;
     }
 }

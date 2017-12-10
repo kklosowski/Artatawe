@@ -4,14 +4,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
- *
  * @author shuyu6
  */
 public class Canvas {
     private ArrayList<Object> shapesList;
     public BufferedImage drawingImage;
 
-	public BufferedImage getDrawingImage() {
+    public BufferedImage getDrawingImage() {
         return drawingImage;
     }
 
@@ -19,15 +18,15 @@ public class Canvas {
         this.drawingImage = drawingImage;
     }
 
-    public void undoLastShape(){
-        shapesList.remove(shapesList.size()-1);
+    public void undoLastShape() {
+        shapesList.remove(shapesList.size() - 1);
     }
 
-    public void cleanCanvas(){
+    public void cleanCanvas() {
         shapesList.clear();
     }
 
-    public BufferedImage convertDrawingToImage(){
+    public BufferedImage convertDrawingToImage() {
         return null;
     }
 

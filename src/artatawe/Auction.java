@@ -17,15 +17,15 @@ public class Auction {
     /**
      * Bid history
      */
-    private List<artatawe.Bid> bids = new ArrayList<>();
+    private List<Bid> bids = new ArrayList<>();
     /**
      * The artwork being placed on auction
      */
-    private artatawe.Artwork artwork;
+    private Artwork artwork;
     /**
      * The user who created the auction
      */
-    private artatawe.User creator;
+    private User creator;
     /**
      * Current price of an item
      */
@@ -43,7 +43,7 @@ public class Auction {
      */
     private int maxBids;
 
-    public Auction(artatawe.User creator, double currentPrice, double reservePrice, int maxBids, artatawe.Artwork artwork) {
+    public Auction(User creator, double currentPrice, double reservePrice, int maxBids, Artwork artwork) {
         this.artwork = artwork;
         this.creator = creator;
         this.currentPrice = currentPrice;
@@ -52,7 +52,7 @@ public class Auction {
         this.dateAdded = new Timestamp(System.currentTimeMillis());
     }
 
-    public Auction(int actionId, artatawe.User creator, double currentPrice, double reservePrice, int maxBids, artatawe.Artwork artwork) {
+    public Auction(int actionId, User creator, double currentPrice, double reservePrice, int maxBids, Artwork artwork) {
         this(creator, currentPrice, reservePrice, maxBids, artwork);
         this.auctionId = actionId;
     }
@@ -62,7 +62,7 @@ public class Auction {
      *
      * @return 0 if the bid is placed successfully, 1 or 2 otherwise (see below)
      */
-    public int placeBid(artatawe.User user, double amount) {
+    public int placeBid(User user, double amount) {
         //Check if the bid is above reserve price and the current highest bidder
         if (amount < reservePrice || amount <= currentPrice) {
             return 1; //Placed bid below reserve price or highest bidder
@@ -77,7 +77,7 @@ public class Auction {
         }
         //Add a new Bid entry if all both checks are postive
         else {
-            bids.add(new artatawe.Bid(user.getUserId(), amount));
+            bids.add(new Bid(user.getUserId(), amount));
             currentPrice = amount;
             return 0; //Bid successfully placed
         }
@@ -88,7 +88,7 @@ public class Auction {
      *
      * @param bids amount
      */
-    public void setNewBidList(List<artatawe.Bid> bids) {
+    public void setNewBidList(List<Bid> bids) {
         this.bids = bids;
     }
 
@@ -106,7 +106,7 @@ public class Auction {
      *
      * @return The most recently placed bid
      */
-    public artatawe.Bid getMostRecentBid() {
+    public Bid getMostRecentBid() {
         return bids.get(bids.size() - 1);
     }
 
@@ -115,7 +115,7 @@ public class Auction {
      *
      * @return A Bid object
      */
-    public artatawe.Bid getBidByIndex(int index) {
+    public Bid getBidByIndex(int index) {
         return bids.get(index);
     }
 
@@ -124,7 +124,7 @@ public class Auction {
      *
      * @return A Artwork object
      */
-    public artatawe.Artwork getArtwork() {
+    public Artwork getArtwork() {
         return artwork;
     }
 
@@ -133,7 +133,7 @@ public class Auction {
      *
      * @return A user object
      */
-    public artatawe.User getCreator() {
+    public User getCreator() {
         return creator;
     }
 

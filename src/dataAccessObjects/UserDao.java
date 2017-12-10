@@ -1,5 +1,9 @@
 package dataAccessObjects;
 
+import artatawe.DBUtils;
+import artatawe.SQLiteSingleton;
+import artatawe.User;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,7 +20,7 @@ public class UserDao {
     /**
      * Get the connection from the sqlitesingleton.
      */
-    private final artatawe.SQLiteSingleton connection = artatawe.SQLiteSingleton.getConnection();
+    private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
     /**
      * Table name of user in the database.
      */
@@ -36,12 +40,12 @@ public class UserDao {
      * @return Return all users that exists in database.
      * @throws SQLException throws sql exception.
      */
-    public List<artatawe.User> getAllUsers() throws SQLException {
+    public List<User> getAllUsers() throws SQLException {
         String getAllUsersSQL = "SELECT * FROM " + USER_TABLE;
-        List<artatawe.User> users = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         ResultSet rs = connection.query(getAllUsersSQL);
         while (rs.next()) {
-            users.add(artatawe.DBUtils.constructUserFromRS(rs));
+            users.add(DBUtils.constructUserFromRS(rs));
         }
         return users;
     }
@@ -65,13 +69,13 @@ public class UserDao {
      * @return Return all favourite users in list.
      * @throws SQLException throws sql exception.
      */
-    public List<artatawe.User> getUsersFavourite(int userId) throws SQLException {
+    public List<User> getUsersFavourite(int userId) throws SQLException {
 
         String getFavouriteUsetQuery = String.format("SELECT * FROM %s WHERE user_id = %d ", FAVOURITE_TABLE, userId);
-        List<artatawe.User> users = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         ResultSet rs = connection.query(getFavouriteUsetQuery);
         while (rs.next()) {
-            users.add(getUser(artatawe.DBUtils.constructFavouriteFromRS(rs)));
+            users.add(getUser(DBUtils.constructFavouriteFromRS(rs)));
         }
         return users;
     }
@@ -96,12 +100,12 @@ public class UserDao {
      * @return Return a user from database by given userid.
      * @throws SQLException throws sql exception.
      */
-    public artatawe.User getUser(int userId) throws SQLException {
+    public User getUser(int userId) throws SQLException {
         String searchUser = String.format("SELECT * FROM %s WHERE user_id = %d", USER_TABLE, userId);
 
         ResultSet rs = connection.query(searchUser);
         if (rs.next()) {
-            return artatawe.DBUtils.constructUserFromRS(rs);
+            return DBUtils.constructUserFromRS(rs);
         }
         return null;
     }
@@ -113,12 +117,12 @@ public class UserDao {
      * @return Return a user from database by given userid.
      * @throws SQLException throws sql exception.
      */
-    public artatawe.User getUserByUsername(String userName) throws SQLException {
+    public User getUserByUsername(String userName) throws SQLException {
         String searchUser = String.format("SELECT * FROM %s WHERE username = '%s'", USER_TABLE, userName);
 
         ResultSet rs = connection.query(searchUser);
         if (rs.next()) {
-            return artatawe.DBUtils.constructUserFromRS(rs);
+            return DBUtils.constructUserFromRS(rs);
         }
         return null;
     }
@@ -130,7 +134,7 @@ public class UserDao {
      * @return If update successfully it will return any integer except 0, if unable to update it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int updateUser(artatawe.User user) throws SQLException {
+    public int updateUser(User user) throws SQLException {
         String updateQuery = String.format("UPDATE  %s SET first_name = '%s', last_name ='%s', " +
                         "username = '%s', mobile_number = '%s', avatar_filename = '%s' WHERE user_id= %d", USER_TABLE, user.getFirstName(),
                 user.getLastName(), user.getUserName(), user.getMobileNo(), user.getProfilePicture(), user.getUserId());
@@ -145,8 +149,8 @@ public class UserDao {
      * @return If insert successfully it will return any integer except 0, if unable to insert it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int insertUser(artatawe.User user) throws SQLException {
-        List<artatawe.User> userList = getAllUsers();
+    public int insertUser(User user) throws SQLException {
+        List<User> userList = getAllUsers();
         int lastUserId = userList.size();
         System.out.println("last user id  " + lastUserId);
 
@@ -187,7 +191,7 @@ public class UserDao {
         String searchUserLogin = String.format("SELECT * FROM %s WHERE user_id = %d", LOGIN_LOG_TABLE, userId);
         ResultSet rs = connection.query(searchUserLogin);
         if (rs.next()) {
-            return artatawe.DBUtils.constructLoginLogFromRS(rs);
+            return DBUtils.constructLoginLogFromRS(rs);
         }
         return 0;
     }

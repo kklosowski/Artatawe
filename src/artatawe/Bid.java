@@ -1,14 +1,15 @@
 package artatawe;
 
 /**
-* Contains an entry of a successfully placed bid
-* @author randompasser (Michael)
-* @since 27-10-17 
-*/
+ * Contains an entry of a successfully placed bid
+ *
+ * @author randompasser (Michael)
+ * @since 27-10-17
+ */
 
 import java.sql.Timestamp;
 
-public class Bid{
+public class Bid {
 
     /**
      * The user who placed the bid
@@ -23,7 +24,7 @@ public class Bid{
      */
     private Timestamp timePlaced;
 
-    public Bid(int user, double amount){
+    public Bid(int user, double amount) {
         this.userId = user;
         this.amount = amount;
         this.timePlaced = new Timestamp(System.currentTimeMillis());
@@ -36,24 +37,26 @@ public class Bid{
     }
 
     /**
-    * Gets the user who placed this bid
-    * @return the user who placed this bid
-    */
-    public int getUserId(){
+     * Gets the user who placed this bid
+     * @return the user who placed this bid
+     */
+    public int getUserId() {
         return userId;
     }
+
     /**
-    * Gets the amount of this bid
-    * @return the amount of this bid
-    */
-    public double getAmount(){
+     * Gets the amount of this bid
+     * @return the amount of this bid
+     */
+    public double getAmount() {
         return amount;
     }
+
     /**
-    * Gets the timestamp of this bid
-    * @return the timestamp of this bid
-    */
-    public Timestamp getTimestamp(){
+     * Gets the timestamp of this bid
+     * @return the timestamp of this bid
+     */
+    public Timestamp getTimestamp() {
         return timePlaced;
     }
 }

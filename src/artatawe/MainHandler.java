@@ -1,11 +1,12 @@
 package artatawe;
 
+import controllers.AuctionController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import java.util.HashMap;
-import controllers.*;
 
-public class MainHandler extends Application{
+import java.util.HashMap;
+
+public class MainHandler extends Application {
     private final double WINDOW_WIDTH = 800;
     private final double WINDOW_HEIGHT = 650;
     private final boolean MAXIMISED = false;
@@ -28,8 +29,6 @@ public class MainHandler extends Application{
         primaryStage.show();
 
     }
-
-
 
 
 }

@@ -4,8 +4,9 @@ import java.sql.*;
 
 /**
  * Singleton class for handling the database connection
- * @author  Kamil Klosowski
- * @since   31/10/2017
+ *
+ * @author Kamil Klosowski
+ * @since 31/10/2017
  */
 
 public final class SQLiteSingleton {
@@ -30,7 +31,7 @@ public final class SQLiteSingleton {
     /**
      * Private constructor used by getConnection method
      */
-    private SQLiteSingleton(){
+    private SQLiteSingleton() {
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -43,10 +44,11 @@ public final class SQLiteSingleton {
 
     /**
      * Returns and ensures that there is only one instance of the class
+     *
      * @return Instance of the SingletonClass
      */
-    public static SQLiteSingleton getConnection(){
-        if (db == null){
+    public static SQLiteSingleton getConnection() {
+        if (db == null) {
             db = new SQLiteSingleton();
         }
         return db;
@@ -55,6 +57,7 @@ public final class SQLiteSingleton {
 
     /**
      * Method responsible for executing queries and returning the result of execution
+     *
      * @param query Query to be executed
      * @return Result of the operation
      * @throws SQLException
@@ -66,17 +69,19 @@ public final class SQLiteSingleton {
 
     /**
      * Method responsible for executing queries and returning selected data
+     *
      * @param query Select query to be executed
      * @return ResultSet containing selected data
      * @throws SQLException
      */
     public ResultSet query(String query) throws SQLException {
-            statement = conn.createStatement();
+        statement = conn.createStatement();
         return statement.executeQuery(query);
     }
 
     /**
      * Closes the database connection
+     *
      * @throws SQLException
      */
     public void closeConnection() throws SQLException {
