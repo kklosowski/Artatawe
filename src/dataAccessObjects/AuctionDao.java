@@ -14,8 +14,16 @@ import java.util.List;
  * @since 1/12/2017
  */
 public class AuctionDao {
+    /**
+     * Get the connection form the class - SQLiteSingleton.
+     */
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
 
+    /**
+     * Retrieve all of the auction from database..
+     * @return Return a list of auction from database.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
     public List<Auction> getAllAuctions() throws SQLException {
         List<Auction> auctions = new ArrayList<>();
         ResultSet auctionResultSet = connection.query(String.format("SELECT * FROM Auction"));
@@ -27,6 +35,12 @@ public class AuctionDao {
 
         return auctions;
     }
+    /**
+     * Get an auction from database by auction id.
+     * @param auctionId The id of an auction that wanted to search.
+     * @return Return an searched auction.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
 
     public Auction getAuction(int auctionId) throws SQLException {
         ResultSet auctionResultSet = connection.query(
@@ -39,22 +53,32 @@ public class AuctionDao {
 
         return auction;
     }
-
-    public void updateAuction(Auction auction, int auctionId) throws SQLException {
-        connection.query(String.format("UPDATE Auction " +
+    /**
+     * Update an auction information into database.
+     * @param auction The auction that wanted to update into database.
+     * @return Return any integer except 0 if update successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
+    public int updateAuction(Auction auction, int auctionId) throws SQLException {
+        return connection.insert(String.format("UPDATE Auction " +
                         "SET artwork_id = %s, user_id = %s, current_price = %s, reserve_price = %s, date_added = %s, max_bids = %s " +
                         "WHERE auction_id = %s",
                 auction.getArtwork().getArtworkId(),
-                1,
+                auction.getCreator().getUserId(),
                 auction.getCurrentPrice(),
                 auction.getReservePrice(),
                 auction.getDateAdded(),
                 auction.getMaxBids(),
                 auction.getAuctionId()));
     }
-
-    public void insertAuction(Auction auction) throws SQLException {
-        connection.insert(String.format("INSERT INTO Auction (%s, %s, %s, %s, %s, %s, %s)",
+    /**
+     * Insert an auction into database.
+     * @param auction The auction that wanted to insert into database.
+     * @return Return any integer except 0 if insert successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
+    public int insertAuction(Auction auction) throws SQLException {
+        return connection.insert(String.format("INSERT INTO Auction (%s, %s, %s, %s, %s, %s, %s)",
                 auction.getAuctionId(),
                 auction.getArtwork().getArtworkId(),
                 auction.getCreator().getUserId(),
@@ -63,9 +87,14 @@ public class AuctionDao {
                 auction.getDateAdded(),
                 auction.getMaxBids()));
     }
-
-    public void deleteAuction(Auction auction) throws SQLException {
-        connection.query(String.format("DELETE FROM Auction WHERE auction_id = %1%s",
+    /**
+     * Delete an auction from database.
+     * @param auction The auction that wanted to delete from database.
+     * @return Return any integer except 0 if delete successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
+    public int deleteAuction(Auction auction) throws SQLException {
+        return connection.insert(String.format("DELETE FROM Auction WHERE auction_id = %s",
                 auction.getAuctionId()));
 
     }

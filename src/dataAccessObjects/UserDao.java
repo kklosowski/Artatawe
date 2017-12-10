@@ -128,7 +128,7 @@ public class UserDao {
     }
 
     /**
-     * Update user's inform in the database.
+     * Update user's inform into the database.
      *
      * @param user The new user detail that required to update the database.
      * @return If update successfully it will return any integer except 0, if unable to update it will return 0.
