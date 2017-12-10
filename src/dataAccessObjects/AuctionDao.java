@@ -77,15 +77,15 @@ public class AuctionDao {
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int insertAuction(Auction auction) throws SQLException {
-        return connection.insert(String.format("INSERT INTO Auction (%s, %s, %s, %s, %s, %s, %s)",
-                auction.getAuctionId(),
+    public void insertAuction(Auction auction) throws SQLException{
+        System.out.println("time "+ auction.getDateAdded());
+        connection.insert(String.format("INSERT INTO Auction (artwork_id,bids_total,reserved_price,timestamp,user_id)" +
+                        " VALUES(%d, %d, %.2f, %d, %d)",
                 auction.getArtwork().getArtworkId(),
-                auction.getCreator().getUserId(),
-                auction.getCurrentPrice(),
+                auction.getMaxBids(),
                 auction.getReservePrice(),
-                auction.getDateAdded(),
-                auction.getMaxBids()));
+                auction.getDateAdded().getTime(),
+                auction.getCreator().getUserId()));
     }
     /**
      * Delete an auction from database.
