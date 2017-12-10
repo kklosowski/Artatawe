@@ -1,8 +1,10 @@
 package artatawe;
 
 import controllers.AuctionController;
+import controllers.LoginController;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import models.SessionData;
 
 import java.util.HashMap;
 
@@ -21,10 +23,10 @@ public class MainHandler extends Application {
         primaryStage.setFullScreen(FULLSCREEN);
         primaryStage.setResizable(RESIZABLE);
         primaryStage.setTitle("Artatawe bidding");
-        HashMap<String, Object> sessionData = new HashMap<String, Object>();
+        SessionData sd = new SessionData();
 
-        AuctionController a = new AuctionController();
-        primaryStage.setScene(a.getView());
+        LoginController l = new LoginController(sd);
+        primaryStage.setScene(l.getView());
 
         primaryStage.show();
 

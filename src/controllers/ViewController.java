@@ -1,8 +1,10 @@
 package controllers;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import models.DataModel;
 
 import java.io.IOException;
@@ -14,11 +16,13 @@ public abstract class ViewController {
     private Pane layout;
     private DataModel model;
 
+    @FXML
     public void loadViewController(String contentFxmlUrl) {
         this.errorView = null;
         this.loadContent(contentFxmlUrl);
     }
 
+    @FXML
     public void loadViewController(String contentFxmlUrl, String layoutFxmlUrl) {
         this.errorView = null;
         this.loadContent(contentFxmlUrl);
@@ -62,6 +66,14 @@ public abstract class ViewController {
 
     protected void setModel(DataModel newModel) {
         this.model = newModel;
+    }
+
+    protected Stage getCurrentStage(){
+        if(this.view != null){
+            return (Stage) this.view.getWindow();
+        }else{
+            return null;
+        }
     }
 
     private void buildView() {
