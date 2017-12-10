@@ -102,63 +102,84 @@ public class User {
         this.address = address;
         this.profilePicture = profilePicture;
     }
-
+    /* Gets the ID of the user */
     public int getUserId() {
         return this.userId;
     }
-
+    /* Gets the first name of the user */
     public String getFirstName() {
         return this.firstName;
     }
-
+    /* Gets the last name of the user */
     public String getLastName() {
         return this.lastName;
     }
-
+    /* Gets the user name of the user */
     public String getUserName() {
         return this.userName;
     }
-
+    /* Gets the mobile number of the user */
     public String getMobileNo() {
         return this.mobileNo;
     }
-
+    /* Gets the address of the user */
     public Address getAddress() {
         return this.address;
     }
-
+    /* Gets the timpstamp of the last successful login */
     public Timestamp getLastLoggedIn() {
         return this.lastLoggedIn;
     }
-
+    /* Gets the name of the profile picture */
     public String getProfilePicture() {
         return this.profilePicture;
     }
-
+    /**
+    * Sets the mobile number of the user
+    * @param newMobileNo Mobile number
+    */
     public void setMobileNo(String newMobileNo) {
         this.mobileNo = newMobileNo;
     }
-
+    /**
+    * Sets the address of the user
+    * @param newAddress Address
+    */    
     public void setAddress(Address newAddress) {
         this.address = newAddress;
     }
-
+    /**
+    * Sets the last logged in timpstamp of the user
+    * @param newLastLoggedIn timestamp of the last login
+    */
     public void setLastLoggedIn(Timestamp newLastLoggedIn) {
         this.lastLoggedIn = newLastLoggedIn;
     }
-
+    /**
+    * Sets the name of the profile picture of the user
+    * @param newProfilePicture Name of the profile picture
+    */
     public void setProfilePicture(String newProfilePicture) {
         this.profilePicture = newProfilePicture;
     }
-
+    /**
+    * Add an user to the favourite list
+    * @param nextFav an User object
+    */
     public void addFavourite(User nextFav) {
         this.favouriteUsers.add(nextFav);
     }
-
+    /**
+    * Remove an user from the favourite list
+    * @param UserId UserID of the user to be removed
+    */
     public void removeFavourite(int UserId) {
-
+        //TODO: Implement this method
     }
-
+    /**
+    * Gets the list of favourite users of this user
+    * @return ArrayList of favourite users
+    */
     public ArrayList<User> getFavouriteUsers() {
         return this.favouriteUsers;
     }
