@@ -1,8 +1,12 @@
 package controllers;
 
+import artatawe.User;
+import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
+import java.sql.SQLException;
 
 public class LoginController extends ViewController {
 
@@ -17,6 +21,8 @@ public class LoginController extends ViewController {
     @FXML
     private Button register;
 
+    private User user;
+
     public LoginController() {
         loadViewController(CONTENT_FXML_URL);
     }
@@ -25,9 +31,10 @@ public class LoginController extends ViewController {
 
     }
 
-    private boolean validateUser(String username){
-
-        return true;
+    private boolean validateUser(String username) throws SQLException {
+        UserDao userDao = new UserDao();
+        user = userDao.getUserByUsername(username);
+        return user != null;
     }
 
 }
