@@ -189,11 +189,27 @@ public class ArtworkDao {
         }
         return sculpturePic;
     }
+
+    /**
+     * Insert an additional picture of a sculpture into database.
+     * @param sculptureId The sculpture that wanted to insert new picture into database.
+     * @param image_url The sculpture's image url.
+     * @return Return any integer except 0 if insert successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public int insertSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
         String insertQuery = String.format("INSERT INTO %s (artwork_spec_id,picture_url) VALUES (%d,'%s')",
                 SCULPTURE_PIC,sculptureId,image_url);
         return connection.insert(insertQuery);
     }
+
+    /**
+     * Delete an additional picture of a sculpture from database.
+     * @param sculptureId The sculpture that wanted to delete picture from database.
+     * @param image_url The sculpture's image url that wanted to delete from database.
+     * @return Return any integer except 0 if delete successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public int deleteSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
         String insertQuery = String.format("DELETE FROM %s WHERE artwork_spec_id = %d and picture_url = '%s'",
                 SCULPTURE_PIC,sculptureId,image_url);
