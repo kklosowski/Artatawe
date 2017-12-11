@@ -1,13 +1,6 @@
 package controllers;
 
-public class BrowseAuctionsController extends ViewController {
-
-    private final String CONTENT_FXML_URL = "/views/browse_auctions.fxml";
-    private final String LAYOUT_FXML_URL = "/views/_layout.fxml";
-
-    public BrowseAuctionsController() {
-        loadViewController(CONTENT_FXML_URL, LAYOUT_FXML_URL);
-    }
+public class BrowseAuctionsController {
 
     /*
     public Scene getAllAuctions(){

@@ -1,10 +1,7 @@
 package controllers;
 
-public class AddAuctionController extends ViewController {
+public class AddAuctionController{
 
-    private final String CONTENT_FXML_ULR = "/views/add_auction.fxml";
 
-    public AddAuctionController() {
-        loadViewController(CONTENT_FXML_ULR);
-    }
+
 }

@@ -34,12 +34,12 @@
                                 <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                             </VBox.margin>
                         </Text>
-                        <TextField id="username" fx:id="username" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Username">
+                        <TextField id="username" fx:id="usernameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" promptText="Username">
                             <VBox.margin>
                                 <Insets left="25.0" right="25.0" />
                             </VBox.margin>
                         </TextField>
-                        <Button id="login" fx:id="login" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onAction="#verifyUser" prefWidth="250.0" text="Log in">
+                        <Button id="login" fx:id="loginButton" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onAction="#verifyUser" prefWidth="250.0" text="Log in">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                             </VBox.margin>
@@ -49,7 +49,7 @@
                                 <Insets bottom="10.0" top="10.0" />
                             </VBox.margin>
                         </Separator>
-                        <Button id="register" fx:id="register" maxWidth="180.0" minWidth="180.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" text="... or Register">
+                        <Button id="register" fx:id="registerButton" maxWidth="180.0" minWidth="180.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="180.0" text="... or Register">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
