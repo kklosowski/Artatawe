@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Database access object for the Artwork class
+ * Database access object for the User class
  * @author Goh Shu Yu
  * @since 2/12/2017
  */
