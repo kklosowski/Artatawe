@@ -1,6 +1,7 @@
 package controllers;
 
 import artatawe.Auction;
+import artatawe.User;
 import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -37,18 +38,20 @@ public class BrowseAuctionsController {
 
     @FXML
     private void paintingsFilter(){
-        this.type = "paintings";
+        this.type = "painting";
         this.paintingsFilterButton.setStyle(activeStyle);
         this.sculpturesFilterButton.setStyle(inactiveStyle);
         this.allFilterButton.setStyle(inactiveStyle);
+        getAuctions();
     }
 
     @FXML
     private void sculpturesFilter(){
-        this.type = "sculptures";
+        this.type = "sculpture";
         this.paintingsFilterButton.setStyle(inactiveStyle);
         this.sculpturesFilterButton.setStyle(activeStyle);
         this.allFilterButton.setStyle(inactiveStyle);
+        getAuctions();
 
     }
 
@@ -58,12 +61,15 @@ public class BrowseAuctionsController {
         this.paintingsFilterButton.setStyle(inactiveStyle);
         this.sculpturesFilterButton.setStyle(inactiveStyle);
         this.allFilterButton.setStyle(activeStyle);
+        getAuctions();
     }
 
     @FXML
     private void onlyMine(){
         getAuctions();
     }
+
+
 
     @FXML
     private void getAuctions(){
@@ -72,7 +78,9 @@ public class BrowseAuctionsController {
         AuctionDao ad = new AuctionDao();
 
         try {
-            List<Auction> fetchedAuctions = ad.getAllAuctions();
+            User currentUser = (User) SessionStorage.sessionData.get("loggedUser");
+
+            List<Auction> fetchedAuctions = ad.getAllAuctions(this.type, onlyMine, ((currentUser.getUserId())));
             for (Auction auction:fetchedAuctions){
                 Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
                 p.applyCss();
@@ -84,6 +92,7 @@ public class BrowseAuctionsController {
                 ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#type")).setText(auction.getArtwork().getType());
                 ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#bidsLeft")).setText(String.valueOf(Math.abs(auction.bidsLeft())));
                 ((Text) p.lookup("#vbox").lookup("#gPane").lookup("#description")).setText(auction.getArtwork().getDescription());
+                ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#currentAuctionId")).setText(String.valueOf(auction.getAuctionId()));
                 auctions.getChildren().add(p);
                 System.out.println("Added!");
             }

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionPaneController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loadAuction" prefHeight="200.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionPaneController">
     <children>
         <VBox id="vbox" fx:id="vbox" maxHeight="150.0" maxWidth="-Infinity" minHeight="150.0" minWidth="-Infinity" prefHeight="150.0" prefWidth="540.0">
             <children>
@@ -48,6 +48,11 @@
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
+                        </Text>
+                        <Text id="currentAuctionId" fx:id="currentAuctionId" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="0.0">
+                            <font>
+                                <Font size="0.0" />
+                            </font>
                         </Text>
                         <Text id="bidsLeft" fx:id="bidsLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="RIGHT" wrappingWidth="290.0">
                             <font>

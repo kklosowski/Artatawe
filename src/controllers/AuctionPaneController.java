@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class AuctionPaneController{
 
@@ -31,6 +32,9 @@ public class AuctionPaneController{
     private ImageView thumbnail;
 
     @FXML
+    private Text currentAuctionId;
+
+    @FXML
     public void initialize(){
     }
 
@@ -52,6 +56,15 @@ public class AuctionPaneController{
 
     public void setBidsLeft(String s){
         this.bidsLeft.setText(s);
+    }
+
+    @FXML
+    public void loadAuction(){
+        ViewLoader l = new ViewLoader();
+        l.loadViewController(ViewLoader.AUCTION_URL, ViewLoader.LAYOUT_URL);
+        Stage s = (Stage) this.title.getScene().getWindow();
+        SessionStorage.sessionData.put("currentAuctionId", this.currentAuctionId.getText());
+        s.setScene(l.getView());
     }
 
 }

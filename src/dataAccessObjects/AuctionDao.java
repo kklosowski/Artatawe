@@ -26,8 +26,15 @@ public class AuctionDao {
      * @return Return a list of auctions from the database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public List<Auction> getAllAuctions() throws SQLException {
+    public List<Auction> getAllAuctions(String type, boolean byUser, int userId) throws SQLException {
         List<Auction> auctions = new ArrayList<>();
+        String query = "SELECT * FROM Auction INNER JOIN Artwork ON Auction.artwork_id = Artwork.artwork_id";
+        if(type != "all"){
+            query += " WHERE artwork.type = '" + type + "'";
+        }
+        if(byUser){
+            query += " AND auction.user_id = " + userId + ";";
+        }
         ResultSet auctionResultSet = connection.query(String.format("SELECT * FROM Auction"));
 
         while (auctionResultSet.next()) {
