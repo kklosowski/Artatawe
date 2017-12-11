@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -27,6 +28,9 @@ public class BrowseAuctionsController {
 
     @FXML
     private CheckBox onlyMineCheckbox;
+
+    @FXML
+    private VBox auctions;
 
     @FXML
     private void paintingsFilter(){
@@ -55,19 +59,22 @@ public class BrowseAuctionsController {
 
     @FXML
     private void onlyMine(){
-
+        getAuctions();
     }
 
+    @FXML
     private void getAuctions(){
         boolean onlyMine = this.onlyMineCheckbox.isSelected();
         ViewLoader l = new ViewLoader();
         AuctionDao ad = new AuctionDao();
 
         try {
-            List<Auction> auctions = ad.getAllAuctions();
-            for (Auction auction:auctions){
-                l.loadViewController(ViewLoader.AUCTION_PANE_URL);
-                Pane p = l.getContent();
+            List<Auction> fetchedAuctions = ad.getAllAuctions();
+            for (Auction auction:fetchedAuctions){
+                Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
+                p.setUserData(auction);
+                auctions.getChildren().add(p);
+                System.out.println("Added!");
             }
         }catch(SQLException e){
             e.printStackTrace();

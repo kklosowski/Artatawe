@@ -60,6 +60,15 @@ public  class ViewLoader {
         }
     }
 
+    public Pane loadPane(String FxmlUrl){
+        try {
+            return FXMLLoader.load(getClass().getResource(FxmlUrl));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private void buildView() {
         if (this.content == null) {
             throw new IllegalStateException("The content of the current view is not set");
