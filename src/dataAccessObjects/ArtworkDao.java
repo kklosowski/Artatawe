@@ -28,6 +28,10 @@ public class ArtworkDao {
      * Name of painting table in database.
      */
     private final String PAINTING = "painting";
+    /**
+     * Name of sculpture picture table in database.
+     */
+    private final String SCULPTURE_PIC = "sculpturepic";
 
 
     /**
@@ -168,4 +172,32 @@ public class ArtworkDao {
         }
         return 0;
     }
+
+    /**
+     * Retrieve all sculpture additional pictures from database.
+     * @param sculptureId Sculpture's id that wanted to get the additional pictures.
+     * @return Return a list of string that contain sculpture additional pictures' url.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
+    public List<String> getSculptureAdditionalPic(int sculptureId)throws SQLException{
+        List<String> sculpturePic = new ArrayList<>();
+        String retrieveQuery = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ",SCULPTURE_PIC,sculptureId);
+        ResultSet rs = connection.query(retrieveQuery);
+
+        while (rs.next()){
+            sculpturePic.add(rs.getString("picture_url"));
+        }
+        return sculpturePic;
+    }
+    public int insertSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
+        String insertQuery = String.format("INSERT INTO %s (artwork_spec_id,picture_url) VALUES (%d,'%s')",
+                SCULPTURE_PIC,sculptureId,image_url);
+        return connection.insert(insertQuery);
+    }
+    public int deleteSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
+        String insertQuery = String.format("DELETE FROM %s WHERE artwork_spec_id = %d and picture_url = '%s'",
+                SCULPTURE_PIC,sculptureId,image_url);
+        return connection.insert(insertQuery);
+    }
+
 }

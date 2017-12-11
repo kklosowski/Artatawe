@@ -8,6 +8,10 @@ import dataAccessObjects.UserDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+/**
+ *
+ * @author shuyu6
+ */
 
 public class DBUtils {
     /**
@@ -72,6 +76,7 @@ public class DBUtils {
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static Sculpture constructSculpture(ResultSet rsArtwork, ResultSet rsSculpture) throws SQLException {
+        ArtworkDao artworkDao = new ArtworkDao();
         return new Sculpture(
                 rsArtwork.getInt("artwork_id"),
                 rsArtwork.getString("title"),
@@ -82,7 +87,8 @@ public class DBUtils {
                 rsSculpture.getString("material"),
                 rsSculpture.getDouble("dimension_x"),
                 rsSculpture.getDouble("dimension_y"),
-                rsSculpture.getDouble("dimension_z"));
+                rsSculpture.getDouble("dimension_z"),
+                artworkDao.getSculptureAdditionalPic(rsArtwork.getInt("artwork_spec_id")));
     }
 
     /**

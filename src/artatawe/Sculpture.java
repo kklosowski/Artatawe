@@ -43,13 +43,22 @@ public class Sculpture extends Artwork {
      * @param width The width of the sculpture.
      */
     //TODO add list
-    public Sculpture(String title, String description, String artist, String primaryPicture, int yearCreated, String material, double width, double height, double depth) {
+    public Sculpture(String title,
+                     String description,
+                     String artist,
+                     String primaryPicture,
+                     int yearCreated,
+                     String material,
+                     double width,
+                     double height,
+                     double depth,
+                     List<String> additionalPictures) {
         super(title, description, artist, primaryPicture, yearCreated);
         this.material = material;
         this.width = width;
         this.height = height;
         this.depth = depth;
-//		this.additionalPictures = additionalPictures;
+		this.additionalPictures = additionalPictures;
     }
 
      /**
@@ -59,12 +68,23 @@ public class Sculpture extends Artwork {
      * @param depth The depth of the sculpture.
      * @param width The width of the sculpture.
      */
-    public Sculpture(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated, String material, double width, double height, double depth) {
+    public Sculpture(int artworkId,
+                     String title,
+                     String description,
+                     String artist,
+                     String primaryPicture,
+                     int yearCreated,
+                     String material,
+                     double width,
+                     double height,
+                     double depth,
+                     List<String> additionalPictures) {
         super(artworkId, title, description, artist, primaryPicture, yearCreated);
         this.material = material;
         this.width = width;
         this.height = height;
         this.depth = depth;
+        this.additionalPictures = additionalPictures;
     }
 
     /**
@@ -106,5 +126,13 @@ public class Sculpture extends Artwork {
      */
     public double getDepth() {
         return this.depth;
+    }
+
+    /**
+     * Method getting the all additional pictures.
+     * @return The additional pictures in list.
+     */
+    public List<String> getAdditionalPictures() {
+        return additionalPictures;
     }
 }

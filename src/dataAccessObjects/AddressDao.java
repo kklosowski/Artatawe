@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * A linking connection between address class and address table in database
  * @author Goh Shu Yu
  * @since 2/12/2017
  */
