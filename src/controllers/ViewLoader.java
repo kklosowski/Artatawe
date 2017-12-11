@@ -17,6 +17,10 @@ public  class ViewLoader {
     public static final String BROWSE_USERS_URL = "/views/browse_users.fxml";
     public static final String BROWSE_HISTORY_URL = "/views/browse_history.fxml";
     public static final String BROWSE_AUCTIONS_URL = "/views/browse_auctions.fxml";
+    public static final String AUCTION_PANE_URL = "/views/auction_pane.fxml";
+    public static final String HISTORY_BID_PANE = "/views/history_bid_pane.fxml";
+    public static final String HISTORY_FINISHED_AUCTION_PANE = "/views/history_finished_auction_pane.fxml";
+    public static final String USER_PANE = "/views/user_pane.fxml";
     public static final String AUCTION_URL = "/views/auction.fxml";
 
 
@@ -68,4 +72,7 @@ public  class ViewLoader {
         }
     }
 
+    public Pane getContent() {
+        return content;
+    }
 }
