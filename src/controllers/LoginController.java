@@ -154,7 +154,7 @@ public class LoginController{
     private void login(){
         if(this.user != null){
             ViewLoader l = new ViewLoader();
-            l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_FXML_URL);
+            l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
             Stage s = (Stage) this.loginButton.getScene().getWindow();
             s.setScene(l.getView());
         }else{
