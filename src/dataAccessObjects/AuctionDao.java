@@ -1,5 +1,6 @@
 package dataAccessObjects;
 
+import artatawe.Artwork;
 import artatawe.Auction;
 import artatawe.DBUtils;
 import artatawe.SQLiteSingleton;
@@ -106,13 +107,18 @@ public class AuctionDao {
      */
     public int insertAuction(Auction auction) throws SQLException{
         System.out.println("time "+ auction.getDateAdded());
+
+        ArtworkDao artworkDao = new ArtworkDao();
+        artworkDao.insertArtwork(auction.getArtwork());
+
         String query = String.format("INSERT INTO Auction (artwork_id,bids_total,reserved_price,timestamp,user_id)" +
                         " VALUES(%d, %d, %.2f, %d, %d)",
-                getLastId()+1,
+                artworkDao.getLastId(),
                 auction.getMaxBids(),
                 auction.getReservePrice(),
                 auction.getDateAdded().getTime(),
                 auction.getCreator().getUserId());
+
         return connection.insert(query);
     }
     /**

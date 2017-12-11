@@ -9,37 +9,86 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+ /**
+  *Class for handling the Registration View.
+  * @author Marceli Wac
+  * @version 1.0
+  */
 public class RegisterController {
 
+    /**
+     *Text for error message.
+     */
     @FXML
     private Text errorText;
+    
+     /**
+     *A "Continue" button.
+     */
     @FXML
     private Button continueButton;
+   
+     /**
+     *A "Login" button.
+     */
     @FXML
     private Button loginButton;
+    
+    /**
+     *Text field for username.
+     */
     @FXML
     private TextField usernameTextField;
+    /**
+     *Text field for first name.
+     */
     @FXML
     private TextField firstnameTextField;
+    /**
+     *Text field for last name.
+     */
     @FXML
     private TextField lastnameTextField;
+    /**
+     *Text field for mobile number.
+     */
     @FXML
     private TextField mobileTextField;
+    /**
+     *Text field for address.
+     */
     @FXML
     private TextField address1TextField;
+    /**
+     *Text field for address.
+     */
     @FXML
     private TextField address2TextField;
+    /**
+     *Text field for address.
+     */
     @FXML
     private TextField address3TextField;
+    /**
+     *Text field for city.
+     */
     @FXML
     private TextField cityTextField;
+    /**
+     *Text field for country.
+     */
     @FXML
     private TextField countryTextField;
+    /**
+     *Text field for postcode.
+     */
     @FXML
     private TextField postcodeTextField;
 
 
-
+     /**
+     *Method for login in the system.
+     */
     @FXML
     public void login() {
         ViewLoader l = new ViewLoader();
@@ -47,7 +96,10 @@ public class RegisterController {
         Stage s = (Stage) this.continueButton.getScene().getWindow();
         s.setScene(l.getView());
     }
-
+    
+     /**
+     *Method for continuing to the next scene.
+     */
     @FXML
     public void attemptContinue(){
         if(validateFields()){
@@ -73,11 +125,16 @@ public class RegisterController {
 
         }
     }
-
+     /**
+     *Method for showing an error.
+     */
     private void showError(String message){
         this.errorText.setText(message);
     }
 
+    /**
+     *Method for validating the fields.
+     */
     private boolean validateFields() {
         if (!InputValidator.validUsername(usernameTextField.getText())) {
             showError("Username invalid");
