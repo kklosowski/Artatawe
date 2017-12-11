@@ -176,4 +176,8 @@ public class Auction {
     public int getAuctionId() {
         return auctionId;
     }
+
+    public void setAuctionId(int auctionId) {
+        this.auctionId = auctionId;
+    }
 }

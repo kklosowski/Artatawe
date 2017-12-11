@@ -77,15 +77,16 @@ public class AuctionDao {
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public void insertAuction(Auction auction) throws SQLException{
+    public int insertAuction(Auction auction) throws SQLException{
         System.out.println("time "+ auction.getDateAdded());
-        connection.insert(String.format("INSERT INTO Auction (artwork_id,bids_total,reserved_price,timestamp,user_id)" +
+        String query = String.format("INSERT INTO Auction (artwork_id,bids_total,reserved_price,timestamp,user_id)" +
                         " VALUES(%d, %d, %.2f, %d, %d)",
                 auction.getArtwork().getArtworkId(),
                 auction.getMaxBids(),
                 auction.getReservePrice(),
                 auction.getDateAdded().getTime(),
-                auction.getCreator().getUserId()));
+                auction.getCreator().getUserId());
+        return connection.insert(query);
     }
     /**
      * Delete an auction from database.
@@ -94,8 +95,14 @@ public class AuctionDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public int deleteAuction(Auction auction) throws SQLException {
-        return connection.insert(String.format("DELETE FROM Auction WHERE auction_id = %s",
-                auction.getAuctionId()));
+        String query = String.format("DELETE FROM Auction WHERE auction_id  = %s",
+                auction.getAuctionId());
+        return connection.insert(query);
 
+    }
+
+    public int getLastId() throws SQLException {
+        String query = "SELECT seq FROM sqlite_sequence WHERE name='auction'";
+        return connection.query(query).getInt("seq");
     }
 }
