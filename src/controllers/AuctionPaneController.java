@@ -65,6 +65,7 @@ public class AuctionPaneController{
         Stage s = (Stage) this.title.getScene().getWindow();
         SessionStorage.sessionData.put("currentAuctionId", this.currentAuctionId.getText());
         s.setScene(l.getView());
+
     }
 
 }
