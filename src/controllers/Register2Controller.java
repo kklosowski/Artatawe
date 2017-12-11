@@ -55,7 +55,7 @@ public class Register2Controller {
         }
 
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.LOGIN_URL);
+        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL);
         Stage s = (Stage) rootPane.getScene().getWindow();
         s.setScene(l.getView());
     }
