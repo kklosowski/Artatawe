@@ -42,6 +42,7 @@ public class BrowseAuctionsController {
         this.paintingsFilterButton.setStyle(activeStyle);
         this.sculpturesFilterButton.setStyle(inactiveStyle);
         this.allFilterButton.setStyle(inactiveStyle);
+        clearAuctions();
         getAuctions();
     }
 
@@ -51,6 +52,7 @@ public class BrowseAuctionsController {
         this.paintingsFilterButton.setStyle(inactiveStyle);
         this.sculpturesFilterButton.setStyle(activeStyle);
         this.allFilterButton.setStyle(inactiveStyle);
+        clearAuctions();
         getAuctions();
 
     }
@@ -61,12 +63,18 @@ public class BrowseAuctionsController {
         this.paintingsFilterButton.setStyle(inactiveStyle);
         this.sculpturesFilterButton.setStyle(inactiveStyle);
         this.allFilterButton.setStyle(activeStyle);
+        clearAuctions();
         getAuctions();
     }
 
     @FXML
     private void onlyMine(){
+        clearAuctions();
         getAuctions();
+    }
+
+    private void clearAuctions(){
+        auctions.getChildren().setAll();
     }
 
 
