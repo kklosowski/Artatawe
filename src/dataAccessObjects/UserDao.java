@@ -6,6 +6,7 @@ import artatawe.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,19 +64,36 @@ public class UserDao {
         return connection.insert(insertQuery);
     }
 
+//    /**
+//     * Retrieve all favourite users of a specific user from database.
+//     *
+//     * @return Return all favourite users in list.
+//     * @throws SQLException throws sql exception.
+//     */
+//    public List<User> getUsersFavourite(int userId) throws SQLException {
+//
+//        String getFavouriteUsetQuery = String.format("SELECT * FROM %s WHERE user_id = %d ", FAVOURITE_TABLE, userId);
+//        List<User> users = new ArrayList<>();
+//        ResultSet rs = connection.query(getFavouriteUsetQuery);
+//        while (rs.next()) {
+//            users.add(getUser(DBUtils.constructFavouriteFromRS(rs)));
+//        }
+//        return users;
+//    }
+
     /**
-     * Retrieve all favourite users of a specific user from database.
+     * Retrieve all favourite users' id of a specific user from database.
      *
-     * @return Return all favourite users in list.
+     * @return Return all favourite users' id in list.
      * @throws SQLException throws sql exception.
      */
-    public List<User> getUsersFavourite(int userId) throws SQLException {
+    public List<Integer> getUsersFavourite(int userId) throws SQLException {
 
         String getFavouriteUsetQuery = String.format("SELECT * FROM %s WHERE user_id = %d ", FAVOURITE_TABLE, userId);
-        List<User> users = new ArrayList<>();
+        List<Integer> users = new ArrayList<>();
         ResultSet rs = connection.query(getFavouriteUsetQuery);
         while (rs.next()) {
-            users.add(getUser(DBUtils.constructFavouriteFromRS(rs)));
+            users.add(rs.getInt("fav_id"));
         }
         return users;
     }
@@ -193,7 +211,7 @@ public class UserDao {
         if (rs.next()) {
             return DBUtils.constructLoginLogFromRS(rs);
         }
-        return 0;
+        return System.currentTimeMillis();
     }
 
     /**

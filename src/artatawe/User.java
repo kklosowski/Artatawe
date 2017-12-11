@@ -1,7 +1,7 @@
 package artatawe;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User is the class that stores user-related data and thier last
@@ -53,19 +53,20 @@ public class User {
     /**
      * user's list of all favourite users
      */
-    private ArrayList<Integer> favouriteUsers;
+    private List<Integer> favouriteUsers;
 
     /**
-     * Class constructor specifying all of user information except
-     * the last login date which is set automatically to the current
-     * date.
+     * Class constructor specifying all of user information.
      *
+     * @param userId         user's id
      * @param firstName      user's first name
      * @param lastName       user's last name
      * @param userName       user's nickname (or username)
      * @param mobileNo       user's mobile number
      * @param address        user's postal address
-     * @param profilePicture user's profile picture
+     * @param lastLoggedIn   user's last login timestamp
+     * @param profilePicture user's profile picture url
+     * @param favouriteUsers user's favourite users
      */
     public User(int userId,
                 String firstName,
@@ -74,7 +75,8 @@ public class User {
                 String mobileNo,
                 Address address,
                 Timestamp lastLoggedIn,
-                String profilePicture) {
+                String profilePicture,
+                List<Integer> favouriteUsers) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -83,17 +85,26 @@ public class User {
         this.address = address;
         this.lastLoggedIn = lastLoggedIn;
         this.profilePicture = profilePicture;
+        this.favouriteUsers = favouriteUsers;
     }
 
-    public User(String firstName, String lastName, String userName, String mobileNo, Address address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.mobileNo = mobileNo;
-        this.address = address;
-    }
-
-    public User(String firstName, String lastName, String userName, String mobileNo, Address address, String profilePicture) {
+    /**
+     * Class constructor specifying all of user information except
+     * the last login date, lastLoggedIn and favouriteUsers.
+     *
+     * @param firstName      user's first name
+     * @param lastName       user's last name
+     * @param userName       user's nickname (or username)
+     * @param mobileNo       user's mobile number
+     * @param address        user's postal address
+     * @param profilePicture user's profile picture url
+     */
+    public User(String firstName,
+                String lastName,
+                String userName,
+                String mobileNo,
+                Address address,
+                String profilePicture) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -101,6 +112,7 @@ public class User {
         this.address = address;
         this.profilePicture = profilePicture;
     }
+
     /**
      * Gets the ID of the user .
      * @return Return user's id.
@@ -108,6 +120,7 @@ public class User {
     public int getUserId() {
         return this.userId;
     }
+
     /**
      * Gets the first name of the user .
      * @return Return user's first name.
@@ -115,6 +128,7 @@ public class User {
     public String getFirstName() {
         return this.firstName;
     }
+
     /**
      * Gets the last name of the user.
      * @return Return user's last name.
@@ -122,6 +136,7 @@ public class User {
     public String getLastName() {
         return this.lastName;
     }
+
     /**
      * Gets the user name of the user .
      * @return Return user's username.
@@ -129,6 +144,7 @@ public class User {
     public String getUserName() {
         return this.userName;
     }
+
     /**
      * Gets the mobile number of the user .
      * @return Return user's mobile number.
@@ -136,6 +152,7 @@ public class User {
     public String getMobileNo() {
         return this.mobileNo;
     }
+
     /**
      * Gets the address of the user.
      * @return Return an address object that stored user's address detail.
@@ -143,12 +160,14 @@ public class User {
     public Address getAddress() {
         return this.address;
     }
+
     /** Gets the timpstamp of the last successful login
      * @return Return user's last logged in timestamp
     */
     public Timestamp getLastLoggedIn() {
         return this.lastLoggedIn;
     }
+
     /**
      *  Gets the name of the profile picture
      *  @return Return user's profile picture url.
@@ -156,6 +175,7 @@ public class User {
     public String getProfilePicture() {
         return this.profilePicture;
     }
+
     /**
     * Sets the mobile number of the user
     * @param newMobileNo New mobile number of the user.
@@ -163,6 +183,7 @@ public class User {
     public void setMobileNo(String newMobileNo) {
         this.mobileNo = newMobileNo;
     }
+
     /**
     * Sets the address of the user
     * @param newAddress A new address that stored user's address detail.
@@ -170,6 +191,7 @@ public class User {
     public void setAddress(Address newAddress) {
         this.address = newAddress;
     }
+
     /**
     * Sets the last logged in timestamp of the user
     * @param newLastLoggedIn Timestamp of the last login
@@ -177,6 +199,7 @@ public class User {
     public void setLastLoggedIn(Timestamp newLastLoggedIn) {
         this.lastLoggedIn = newLastLoggedIn;
     }
+
     /**
     * Sets the name of the profile picture of the user
     * @param newProfilePicture URL of the profile picture
@@ -184,6 +207,7 @@ public class User {
     public void setProfilePicture(String newProfilePicture) {
         this.profilePicture = newProfilePicture;
     }
+
     /**
     * Add an user to the favourite list
     * @param nextFav A favourite user object
@@ -191,6 +215,7 @@ public class User {
     public void addFavourite(int nextFav) {
         this.favouriteUsers.add(nextFav);
     }
+
     /**
     * Remove an user from the favourite list
     * @param favId UserID of the user to be removed
@@ -203,11 +228,12 @@ public class User {
             }
         }
     }
+
     /**
     * Gets the list of favourite users of this user
-    * @return ArrayList of favourite users
+    * @return List of favourite users
     */
-    public ArrayList<Integer> getFavouriteUsers() {
+    public List<Integer> getFavouriteUsers() {
         return this.favouriteUsers;
     }
 }

@@ -94,8 +94,15 @@ public class BidTester {
 //                bidDao.insertBid(bidList.get(i),(int)(Math.random()*11));
 //            }
 
-            List<Auction> auctionList = auctionDao.getAllAuctionsUserParticipated(3);
-            System.out.println("size " + auctionList.size());
+// remove comment to insert favorite users
+//            userDao.insertFavourite(1,2);
+//            userDao.insertFavourite(1,3);
+//            userDao.insertFavourite(1,4);
+//            userDao.insertFavourite(1,5);
+//            userDao.insertFavourite(1,6);
+
+            User firstUser = userDao.getUser(1);
+            System.out.println("favourite users for user 1 =" + firstUser.getFavouriteUsers().size());
 
             addressDao.getAddress(1);
 

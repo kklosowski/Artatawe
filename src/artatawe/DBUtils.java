@@ -16,7 +16,7 @@ public class DBUtils {
      * @return Return a user object after construct.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public static User constructUserFromRS(ResultSet rs) throws SQLException {
+        public static User constructUserFromRS(ResultSet rs) throws SQLException {
         AddressDao addressDao = new AddressDao();
         UserDao userDao = new UserDao();
         return new User(rs.getInt("user_id"),
@@ -26,7 +26,8 @@ public class DBUtils {
                 rs.getString("mobile_number"),
                 addressDao.getAddress(rs.getInt("user_id")),
                 new Timestamp(userDao.getLoginLog(rs.getInt("user_id"))),
-                rs.getString("avatar_filename")
+                rs.getString("avatar_filename"),
+                userDao.getUsersFavourite(rs.getInt("user_id"))
         );
     }
 
