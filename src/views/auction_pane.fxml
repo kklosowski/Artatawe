@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionPaneController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AuctionPaneController">
     <children>
-        <VBox maxHeight="150.0" maxWidth="-Infinity" minHeight="150.0" minWidth="-Infinity" prefHeight="150.0" prefWidth="540.0">
+        <VBox id="vbox" fx:id="vbox" maxHeight="150.0" maxWidth="-Infinity" minHeight="150.0" minWidth="-Infinity" prefHeight="150.0" prefWidth="540.0">
             <children>
-                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="540.0">
+                <HBox id="hbox1" fx:id="hbox1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="540.0">
                     <children>
                         <Text id="title" fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Artwork title" wrappingWidth="425.0">
                             <font>
@@ -26,7 +26,7 @@
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Text>
-                        <Text id="current-price" fx:id="currentPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="159" textAlignment="RIGHT" wrappingWidth="80.0">
+                        <Text id="currentPrice" fx:id="currentPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="159" textAlignment="RIGHT" wrappingWidth="80.0">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -39,7 +39,7 @@
                         <Insets top="5.0" />
                     </VBox.margin>
                 </HBox>
-                <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="540.0">
+                <HBox id="hbox2" fx:id="hbox2" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="540.0">
                     <children>
                         <Text id="type" fx:id="type" strokeType="OUTSIDE" strokeWidth="0.0" text="Painting" wrappingWidth="170.0">
                             <font>
@@ -49,7 +49,7 @@
                                 <Insets left="10.0" />
                             </HBox.margin>
                         </Text>
-                        <Text id="bids-left" fx:id="bidsLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="RIGHT" wrappingWidth="290.0">
+                        <Text id="bidsLeft" fx:id="bidsLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="RIGHT" wrappingWidth="290.0">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -64,7 +64,7 @@
                   </Text>
                     </children>
                 </HBox>
-                <GridPane maxHeight="140.0" maxWidth="-Infinity" minHeight="140.0" minWidth="-Infinity" prefHeight="140.0" prefWidth="540.0">
+                <GridPane id="gPane" fx:id="gPane" maxHeight="140.0" maxWidth="-Infinity" minHeight="140.0" minWidth="-Infinity" prefHeight="140.0" prefWidth="540.0">
                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" />

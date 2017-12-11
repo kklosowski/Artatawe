@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -75,12 +76,14 @@ public class BrowseAuctionsController {
             for (Auction auction:fetchedAuctions){
                 Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
                 p.applyCss();
-                for (Node n:p.getChildren()) {
-                    if(n.getId() == "title"){
-                        Text t = (Text) n;
-                        t.setText(auction.getArtwork().getTitle());
-                    }
-                }
+
+                //Set Image
+                //((ImageView) p.lookup("#vbox").lookup("#gPane").lookup("#thumbnail")).setImage();
+                ((Text) p.lookup("#vbox").lookup("#hbox1").lookup("#title")).setText(auction.getArtwork().getTitle());
+                ((Text) p.lookup("#vbox").lookup("#hbox1").lookup("#currentPrice")).setText(String.valueOf(auction.getCurrentPrice()));
+                ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#type")).setText(auction.getArtwork().getType());
+                ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#bidsLeft")).setText(String.valueOf(Math.abs(auction.bidsLeft())));
+                ((Text) p.lookup("#vbox").lookup("#gPane").lookup("#description")).setText(auction.getArtwork().getDescription());
                 auctions.getChildren().add(p);
                 System.out.println("Added!");
             }
