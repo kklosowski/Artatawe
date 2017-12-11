@@ -3,6 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -62,9 +63,16 @@ public class AuctionPaneController{
     public void loadAuction(){
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.AUCTION_URL, ViewLoader.LAYOUT_URL);
-        Stage s = (Stage) this.title.getScene().getWindow();
+        Scene s = (Scene) l.getView();
+        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox1").lookup("#vbox11").lookup("#title")).setText(title.getText());
+        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox1").lookup("#vbox11").lookup("#type")).setText(type.getText());
+        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox5").lookup("#vbox4").lookup("#description")).setText(description.getText());
+        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox5").lookup("#vbox4").lookup("#hbox6").lookup("#currentPrice")).setText(currentPrice.getText());
+        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox5").lookup("#vbox4").lookup("#hbox7").lookup("#bidsLeft")).setText(bidsLeft.getText());
+
+        Stage ss = (Stage) this.title.getScene().getWindow();
         SessionStorage.sessionData.put("currentAuctionId", this.currentAuctionId.getText());
-        s.setScene(l.getView());
+        ss.setScene(s);
 
     }
 
