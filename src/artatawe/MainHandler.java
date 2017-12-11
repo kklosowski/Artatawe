@@ -1,6 +1,7 @@
 package artatawe;
 
 import controllers.ViewLoader;
+import dataAccessObjects.UserDao;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
