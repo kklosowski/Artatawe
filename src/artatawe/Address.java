@@ -154,6 +154,25 @@ public class Address {
      * @return Return full address in string type.
      * */
     public String toString() {
-        return address1 + " " + address2 + " " + address3 + " " + postcode + " " + city + " " + country;
+        String addressString ="";
+        if (!address1.equals("")){
+            addressString+=address1;
+        }
+        if (!address2.equals("")){
+            addressString+="\n"+address2;
+        }
+        if (!address3.equals("")){
+            addressString+="\n"+address3;
+        }
+        if (!postcode.equals("")){
+            addressString+="\n"+postcode;
+        }
+        if (!city.equals("")){
+            addressString+="\n"+city;
+        }
+        if (!country.equals("")){
+            addressString+="\n"+country;
+        }
+        return addressString;
     }
 }
