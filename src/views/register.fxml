@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
@@ -40,76 +41,6 @@
                         </ImageView>
                     </children>
                 </Pane>
-            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="250.0" prefWidth="646.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="250.0">
-                          <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fill in below fields to register:" wrappingWidth="200.0">
-                                  <VBox.margin>
-                                      <Insets bottom="10.0" left="25.0" right="25.0" />
-                                  </VBox.margin>
-                              </Text>
-                              <TextField fx:id="usernameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Username">
-                                  <VBox.margin>
-                                      <Insets bottom="5.0" top="5.0" />
-                                  </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="firstnameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="First Name">
-                                  <VBox.margin>
-                                      <Insets bottom="5.0" top="5.0" />
-                                  </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="lastnameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Last Name">
-                                  <VBox.margin>
-                                      <Insets bottom="5.0" top="5.0" />
-                                  </VBox.margin>
-                              </TextField>
-                              <TextField fx:id="mobileTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Mobile phone no.">
-                                  <VBox.margin>
-                                      <Insets bottom="5.0" top="5.0" />
-                                  </VBox.margin>
-                              </TextField>
-                          </children>
-                      </VBox>
-                  <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="250.0">
-                     <children>
-                        <TextField fx:id="addressTextField1" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address line 1">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="31.0" />
-                           </VBox.margin>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </TextField>
-                        <TextField fx:id="addressTextField11" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address line 2">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="addressTextField21" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address line 3">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="addressTextField211" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="City">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="addressTextField221" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Country">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <TextField fx:id="postcodeTextField1" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Postcode">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="5.0" />
-                           </VBox.margin>
-                        </TextField>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
             <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
                         <Button fx:id="continueButton" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onAction="#attemptContinue" prefWidth="250.0" text="Continue">
@@ -127,6 +58,88 @@
                                 <Insets left="35.0" right="35.0" top="10.0" />
                             </VBox.margin>
                         </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Text fx:id="errorText" fill="#da4949" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="500.0">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="250.0" prefWidth="646.0">
+                     <children>
+                            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="250.0">
+                                <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fill in below fields to register:" wrappingWidth="200.0">
+                                        <VBox.margin>
+                                            <Insets bottom="10.0" left="25.0" right="25.0" />
+                                        </VBox.margin>
+                                    </Text>
+                                    <TextField fx:id="usernameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Username">
+                                        <VBox.margin>
+                                            <Insets bottom="5.0" top="5.0" />
+                                        </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="firstnameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="First Name">
+                                        <VBox.margin>
+                                            <Insets bottom="5.0" top="5.0" />
+                                        </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="lastnameTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Last Name">
+                                        <VBox.margin>
+                                            <Insets bottom="5.0" top="5.0" />
+                                        </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="mobileTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Mobile phone no.">
+                                        <VBox.margin>
+                                            <Insets bottom="5.0" top="5.0" />
+                                        </VBox.margin>
+                                    </TextField>
+                                </children>
+                            </VBox>
+                        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="250.0">
+                           <children>
+                              <TextField fx:id="address1TextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address line 1">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="31.0" />
+                                 </VBox.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <TextField fx:id="address2TextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address line 2">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="address3TextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Address line 3">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="cityTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="City">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="countryTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Country">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="postcodeTextField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" promptText="Postcode">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             </children>

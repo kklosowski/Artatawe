@@ -22,11 +22,6 @@ public class Sculpture extends Artwork {
     private double depth;
     private List<String> additionalPictures;
 
-    //TODO delete if this is not longer using
-    public Sculpture() {
-
-    }
-
     /**
      * Constructs an object of type Sculpture
      * @param material

@@ -114,6 +114,28 @@ public class User {
     }
 
     /**
+     * Class constructor specifying all of user information except
+     * the last login date, lastLoggedIn, profilePicture and favouriteUsers.
+     *
+     * @param firstName      user's first name
+     * @param lastName       user's last name
+     * @param userName       user's nickname (or username)
+     * @param mobileNo       user's mobile number
+     * @param address        user's postal address
+     */
+    public User(String firstName,
+                String lastName,
+                String userName,
+                String mobileNo,
+                Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.mobileNo = mobileNo;
+        this.address = address;
+    }
+
+    /**
      * Gets the ID of the user .
      * @return Return user's id.
      */

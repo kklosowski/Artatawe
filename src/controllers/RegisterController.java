@@ -6,10 +6,13 @@ import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class RegisterController {
 
+    @FXML
+    private Text errorText;
     @FXML
     private Button continueButton;
     @FXML
@@ -23,16 +26,18 @@ public class RegisterController {
     @FXML
     private TextField mobileTextField;
     @FXML
-    private TextField addressTextField;
+    private TextField address1TextField;
+    @FXML
+    private TextField address2TextField;
+    @FXML
+    private TextField address3TextField;
+    @FXML
+    private TextField cityTextField;
+    @FXML
+    private TextField countryTextField;
     @FXML
     private TextField postcodeTextField;
 
-    private String userName;
-    private String firstName;
-    private String lastName;
-    private String mobile;
-    private String address;
-    private String postcode;
 
 
     @FXML
@@ -46,28 +51,75 @@ public class RegisterController {
     @FXML
     public void attemptContinue(){
         if(validateFields()){
-            //Address a = new Address("address")
-            User u = new User(firstName, lastName, userName, mobile, null, postcode);
+            Address a = new Address(address1TextField.getText(),
+                    address2TextField.getText(),
+                    address3TextField.getText(),
+                    cityTextField.getText(),
+                    postcodeTextField.getText(),
+                    countryTextField.getText());
 
-            //store user id somewhere or pass
+            User u = new User(firstnameTextField.getText(),
+                    lastnameTextField.getText(),
+                    usernameTextField.getText(),
+                    mobileTextField.getText(), a);
 
             ViewLoader l = new ViewLoader();
             l.loadViewController(ViewLoader.REGISTER2_URL);
             Stage s = (Stage) this.continueButton.getScene().getWindow();
             s.setScene(l.getView());
         } else {
-            //?
+
         }
     }
 
+    private void showError(String message){
+        this.errorText.setText(message);
+    }
+
     private boolean validateFields() {
+        if (!InputValidator.validUsername(usernameTextField.getText())) {
+            showError("Username invalid");
+            return false;
+        }
+        if (!InputValidator.validName(firstnameTextField.getText())) {
+            showError("First name invalid");
+            return false;
+        }
+        if (!InputValidator.validName(lastnameTextField.getText())) {
+            showError("Last name invalid");
+            return false;
+        }
+        if (!InputValidator.validMobile(mobileTextField.getText())) {
+            showError("Mobile number invalid");
+            return false;
+        }
+        if (!InputValidator.validAddress(address1TextField.getText())) {
+            showError("Address line 1 invalid");
 
-        return InputValidator.validUsername(usernameTextField.getText()) &&
-                InputValidator.validText(firstnameTextField.getText()) &&
-                InputValidator.validText(lastnameTextField.getText()) &&
-                InputValidator.validNumber(mobileTextField.getText()) &&
-                InputValidator.validText(addressTextField.getText()) &&
-                InputValidator.validPostcode(postcodeTextField.toString());
+            return false;
+        }
+        if (!InputValidator.validAddress(address2TextField.getText())) {
+            showError("Address line 2 invalid");
 
+            return false;
+        }
+        if (!InputValidator.validAddress(address3TextField.getText())) {
+            showError("Address line 3 invalid");
+
+            return false;
+        }
+        if (!InputValidator.validCity(cityTextField.getText())) {
+            showError("City invalid");
+            return false;
+        }
+        if (!InputValidator.validCountry(countryTextField.getText())) {
+            showError("Country invalid");
+            return false;
+        }
+        if (!InputValidator.validPostcode(postcodeTextField.toString())) {
+            showError("Postcode invalid");
+            return false;
+        }
+        return true;
     }
 }
