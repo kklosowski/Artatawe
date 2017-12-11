@@ -21,29 +21,22 @@ public  class ViewLoader {
 
 
     private Scene view;
-    private Scene errorView;
     public Pane content;
     private Pane layout;
 
 
     public void loadViewController(String contentFxmlUrl) {
-        this.errorView = null;
         this.loadContent(contentFxmlUrl);
     }
 
     public void loadViewController(String contentFxmlUrl, String layoutFxmlUrl) {
-        this.errorView = null;
         this.loadContent(contentFxmlUrl);
         this.loadLayout(layoutFxmlUrl);
     }
 
     public Scene getView() {
-        if (this.errorView == null) {
-            this.buildView();
-            return this.view;
-        } else {
-            return this.errorView;
-        }
+        this.buildView();
+        return this.view;
     }
 
     private void loadContent(String FxmlUrl) {
@@ -73,7 +66,6 @@ public  class ViewLoader {
             LayoutDisplayController ldc = new LayoutDisplayController(this.content, this.layout);
             this.view = ldc.getView();
         }
-
     }
 
 }

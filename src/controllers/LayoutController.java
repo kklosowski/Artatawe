@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class LayoutController {
+    private final String activeStyle = "-fx-text-fill: #ffffff; -fx-background-color: #4285f4;";
+    private final String inactiveStyle = "-fx-text-fill: #ffffff; -fx-background-color: #4285f4;";
 
     @FXML
     private Button browseAuctionsButton;
@@ -32,7 +34,6 @@ public class LayoutController {
 
     @FXML
     private void browseAuctions(){
-        System.out.println("Button activated");
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
