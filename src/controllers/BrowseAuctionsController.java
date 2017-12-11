@@ -79,11 +79,11 @@ public class BrowseAuctionsController {
 
                 //Set Image
                 //((ImageView) p.lookup("#vbox").lookup("#gPane").lookup("#thumbnail")).setImage();
-                ((Text) p.lookup("#vbox").lookup("#hbox1").lookup("#title")).setText(auction.getArtwork().getTitle());
-                ((Text) p.lookup("#vbox").lookup("#hbox1").lookup("#currentPrice")).setText(String.valueOf(auction.getCurrentPrice()));
-                ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#type")).setText(auction.getArtwork().getType());
-                ((Text) p.lookup("#vbox").lookup("#hbox2").lookup("#bidsLeft")).setText(String.valueOf(Math.abs(auction.bidsLeft())));
-                ((Text) p.lookup("#vbox").lookup("#gPane").lookup("#description")).setText(auction.getArtwork().getDescription());
+                ((Text) p.lookup("#vbox>#hbox1>#title")).setText(auction.getArtwork().getTitle());
+                ((Text) p.lookup("#vbox>#hbox1>#currentPrice")).setText(String.valueOf(auction.getCurrentPrice()));
+                ((Text) p.lookup("#vbox>#hbox2>#type")).setText(auction.getArtwork().getType());
+                ((Text) p.lookup("#vbox>#hbox2>#bidsLeft")).setText(String.valueOf(Math.abs(auction.bidsLeft())));
+                ((Text) p.lookup("#vbox>#gPane>#description")).setText(auction.getArtwork().getDescription());
                 auctions.getChildren().add(p);
                 System.out.println("Added!");
             }
