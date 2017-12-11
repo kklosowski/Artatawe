@@ -14,6 +14,13 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
+
+/**
+ * @author Kamil Klosowski, Marceli Wac
+
+ */
+
+
 public class AddAuctionController {
 
     @FXML

@@ -11,6 +11,11 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
+/**
+ * @author Kamil Klosowski
+ */
+
+
 public class Register2Controller {
 
     @FXML

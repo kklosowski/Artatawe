@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Singleton class for handling the database connection
  *
- * @author Kamil Klosowski
+ * @author Kamil Klosowski, Marceli Wac
  * @since 31/10/2017
  */
 

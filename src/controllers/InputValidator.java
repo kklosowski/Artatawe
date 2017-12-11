@@ -1,5 +1,10 @@
 package controllers;
 
+/**
+ * @author Kamil Klosowski, Marceli Wac
+ */
+
+
 public class InputValidator {
     private static final String ALNUM_PATTERN = "^[a-zA-Z0-9]*$";
     private static final String ALPHA_PATTERN = "^[a-zA-Z]*$";

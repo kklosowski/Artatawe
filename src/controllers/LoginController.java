@@ -104,7 +104,7 @@ import java.sql.SQLException;
 /**
  * Class for handling the GUI for Login.
  *
- * @author Marceli Wac
+ * @author Marceli Wac, Kamil Klosowski
  * @version 1.0
  */
 

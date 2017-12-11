@@ -13,6 +13,10 @@ import javafx.scene.text.Text;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author Kamil Klosowski, Marceli Wac
+ */
+
 public class BrowseAuctionsController {
     private String type = "all";
     private final String activeStyle = "-fx-text-fill: #ffffff; -fx-background-color: #4285f4;";

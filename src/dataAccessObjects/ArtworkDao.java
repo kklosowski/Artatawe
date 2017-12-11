@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Database access object for the Artwork class
  *
- * @author Goh Shu Yu, Michael Lam
+ * @author Goh Shu Yu, Michael Lam, Kamil Klosowski
  * @version 1.0
  * @since 4/12/2017
  */

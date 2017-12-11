@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Database access object for the Artwork class
  *
- * @author Goh Shu Yu
+ * @author Goh Shu Yu, Kamil Klosowski
  * @since 2/12/2017
  */
 public class UserDao {

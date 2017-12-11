@@ -6,6 +6,10 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
+/**
+ * @author Marceli Wac
+ */
+
 public class ViewLoader {
     public static final String LAYOUT_URL = "/views/_layout.fxml";
     public static final String ADD_AUCTION_ULR = "/views/add_auction.fxml";

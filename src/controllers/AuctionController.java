@@ -6,6 +6,12 @@ import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
+
+/**
+ * @author Kamil Klosowski, Marceli Wac
+ */
+
+
 public class AuctionController {
     @FXML
     private Text title;
