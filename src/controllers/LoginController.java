@@ -101,26 +101,54 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
+/**
+*Class for handling the GUI for Login.
+* @author Marceli Wac
+* @version 1.0
+*/
+
 public class LoginController{
 
+    /**
+    *User object.
+    */
     private User user;
-
+    
+    /**
+    *Login button.
+    */
     @FXML
     private Button loginButton;
 
+    /**
+    *Registration button.
+    */
     @FXML
     private Button registerButton;
 
+    /**
+    *Text for error message.
+    */
     @FXML
     private Text errorText;
 
+    /**
+    *Text field for a user's username.
+    */
     @FXML
     private TextField usernameTextField;
 
+    /**
+    *Gets the username.
+    * @return The username of a user.
+    */
     private String getUsername(){
         return usernameTextField.getText();
     }
 
+    /**
+    *Method verifying the user.
+    */
     @FXML
     public void verifyUser(){
         InputValidator iv = new InputValidator();
@@ -144,6 +172,11 @@ public class LoginController{
         }
     }
 
+    
+    /**
+    *Method to validate a user
+    *@param username The user's username
+    */
     private boolean validateUser(String username) {
         try{
             UserDao userDao = new UserDao();
@@ -159,6 +192,9 @@ public class LoginController{
         }
     }
 
+    /**
+    *Method for loading the scene.
+    */
     private void login(){
         if(this.user != null){
             ViewLoader l = new ViewLoader();
@@ -170,10 +206,18 @@ public class LoginController{
         }
     }
 
+    /**
+    *Method for showing a message with the error.
+    *@param message The message being displayed.
+    */
     private void showError(String message){
         this.errorText.setText(message);
     }
 
+    
+    /**
+    *Method for loading the Registration Viem.
+    */
     @FXML
     public void register(){
         ViewLoader l = new ViewLoader();
