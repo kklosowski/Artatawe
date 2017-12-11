@@ -20,7 +20,7 @@ public class BidDao {
 
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
     /**
-     * Get all of the bits by a user and search by user id.
+     * Get all of the bids by a user and search by user id.
      * @param userId User's id that wanted to get the bids.
      * @return Return a list of bids by the user id.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -38,7 +38,7 @@ public class BidDao {
         return bids;
     }
     /**
-     * Get all of the bits by a user.
+     * Get all of the bids by a user.
      * @param user User that wanted to get the bids.
      * @return Return a list of bids by the user.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -47,7 +47,7 @@ public class BidDao {
         return getUserBids(user.getUserId());
     }
     /**
-     * Get all of the bits of an auction and search by auction id.
+     * Get all of the bids of an auction and search by auction id.
      * @param auctionId Auction's id that wanted to get the bids.
      * @return Return a list of bids by the auction id.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -65,7 +65,7 @@ public class BidDao {
     }
 
     /**
-     * Get the highest bit of an auction .
+     * Get the highest bid of an auction .
      * @param auctionId Auction's id that search the highest bids.
      * @return Return a the highest bids of the auction .
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -80,8 +80,8 @@ public class BidDao {
         return highestBid;
     }
     /**
-     * Place new bid into database.
-     * @param bid New bid information that user placed.
+     * Place new bid into the database.
+     * @param bid New bid information that the user has placed.
      * @param auction Auction that user wanted to bid.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -90,8 +90,8 @@ public class BidDao {
         return insertBid(bid, auction.getAuctionId());
     }
     /**
-     * Place new bid into database.
-     * @param bid New bid information that user placed.
+     * Place new bid into the database.
+     * @param bid New bid information that the user has placed.
      * @param auctionId Auction's id that user wanted to bid.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -104,8 +104,8 @@ public class BidDao {
                 auctionId));
     }
     /**
-     * Delete a bid from database.
-     * @param bid The bid that wanted to remove from database..
+     * Delete a bid from the database.
+     * @param bid The bid that is wanted to be removed from the database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */

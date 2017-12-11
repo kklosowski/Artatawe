@@ -1,10 +1,9 @@
 package artatawe;
 
-//TODO: Add author
 /**
  * Stores various fields to construct an address
  *
- * @author
+ * @author Goh Shu Yu
  * version 1.0
  * Since 27.10.2017
  */

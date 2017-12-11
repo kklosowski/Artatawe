@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 /**
  * Loads default login view.
- * @author TODO: add author
+ * @author Marceli Wac
  * @since 10-12-17
  * @version 1.0
  */

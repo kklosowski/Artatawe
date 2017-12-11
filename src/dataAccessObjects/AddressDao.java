@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * A linking connection between address class and address table in the database.
- * @author Goh Shu Yu
+ * Database access object for the Address class
+ * @author  Goh Shu Yu
+ * @version 1.0
  * @since 2/12/2017
  */
 public class AddressDao {
