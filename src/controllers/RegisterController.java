@@ -55,7 +55,7 @@ public class RegisterController {
                     address2TextField.getText(),
                     address3TextField.getText(),
                     cityTextField.getText(),
-                    postcodeTextField.getText(),
+                    postcodeTextField.getText().toUpperCase(),
                     countryTextField.getText());
 
             User u = new User(firstnameTextField.getText(),
