@@ -1,10 +1,16 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class AuctionPaneController {
+public class AuctionPaneController{
+
+    @FXML
+    private Pane mainPane;
 
     @FXML
     private Text title;
@@ -23,6 +29,10 @@ public class AuctionPaneController {
 
     @FXML
     private ImageView thumbnail;
+
+    @FXML
+    public void initialize(){
+    }
 
     public void setTitle(String s){
         this.title.setText(s);

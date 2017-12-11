@@ -164,9 +164,6 @@ public class Address {
         if (!address3.equals("")){
             addressString+="\n"+address3;
         }
-        if (!postcode.equals("")){
-            addressString+="\n"+postcode;
-        }
         if (!city.equals("")){
             addressString+="\n"+city;
         }

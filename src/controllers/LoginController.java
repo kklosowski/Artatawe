@@ -129,6 +129,14 @@ public class LoginController{
             showError("The username is not valid");
         }else{
             if(validateUser(username)){
+                UserDao userDao = new UserDao();
+                User user = null;
+                try {
+                    user = userDao.getUserByUsername(usernameTextField.getText());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                SessionStorage.sessionData.put("loggedUser", user);
                 login();
             }else{
                 showError("The user with this username does not exist.");
