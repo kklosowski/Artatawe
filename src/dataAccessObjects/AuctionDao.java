@@ -80,15 +80,13 @@ public class AuctionDao {
      */
     public int updateAuction(Auction auction, int auctionId) throws SQLException {
         return connection.insert(String.format("UPDATE Auction " +
-                        "SET artwork_id = %s, user_id = %s, current_price = %s, reserve_price = %s, date_added = %s, max_bids = %s " +
+                        "SET artwork_id = %s, user_id = %s, reserved_price = %s, max_bids = %s " +
                         "WHERE auction_id = %s",
                 auction.getArtwork().getArtworkId(),
                 auction.getCreator().getUserId(),
-                auction.getCurrentPrice(),
                 auction.getReservePrice(),
-                auction.getDateAdded(),
                 auction.getMaxBids(),
-                auction.getAuctionId()));
+                auctionId));
     }
     /**
      * Insert an auction into database.

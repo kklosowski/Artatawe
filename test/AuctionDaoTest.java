@@ -37,12 +37,29 @@ class AuctionDaoTest {
 
     @Test
     void getAuction() {
+        AuctionDao auctionDao = new AuctionDao();
+        int lastId = 0;
+        Auction auction1 = null;
+        try {
+            lastId = auctionDao.getLastId();
+            auction1 = auctionDao.getAuction(lastId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        assertEquals(lastId, auction1.getAuctionId());
     }
 
     @Test
     void updateAuction() {
-
+        AuctionDao auctionDao = new AuctionDao();
+        int result = 0;
+        try {
+            result = auctionDao.updateAuction(auction, auctionDao.getLastId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        assertEquals(1, result);
     }
 
     @Test
