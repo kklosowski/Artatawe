@@ -35,9 +35,9 @@ public class UserDao {
     private final String FAVOURITE_TABLE = "favourite";
 
     /**
-     * Retrieve all user from database.
+     * Retrieve all user from the database.
      *
-     * @return Return all users that exists in database.
+     * @return Return all the users that exist in the database.
      * @throws SQLException throws sql exception.
      */
     public List<User> getAllUsers() throws SQLException {
@@ -51,11 +51,11 @@ public class UserDao {
     }
 
     /**
-     * Insert favourite user into database
+     * Insert favourite user into the database.
      *
      * @param userId The user's id.
      * @param favId  The favorite user's id .
-     * @return If insert successfully it will return any integer except 0, if unable to insert it will return 0.
+     * @return If inserted successfully it will return any integer except 0, if unable to insert it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public int insertFavourite(int userId, int favId) throws SQLException {
@@ -66,7 +66,7 @@ public class UserDao {
 //    /**
 //     * Retrieve all favourite users of a specific user from database.
 //     *
-//     * @return Return all favourite users in list.
+//     * @return Return all favourite users in a  list.
 //     * @throws SQLException throws sql exception.
 //     */
 //    public List<User> getUsersFavourite(int userId) throws SQLException {
@@ -81,9 +81,9 @@ public class UserDao {
 //    }
 
     /**
-     * Retrieve all favourite users' id of a specific user from database.
+     * Retrieve all favourite users' id of a specific user from the database.
      *
-     * @return Return all favourite users' id in list.
+     * @return Return all favourite users' id in a list.
      * @throws SQLException throws sql exception.
      */
     public List<Integer> getUsersFavourite(int userId) throws SQLException {
@@ -98,10 +98,10 @@ public class UserDao {
     }
 
     /**
-     * Delete favourite user from database.
+     * Delete favourite user from the database.
      *
      * @param userId      User's id
-     * @param favouriteId The user's id that required to remove from favourite list.
+     * @param favouriteId The user's id that required to be removed from another user's favourite list.
      * @return If delete successfully it will return any integer except 0, if unable to delete it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -111,7 +111,7 @@ public class UserDao {
     }
 
     /**
-     * Get specific user's inform from database by user id.
+     * Get specific user's inform from the database by user id.
      *
      * @param userId User's id
      * @return Return a user from database by given userid.
@@ -128,7 +128,7 @@ public class UserDao {
     }
 
     /**
-     * Get specific user's inform from database by user name.
+     * Get specific user's inform from the database by user name.
      *
      * @param userName User's id
      * @return Return a user from database by given userid.
@@ -145,9 +145,9 @@ public class UserDao {
     }
 
     /**
-     * Update user's inform into the database.
+     * Update user's information into the database.
      *
-     * @param user The new user detail that required to update the database.
+     * @param user The new user's details that are required to update the database.
      * @return If update successfully it will return any integer except 0, if unable to update it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -185,7 +185,7 @@ public class UserDao {
     }
 
     /**
-     * Delete user from database by user's id.
+     * Delete user from the database by user's id.
      *
      * @param userId User's id
      * @return If delete successfully it will return any integer except 0, if unable to delete it will return 0.
@@ -229,7 +229,7 @@ public class UserDao {
         }
     }
 
-    //last user id in user table in database.
+    //last user id in user table in the database.
     private int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='user'";
         return connection.query(query).getInt("seq");
