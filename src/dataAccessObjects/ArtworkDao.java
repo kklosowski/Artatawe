@@ -66,24 +66,6 @@ public class ArtworkDao {
         }
         return artworks;
     }
-// A method to search and return an artwork from database regarding to different type of artwork (sculpture / painting)
-    private Artwork searchArtworkByType(ResultSet rs) throws SQLException {
-        if (rs.getString("artwork_type").equals(SCULPTURE)) {
-            String searchSculpture = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", SCULPTURE, rs.getInt("artwork_id"));
-            ResultSet sculptureRs = connection.query(searchSculpture);
-            if (sculptureRs.next()) {
-                return DBUtils.constructSculpture(rs, sculptureRs);
-            }
-        } else if (rs.getString("artwork_type").equals(PAINTING)) {
-            String searchPainting = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", PAINTING, rs.getInt("artwork_id"));
-            ResultSet paintingRs = connection.query(searchPainting);
-            if (paintingRs.next()) {
-                return DBUtils.constructPaintingFromRS(rs, paintingRs);
-            }
-        }
-        return null;
-    }
-
     /**
      * Update the artwork information into the database.
      * @param artwork The artwork that is wanted to be updated into the database.
