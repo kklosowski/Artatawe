@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 public class BrowseAuctionsController {
     private String type = "all";
     private final String activeStyle = "-fx-text-fill: #ffffff; -fx-background-color: #4285f4;";
-    private final String inactiveStyle = "-fx-text-fill: #ffffff; -fx-background-color: #4285f4;";
+    private final String inactiveStyle = null;
 
     @FXML
     private Button paintingsFilterButton;
@@ -59,9 +60,15 @@ public class BrowseAuctionsController {
 
     private void getAuctions(){
         boolean onlyMine = this.onlyMineCheckbox.isSelected();
+        ViewLoader l = new ViewLoader();
         AuctionDao ad = new AuctionDao();
+
         try {
             List<Auction> auctions = ad.getAllAuctions();
+            for (Auction auction:auctions){
+                l.loadViewController(ViewLoader.AUCTION_PANE_URL);
+                Pane p = l.getContent();
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
