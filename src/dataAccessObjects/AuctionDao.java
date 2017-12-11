@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Database access object for the Auction class
  * @author Kamil Klosowski, Morgan David
- * @since 1/12/2017
+ * @version 1.0
+ * @since 1-12-17
  */
 public class AuctionDao {
     /**
