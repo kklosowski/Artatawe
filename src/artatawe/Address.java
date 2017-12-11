@@ -1,9 +1,3 @@
-/**
- * Address is a class to store full address in detail.
- *
- * @author Shu Yu
- */
-
 package artatawe;
 
 //TODO: Add author
