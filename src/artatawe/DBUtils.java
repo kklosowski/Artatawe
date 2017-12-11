@@ -9,11 +9,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+/**
+* DBUtils is a class used for constructing object from the database.
+*@author
+*@version 1.0
+*/
+
 public class DBUtils {
     /**
-     * Construct result set into user object
-     * @param rs Result set that wanted to construct into user object.
-     * @return Return a user object after construct.
+     * Construct an user object from the result set.
+     * @param rs The result set that is going to be used to construct an user object.
+     * @return Return an user object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
         public static User constructUserFromRS(ResultSet rs) throws SQLException {
@@ -32,9 +38,9 @@ public class DBUtils {
     }
 
     /**
-     * Construct result set into address object
-     * @param rs Result set that wanted to construct into address object.
-     * @return Return a address object after construct.
+     * Construct an address object from the result set.
+     * @param rs The result set that is going to be used to construct an address object.
+     * @return Return a address object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static Address constructAddressFromRS(ResultSet rs) throws SQLException {
@@ -47,9 +53,9 @@ public class DBUtils {
     }
 
     /**
-     * Construct result set into auction object
-     * @param rs Auction's result set that wanted to construct into auction object.
-     * @return Return a auction object after construct.
+     * Construct an auction object from the result set.
+     * @param rs The result set that is going to be used to construct an auction object.
+     * @return Return a auction object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static Auction constructAuctionFromRS(ResultSet rs) throws SQLException {
@@ -65,10 +71,10 @@ public class DBUtils {
     }
 
     /**
-     * Construct result sets into sculpture object
-     * @param rsArtwork Artwork's result set that wanted to construct into sculpture object.
-     * @param rsSculpture Sculpture's result set that wanted to construct into sculpture object.
-     * @return Return a sculpture object after construct.
+     * Construct a sculpute object from the result set.
+     * @param rsArtwork Artwork's result set that is going to be used to construct an artwork object.
+     * @param rsSculpture Sculpture's result set that is going to be used to construct a sculpute object.
+     * @return Return a sculpture object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static Sculpture constructSculpture(ResultSet rsArtwork, ResultSet rsSculpture) throws SQLException {
@@ -86,10 +92,10 @@ public class DBUtils {
     }
 
     /**
-     * Construct result set into painting object
-     * @param rsArtwork Artwork's result set that wanted to construct into painting object.
-     * @param rsPainting Sculpture's result set that wanted to construct into painting object.
-     * @return Return a painting object after construct.
+     * Construct a painting object from the result set.
+     * @param rsArtwork Artwork's result set that is going to be used to construct an artwork object.
+     * @param rsPainting Painting's result set that is going to be used to construct a painting object.
+     * @return Return a painting object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static Painting constructPaintingFromRS(ResultSet rsArtwork, ResultSet rsPainting) throws SQLException {
@@ -105,9 +111,9 @@ public class DBUtils {
     }
 
     /**
-     * Construct result set into bid object
-     * @param rs Result set that wanted to construct into bid object.
-     * @return Return a bid object after construct.
+     * Construct a bid object from the result set.
+     * @param rs The result set that is going to be used to construct a bid object.
+     * @return Return a bid object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static Bid constructBidFromRS(ResultSet rs) throws SQLException {
@@ -117,9 +123,9 @@ public class DBUtils {
     }
 
     /**
-     * Construct result set into timestamp in millisecond
-     * @param rs Result set that wanted to construct into timestamp.
-     * @return Return a timestamp in millisecond after construct.
+     * Construct a timestamp object from the result set.
+     * @param rs The result set that is going to be used to construct a timestamp object.
+     * @return Return a timestamp in millisecond after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static long constructLoginLogFromRS(ResultSet rs) throws SQLException {
@@ -127,9 +133,9 @@ public class DBUtils {
     }
 
     /**
-     * Construct result set into favorite user id.
-     * @param rs Result set that wanted to construct into favorite user's id.
-     * @return Return a user's id .
+     * Construct a favorite user's Id from result set.
+     * @param rs The result set that is going to be used to construct a favorite user's Id.
+     * @return Return a user's id after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public static int constructFavouriteFromRS(ResultSet rs) throws SQLException {
