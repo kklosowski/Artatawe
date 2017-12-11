@@ -80,7 +80,7 @@
                                                 <Insets bottom="5.0" left="5.0" />
                                             </VBox.margin>
                                         </Text>
-                                        <TextField maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Width" />
+                                        <TextField fx:id="w" maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Width" />
                                     </children>
                                 </VBox>
                                 <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="100.0">
@@ -90,7 +90,7 @@
                                                 <Insets bottom="5.0" left="5.0" />
                                             </VBox.margin>
                                         </Text>
-                                        <TextField maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Height" />
+                                        <TextField fx:id="h" maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Height" />
                                     </children>
                                 </VBox>
                                 <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="100.0">
@@ -100,7 +100,7 @@
                                                 <Insets bottom="5.0" left="5.0" />
                                             </VBox.margin>
                                         </Text>
-                                        <TextField maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Depth" />
+                                        <TextField fx:id="d" maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Depth" />
                                     </children>
                                 </VBox>
                             </children>
