@@ -1,10 +1,12 @@
-/**
- * Address is a class to store full address in detail.
- *
- * @author Shu Yu
- */
-
 package artatawe;
+
+/**
+ * Stores various fields to construct an address
+ *
+ * @author Goh Shu Yu
+ * version 1.0
+ * Since 27.10.2017
+ */
 
 public class Address {
 
@@ -34,7 +36,7 @@ public class Address {
     private String country;
 
     /**
-     *  Address constructor with specifying all of user information
+     *  Address constructor
      *  @param address1 first line of the address
      *  @param address2 second line of the address, it is optional
      *  @param address3 third line of the address, it is optional
@@ -60,7 +62,7 @@ public class Address {
     }
 
     /**
-     * Method to update value of address1.
+     * Updates value of address1.
      * @param address1 New value for address1.
      * */
     public void setAddress1(String address1) {
@@ -76,7 +78,7 @@ public class Address {
     }
 
     /**
-     * Method to update value of address2.
+     * Updates value of address2.
      * @param address2 New value for address2.
      * */
     public void setAddress2(String address2) {
@@ -92,7 +94,7 @@ public class Address {
     }
 
     /**
-     * Method to update value of address3.
+     * Updates address3.
      * @param address3 New value for address3.
      * */
     public void setAddress3(String address3) {
@@ -108,7 +110,7 @@ public class Address {
     }
 
     /**
-     * Method to update value of city.
+     * Updates value of city.
      * @param city New value for city.
      * */
     public void setCity(String city) {
@@ -125,14 +127,14 @@ public class Address {
 
     /**
      * Method used to update postcode.
-     * @param postcode New value for postcode.
+     * @param postcode New value for postcode
      * */
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
 
     /**
-     * Method to get value of country
+     * Gets country.
      * @return Return country.
      * */
     public String getCountry() {
@@ -140,7 +142,7 @@ public class Address {
     }
 
     /**
-     * Method to update country.
+     * Updates country.
      * @param country New country value.
      */
     public void setCountry(String country) {

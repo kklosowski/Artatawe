@@ -1,28 +1,30 @@
 package artatawe;
 
 /**
- * Paiting is a class that contains all the actions needed for constructing a painting object.
- *
+ * Stores data to construct a painting
  * @author Morgan David
  * @version 1.0
+ * @since 27.10.2017
  */
-
 public class Painting extends Artwork {
-    
-    /*
-    * The width of the painting
-    */
+    /**
+     *  Width of the painting
+     */
     private double width;
-    
-    /** 
-    * The height of the paintng
-    */
+    /**
+     * Height of the paintng
+     */
     private double height;
 
     /**
-     * Constructs an object of type Painting.
-     * @param width The width of the painting.
-     * @param height The height of the painting.
+     * Painting constructor without artworkId.
+     * @param title
+     * @param description
+     * @param artist
+     * @param primaryPicture
+     * @param yearCreated
+     * @param width
+     * @param height
      */
     public Painting(String title, String description, String artist, String primaryPicture, int yearCreated, double width, double height) {
         super(title, description, artist, primaryPicture, yearCreated);
@@ -31,10 +33,15 @@ public class Painting extends Artwork {
     }
 
     /**
-     * Constructs an object of type Painting.
-     * @param artworkId The Id of the painting.
-     * @param width The width of the painting.
-     * @param height The height of the painting.
+     * Painting constructor with artworkId.
+     * @param artworkId
+     * @param title
+     * @param description
+     * @param artist
+     * @param primaryPicture
+     * @param yearCreated
+     * @param width
+     * @param height
      */
     public Painting(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated, double width, double height) {
         super(artworkId, title, description, artist, primaryPicture, yearCreated);

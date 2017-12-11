@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author  Goh Shu Yu,Michael Lam
+ * Database access object for the Artwork class
+ * @author  Goh Shu Yu, Michael Lam
+ * @version 1.0
  * @since 4/12/2017
  */
 public class ArtworkDao {
@@ -143,11 +145,7 @@ public class ArtworkDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
     public int insertArtwork(Artwork artwork) throws SQLException {
-        List<Artwork> artworks = getAllArtwork();
-        int lastId = 0;
-        if (artworks.size() > 0) {
-            lastId = artworks.get(artworks.size() - 1).getArtworkId();
-        }
+        int lastId = getLastId();
         String type = "";
         if (artwork instanceof Sculpture) {
             type = SCULPTURE;
@@ -214,6 +212,11 @@ public class ArtworkDao {
         String insertQuery = String.format("DELETE FROM %s WHERE artwork_spec_id = %d and picture_url = '%s'",
                 SCULPTURE_PIC,sculptureId,image_url);
         return connection.insert(insertQuery);
+    }
+    //get last artwork id of an artwork table in database.
+    private int getLastId() throws SQLException {
+        String query = "SELECT seq FROM sqlite_sequence WHERE name='artwork'";
+        return connection.query(query).getInt("seq");
     }
 
 }

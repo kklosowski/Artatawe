@@ -7,13 +7,13 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
-/**
- * Class launching the drawing subsytem.
- *
- * @version 1.0
- * @author Tereza Pashinska
- */
 
+/**
+ * The main class for the drawing subsystem
+ * @author Tereza
+ * @version 1.0
+ * @since 1-12-17
+ */
 public class MainForDrawing extends Application {
 
     /**
