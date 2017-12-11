@@ -73,7 +73,7 @@ public class BidDao {
     public Bid getHighestBid(int auctionId) {
         Bid highestBid = null;
         try {
-            highestBid = getAuctionBids(auctionId).stream().sorted(Comparator.comparing(Bid::getAmount)).findFirst().get();
+            highestBid = getAuctionBids(auctionId).stream().sorted(Comparator.comparing(Bid::getAmount)).findFirst().orElse(null);
         } catch (SQLException e) {
             e.printStackTrace();
         }
