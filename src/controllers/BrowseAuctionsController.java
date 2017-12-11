@@ -1,9 +1,14 @@
 package controllers;
 
+import artatawe.Auction;
+import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Background;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class BrowseAuctionsController {
     private String type = "all";
@@ -54,6 +59,11 @@ public class BrowseAuctionsController {
 
     private void getAuctions(){
         boolean onlyMine = this.onlyMineCheckbox.isSelected();
-
+        AuctionDao ad = new AuctionDao();
+        try {
+            List<Auction> auctions = ad.getAllAuctions();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 }

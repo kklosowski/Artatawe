@@ -35,7 +35,7 @@ public class LayoutController {
     @FXML
     private void browseAuctions(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL);
+        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         //TODO change the view
         s.setScene(l.getView());
@@ -44,7 +44,7 @@ public class LayoutController {
     @FXML
     private void browseUsers(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.BROWSE_USERS_URL, ViewLoader.LAYOUT_FXML_URL);
+        l.loadViewController(ViewLoader.BROWSE_USERS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         s.setScene(l.getView());
     }
@@ -52,7 +52,7 @@ public class LayoutController {
     @FXML
     private void myFavourites(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_FXML_URL);
+        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         //TODO change the view
         s.setScene(l.getView());
@@ -61,7 +61,7 @@ public class LayoutController {
     @FXML
     private void myAuctions(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_FXML_URL);
+        l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         //TODO change the view
         s.setScene(l.getView());
@@ -70,7 +70,7 @@ public class LayoutController {
     @FXML
     private void sellArtwork(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.ADD_AUCTION_ULR, ViewLoader.LAYOUT_FXML_URL);
+        l.loadViewController(ViewLoader.ADD_AUCTION_ULR, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         s.setScene(l.getView());
     }
@@ -78,7 +78,7 @@ public class LayoutController {
     @FXML
     private void history(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.BROWSE_HISTORY_URL, ViewLoader.LAYOUT_FXML_URL);
+        l.loadViewController(ViewLoader.BROWSE_HISTORY_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         s.setScene(l.getView());
     }
@@ -86,7 +86,7 @@ public class LayoutController {
     @FXML
     private void myProfile(){
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.MY_PROFILE_URL, ViewLoader.LAYOUT_FXML_URL);
+        l.loadViewController(ViewLoader.MY_PROFILE_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
         s.setScene(l.getView());
     }
