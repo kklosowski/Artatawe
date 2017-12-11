@@ -97,7 +97,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import models.SessionData;
 
 import java.sql.SQLException;
 
@@ -105,12 +104,12 @@ public class LoginController{
 
     private User user;
 
-    @FXML private Button login;
-    @FXML private Button register;
-    @FXML private TextField username;
+    @FXML private Button loginButton;
+    @FXML private Button registerButton;
+    @FXML private TextField usernameTextField;
 
     private String getUsername(){
-        return username.getText();
+        return usernameTextField.getText();
     }
 
     @FXML
@@ -144,12 +143,18 @@ public class LoginController{
 
     private void login(){
         if(this.user != null){
-            BrowseAuctionsController bac = new BrowseAuctionsController();
-            Stage currentStage = (Stage) login.getScene().getWindow();
-            currentStage.setScene(bac.getView());
+
         }else{
             showError("Something went wrong...");
         }
+    }
+
+    @FXML
+    public void register(){
+        ViewLoader l = new ViewLoader();
+        l.loadViewController(ViewLoader.REGISTER1_URL);
+        Stage s = (Stage) this.loginButton.getScene().getWindow();
+        s.setScene(l.getView());
     }
 }
 

@@ -1,23 +1,29 @@
 package controllers;
-
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import models.DataModel;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public abstract class ViewController {
+public  class ViewLoader {
+    public static final String LAYOUT_FXML_URL = "/views/_layout.fxml";
+    public static final String ADD_AUCTION_ULR = "/views/add_auction.fxml";
+    public static final String LOGIN_URL = "/views/login.fxml";
+    public static final String REGISTER1_URL = "/views/register.fxml";
+    public static final String REGISTER2_URL = "/views/register2.fxml";
+    public static final String MY_PROFILE_URL = "/views/my_profile.fxml";
+    public static final String CUSTOM_AVATAR_ULR = "/views/custom_avatar.fxml";
+    public static final String BROWSE_USERS_URL = "/views/browse_users.fxml";
+    public static final String BROWSE_HISTORY_URL = "/views/browse_history.fxml";
+    public static final String BROWSE_AUCTIONS_URL = "/views/browse_auctions.fxml";
+    public static final String AUCTION_URL = "/views/auction.fxml";
+
+
     private Scene view;
     private Scene errorView;
     public Pane content;
     private Pane layout;
-    private DataModel model;
 
 
     public void loadViewController(String contentFxmlUrl) {
@@ -57,30 +63,6 @@ public abstract class ViewController {
         } catch (IOException e) {
             //ErrorController ec = new ErrorController(e);
             //this.errorView = ec.getView();
-        }
-    }
-
-    protected void setContent(Pane newContent) {
-        this.content = newContent;
-    }
-
-    protected void setLayout(Pane newLayout) {
-        this.layout = newLayout;
-    }
-
-    protected void setModel(DataModel newModel) {
-        this.model = newModel;
-    }
-
-    protected Pane getContent(){
-        return this.content;
-    }
-
-    protected Stage getCurrentStage(){
-        if(this.view != null){
-            return (Stage) this.view.getWindow();
-        }else{
-            return null;
         }
     }
 

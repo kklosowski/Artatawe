@@ -1,15 +1,8 @@
 package artatawe;
 
-import controllers.AuctionController;
-import controllers.LoginController;
+import controllers.ViewLoader;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import models.SessionData;
-
-import java.util.HashMap;
 
 public class MainHandler extends Application {
     private final double WINDOW_WIDTH = 800;
@@ -26,14 +19,11 @@ public class MainHandler extends Application {
         primaryStage.setFullScreen(FULLSCREEN);
         primaryStage.setResizable(RESIZABLE);
         primaryStage.setTitle("Artatawe bidding");
-        SessionData sd = new SessionData();
 
-        try {
-            primaryStage.setScene(new Scene((Pane)FXMLLoader.load(getClass().getResource("/views/login.fxml"))));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
 
+        ViewLoader l = new ViewLoader();
+        l.loadViewController(ViewLoader.LOGIN_URL);
+        primaryStage.setScene(l.getView());
         primaryStage.show();
 
     }
