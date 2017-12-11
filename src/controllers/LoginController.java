@@ -96,6 +96,7 @@ import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
@@ -104,9 +105,17 @@ public class LoginController{
 
     private User user;
 
-    @FXML private Button loginButton;
-    @FXML private Button registerButton;
-    @FXML private TextField usernameTextField;
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    private Button registerButton;
+
+    @FXML
+    private Text errorText;
+
+    @FXML
+    private TextField usernameTextField;
 
     private String getUsername(){
         return usernameTextField.getText();
@@ -130,24 +139,31 @@ public class LoginController{
     private boolean validateUser(String username) {
         try{
             UserDao userDao = new UserDao();
-            this.user = userDao.getUserByUsername(username);
-            return true;
+            User u = userDao.getUserByUsername(username);
+            if(u != null){
+                this.user = u;
+                return true;
+            }
+            return false;
         }catch(SQLException e){
+            showError("Could not establish database up-link, Cap!\nAborting...");
             return false;
         }
     }
 
-    private void showError(String message){
-        System.out.println("Error: " + message);
-    }
-
     private void login(){
         if(this.user != null){
-            //insert login into table,
-            //fetch user
+            ViewLoader l = new ViewLoader();
+            l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_FXML_URL);
+            Stage s = (Stage) this.loginButton.getScene().getWindow();
+            s.setScene(l.getView());
         }else{
             showError("Something went wrong...");
         }
+    }
+
+    private void showError(String message){
+        this.errorText.setText(message);
     }
 
     @FXML
