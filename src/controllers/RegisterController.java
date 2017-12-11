@@ -1,5 +1,8 @@
 package controllers;
 
+import artatawe.Address;
+import artatawe.User;
+import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -24,6 +27,14 @@ public class RegisterController {
     @FXML
     private TextField postcodeTextField;
 
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private String mobile;
+    private String address;
+    private String postcode;
+
+
     @FXML
     public void login() {
         ViewLoader l = new ViewLoader();
@@ -33,9 +44,11 @@ public class RegisterController {
     }
 
     @FXML
-    public void attemptContinue() {
-        if (validateFields()) {
-            //create user
+    public void attemptContinue(){
+        if(validateFields()){
+            //Address a = new Address("address")
+            User u = new User(firstName, lastName, userName, mobile, null, postcode);
+
             //store user id somewhere or pass
 
             ViewLoader l = new ViewLoader();

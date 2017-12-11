@@ -143,7 +143,8 @@ public class LoginController{
 
     private void login(){
         if(this.user != null){
-
+            //insert login into table,
+            //fetch user
         }else{
             showError("Something went wrong...");
         }
