@@ -40,7 +40,7 @@ public class AuctionDao {
      * @return Return a list of auction from database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public List<Auction> getAllAuctionsUserParticipated(int userId) throws SQLException {
+    public List<Auction> getAutionsByUser(int userId) throws SQLException {
         List<Auction> auctions = new ArrayList<>();
         String retrieveQuery = String.format("SELECT * FROM auction a, " +
                 "(SELECT auction_id FROM bid WHERE user_id = %d ) b " +
@@ -80,15 +80,13 @@ public class AuctionDao {
      */
     public int updateAuction(Auction auction, int auctionId) throws SQLException {
         return connection.insert(String.format("UPDATE Auction " +
-                        "SET artwork_id = %s, user_id = %s, current_price = %s, reserve_price = %s, date_added = %s, max_bids = %s " +
+                        "SET artwork_id = %s, user_id = %s, reserved_price = %s, max_bids = %s " +
                         "WHERE auction_id = %s",
                 auction.getArtwork().getArtworkId(),
                 auction.getCreator().getUserId(),
-                auction.getCurrentPrice(),
                 auction.getReservePrice(),
-                auction.getDateAdded(),
                 auction.getMaxBids(),
-                auction.getAuctionId()));
+                auctionId));
     }
     /**
      * Insert an auction into database.
