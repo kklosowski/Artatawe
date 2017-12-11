@@ -5,6 +5,12 @@ import controllers.ViewLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * Loads default login view.
+ * @author TODO: add author
+ * @since 10-12-17
+ * @version 1.0
+ */
 public class MainHandler extends Application {
     private final double WINDOW_WIDTH = 800;
     private final double WINDOW_HEIGHT = 650;

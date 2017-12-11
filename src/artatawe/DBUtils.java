@@ -8,24 +8,21 @@ import dataAccessObjects.UserDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+
 /**
- *
- * @author shuyu6
+ * Contains various helpful functions related to database access.
+ * @author Morgan David, randompasser (Michael), Marcelli Wac, Tereza Pashinska, Kamil Klosowski, Goh Shu Yu
+ * @version 1.0
+ * @since 1-12-17
  */
+public class DBUtils{
 
-/**
-* DBUtils is a class used for constructing object from the database.
-*@author
-*@version 1.0
-*/
-
-public class DBUtils {
-    /**
-     * Construct an user object from the result set.
-     * @param rs The result set that is going to be used to construct an user object.
-     * @return Return an user object after construction.
-     * @throws SQLException Throws sql exception if there is any connection error.
-     */
+        /**
+         * Construct result set from user object
+         * @param rs Result set that wanted to construct into user object.
+         * @return Return a user object after construct.
+         * @throws SQLException Throws sql exception if there is any connection error.
+         */
         public static User constructUserFromRS(ResultSet rs) throws SQLException {
         AddressDao addressDao = new AddressDao();
         UserDao userDao = new UserDao();

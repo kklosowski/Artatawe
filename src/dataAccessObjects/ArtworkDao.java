@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author  Goh Shu Yu,Michael Lam
+ * Database access object for the Artwork class
+ * @author  Goh Shu Yu, Michael Lam
+ * @version 1.0
  * @since 4/12/2017
  */
 public class ArtworkDao {
@@ -143,11 +145,7 @@ public class ArtworkDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
     public int insertArtwork(Artwork artwork) throws SQLException {
-        List<Artwork> artworks = getAllArtwork();
-        int lastId = 0;
-        if (artworks.size() > 0) {
-            lastId = artworks.get(artworks.size() - 1).getArtworkId();
-        }
+        int lastId = getLastId();
         String type = "";
         if (artwork instanceof Sculpture) {
             type = SCULPTURE;
@@ -189,15 +187,36 @@ public class ArtworkDao {
         }
         return sculpturePic;
     }
+
+    /**
+     * Insert an additional picture of a sculpture into database.
+     * @param sculptureId The sculpture that wanted to insert new picture into database.
+     * @param image_url The sculpture's image url.
+     * @return Return any integer except 0 if insert successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public int insertSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
         String insertQuery = String.format("INSERT INTO %s (artwork_spec_id,picture_url) VALUES (%d,'%s')",
                 SCULPTURE_PIC,sculptureId,image_url);
         return connection.insert(insertQuery);
     }
+
+    /**
+     * Delete an additional picture of a sculpture from database.
+     * @param sculptureId The sculpture that wanted to delete picture from database.
+     * @param image_url The sculpture's image url that wanted to delete from database.
+     * @return Return any integer except 0 if delete successfully, if not it will return 0.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     * */
     public int deleteSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
         String insertQuery = String.format("DELETE FROM %s WHERE artwork_spec_id = %d and picture_url = '%s'",
                 SCULPTURE_PIC,sculptureId,image_url);
         return connection.insert(insertQuery);
+    }
+    //get last artwork id of an artwork table in database.
+    private int getLastId() throws SQLException {
+        String query = "SELECT seq FROM sqlite_sequence WHERE name='artwork'";
+        return connection.query(query).getInt("seq");
     }
 
 }

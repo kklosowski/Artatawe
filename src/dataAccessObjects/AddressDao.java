@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * A linking connection between address class and address table in database
+ * A linking connection between address class and address table in the database.
  * @author Goh Shu Yu
  * @since 2/12/2017
  */
@@ -25,10 +25,10 @@ public class AddressDao {
     private final String ADDRESS_TABLE_NAME = "address";
 
     /**
-     * Retrieve specific address by user id from database.
+     * Retrieve specific address by user id from the database.
      *
      * @param userId The user's id.
-     * @return Return user's address if the address is found if not return null.
+     * @return Return the user's address if the address is found if not return null.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public Address getAddress(int userId) throws SQLException {
@@ -42,10 +42,10 @@ public class AddressDao {
     }
 
     /**
-     * Update address by user id in database.
+     * Update address by user id in the database.
      *
      * @param address New address that required to update the database.
-     * @param user_id The user's is that requested to update address.
+     * @param user_id The user's id that has requested to update address.
      * @return If update successfully it will return any integer that is not 0, if unable to update it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -70,9 +70,9 @@ public class AddressDao {
     }
 
     /**
-     * Delete specific address by user id from database.
+     * Delete specific address by user id from the database.
      *
-     * @param userId The user's id that request to delete address.
+     * @param userId The user's id that has requested to delete address.
      * @return If delete successfully it will return any integer except 0, if unable to update it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -83,7 +83,7 @@ public class AddressDao {
     }
 
     /**
-     * Insert new address into database.
+     * Insert new address into the database.
      *
      * @param address User's address.
      * @param userId  User's id.

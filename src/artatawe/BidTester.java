@@ -34,6 +34,7 @@ public class BidTester {
             addressList.add(new Address("Oxford", "116A High Street", "", "GOSPORT", "PO12 1DU", "UK"));
             addressList.add(new Address("Sheilings", "10 Main Lane", "Croft", "WARRINGTON", "WA3 7EE", "UK"));
             addressList.add(new Address("Barton House", "Angersleigh", "", "TAUNTON", "TA3 7SY", "UK"));
+            addressList.add(new Address("Barton ", "Angersleigh 2", "", "TAUNTON", "TA3 7SY", "UK"));
 
             userList.add(new User("Shu Yu", "Goh", "shuyu6", "4757001800", addressList.get(0), "123.png"));
             userList.add(new User("Kamil", "Klosowski", "kklosowski", "1323385659", addressList.get(1), "123.png"));
@@ -44,7 +45,10 @@ public class BidTester {
             userList.add(new User("Sarette", "Derle", "sderlea", "2808326006", addressList.get(6), "123.png"));
             userList.add(new User("Maxie", "Mosley", "mmosleyc", "6541224536", addressList.get(7), "123.png"));
             userList.add(new User("Sadie", "Daskiewics", "sdaskiewicz0", "7207971936", addressList.get(8), "123.png"));
-//remove the comment to insert users into database
+            userList.add(new User("Kelly", "Tan", "kelly", "7207971936", addressList.get(9), "123.png"));
+                userDao.insertUser(userList.get(9));
+
+            //remove the comment to insert users into database
 //            for (int i = 0 ; i < addressList.size() ; i++){
 //                userDao.insertUser(userList.get(i));
 //            }

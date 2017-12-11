@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Carrying out insert, update and delete in the database.
- *
+ * Database access object for the Artwork class
  * @author Goh Shu Yu
  * @since 2/12/2017
  */
@@ -168,8 +167,7 @@ public class UserDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public int insertUser(User user) throws SQLException {
-        List<User> userList = getAllUsers();
-        int lastUserId = userList.size();
+        int lastUserId = getLastId();
         System.out.println("last user id  " + lastUserId);
 
         String insertQuery = String.format("INSERT INTO %s " +
@@ -231,7 +229,8 @@ public class UserDao {
         }
     }
 
-    public int getLastId() throws SQLException {
+    //last user id in user table in database.
+    private int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='user'";
         return connection.query(query).getInt("seq");
     }
