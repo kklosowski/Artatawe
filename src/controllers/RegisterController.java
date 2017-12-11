@@ -98,12 +98,12 @@ public class RegisterController {
 
             return false;
         }
-        if (!InputValidator.validAddress(address2TextField.getText())) {
+        if (!InputValidator.validText(address2TextField.getText())) {
             showError("Address line 2 invalid");
 
             return false;
         }
-        if (!InputValidator.validAddress(address3TextField.getText())) {
+        if (!InputValidator.validText(address3TextField.getText())) {
             showError("Address line 3 invalid");
 
             return false;
@@ -116,7 +116,7 @@ public class RegisterController {
             showError("Country invalid");
             return false;
         }
-        if (!InputValidator.validPostcode(postcodeTextField.toString().toUpperCase())) {
+        if (!InputValidator.validPostcode(postcodeTextField.getText().toUpperCase())) {
             showError("Postcode invalid");
             return false;
         }

@@ -5,7 +5,7 @@ public class InputValidator {
     private static final String ALPHA_PATTERN = "^[a-zA-Z]*$";
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
     private static final String TEXT_PATTERN = "^[a-zA-Z0-9.,;?! ]*$";
-    private static final String POSTCODE_PATTERN = "^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$";
+    private static final String POSTCODE_PATTERN = "^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$";
     private static final String MOBILE_PATTERN = "^[0-9]*$";
     private static final int ARTWORK_TITLE_MAX_LENGTH = 20;
     private static final int ARTWORK_DESCRIPTION_MAX_LENGTH = 225;
