@@ -40,7 +40,7 @@ public class AuctionDao {
      * @return Return a list of auction from database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public List<Auction> getAllAuctionsUserParticipated(int userId) throws SQLException {
+    public List<Auction> getAutionsByUser(int userId) throws SQLException {
         List<Auction> auctions = new ArrayList<>();
         String retrieveQuery = String.format("SELECT * FROM auction a, " +
                 "(SELECT auction_id FROM bid WHERE user_id = %d ) b " +

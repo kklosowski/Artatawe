@@ -230,4 +230,9 @@ public class UserDao {
             return connection.insert(insetQuery);
         }
     }
+
+    public int getLastId() throws SQLException {
+        String query = "SELECT seq FROM sqlite_sequence WHERE name='user'";
+        return connection.query(query).getInt("seq");
+    }
 }
