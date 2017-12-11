@@ -33,6 +33,8 @@ public abstract class Artwork {
      * */
     protected int yearCreated;
 
+    protected String type;
+
     
      /**
      * Artwork constructor with the information specifying the artwork, including specifiying artworkId.
@@ -149,4 +151,11 @@ public abstract class Artwork {
         return this.primaryPicture;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
