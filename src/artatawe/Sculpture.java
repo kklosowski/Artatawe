@@ -1,5 +1,7 @@
 package artatawe;
 
+import java.util.List;
+
 /**
  * Class for creating a sculpture object.
  *
@@ -8,26 +10,37 @@ package artatawe;
  * Since 27.10.2017
  */
 
-import java.util.List;
-
 
 public class Sculpture extends Artwork {
 
     /**
-     *The material of the sculpture
+     *The material of the sculpture.
      */
     private String material;
+    /**
+     *The width of the sculpture.
+     */
     private double width;
+    /**
+     *The height of the sculpture.
+     */
     private double height;
+    /**
+     *The depth of the sculpture.
+     */
     private double depth;
+    /**
+     *The list containing additional pictures of the sculpture.
+     */
     private List<String> additionalPictures;
 
     /**
      * Constructs an object of type Sculpture
-     * @param material
-     * 				The material of the sculpture.
-    //	 * @param photos
-     * 				List of photos added
+     * @param material The material of the sculpture.
+     * @param additionalPictures List of additional photos added.
+     * @param height The height of the sculpture.
+     * @param depth The depth of the sculpture.
+     * @param width The width of the sculpture.
      */
     //TODO add list
     public Sculpture(String title, String description, String artist, String primaryPicture, int yearCreated, String material, double width, double height, double depth) {
@@ -39,6 +52,13 @@ public class Sculpture extends Artwork {
 //		this.additionalPictures = additionalPictures;
     }
 
+     /**
+     * Constructs an object of type Sculpture
+     * @param material The material of the sculpture.
+     * @param height The height of the sculpture.
+     * @param depth The depth of the sculpture.
+     * @param width The width of the sculpture.
+     */
     public Sculpture(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated, String material, double width, double height, double depth) {
         super(artworkId, title, description, artist, primaryPicture, yearCreated);
         this.material = material;
@@ -64,14 +84,26 @@ public class Sculpture extends Artwork {
         this.material = material;
     }
 
+    /**
+     * Method getting the width of a sculpture.
+     * @return The width of a sculpture.
+     */
     public double getWidth() {
         return this.width;
     }
 
+     /**
+     * Method getting the height of a sculpture.
+     * @return The height of a sculpture.
+     */
     public double getHeight() {
         return this.height;
     }
 
+     /**
+     * Method getting the depth of a sculpture.
+     * @return The depth of a sculpture.
+     */
     public double getDepth() {
         return this.depth;
     }
