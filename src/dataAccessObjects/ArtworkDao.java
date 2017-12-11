@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author  Goh Shu Yu,Michael Lam
+ * Database access object for the Artwork class
+ * @author  Goh Shu Yu, Michael Lam
+ * @version 1.0
  * @since 4/12/2017
  */
 public class ArtworkDao {

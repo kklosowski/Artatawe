@@ -14,6 +14,12 @@ import java.io.File;
  * @author Tereza Pashinska
  */
 
+/**
+ * The main class for the drawing subsystem
+ * @author Tereza
+ * @version 1.0
+ * @since 1-12-17
+ */
 public class MainForDrawing extends Application {
 
     /**

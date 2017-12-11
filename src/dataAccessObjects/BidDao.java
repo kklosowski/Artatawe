@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
+ * Database access object for the Bid class
  * @author Kamil Klosowski
  * @since 1/12/2017
  */
