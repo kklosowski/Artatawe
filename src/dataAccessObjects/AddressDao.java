@@ -9,7 +9,8 @@ import java.sql.SQLException;
 
 /**
  * Database access object for the Address class
- * @author  Goh Shu Yu
+ *
+ * @author Goh Shu Yu
  * @version 1.0
  * @since 2/12/2017
  */

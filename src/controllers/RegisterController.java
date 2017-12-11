@@ -2,7 +2,6 @@ package controllers;
 
 import artatawe.Address;
 import artatawe.User;
-import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -39,7 +38,6 @@ public class RegisterController {
     private TextField postcodeTextField;
 
 
-
     @FXML
     public void login() {
         ViewLoader l = new ViewLoader();
@@ -49,8 +47,8 @@ public class RegisterController {
     }
 
     @FXML
-    public void attemptContinue(){
-        if(validateFields()){
+    public void attemptContinue() {
+        if (validateFields()) {
             Address a = new Address(address1TextField.getText(),
                     address2TextField.getText(),
                     address3TextField.getText(),
@@ -74,7 +72,7 @@ public class RegisterController {
         }
     }
 
-    private void showError(String message){
+    private void showError(String message) {
         this.errorText.setText(message);
     }
 

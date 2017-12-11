@@ -1,5 +1,5 @@
 package controllers;
 
-public class CustomAvatarController{
+public class CustomAvatarController {
 
 }

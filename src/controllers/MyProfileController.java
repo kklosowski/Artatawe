@@ -1,7 +1,6 @@
 package controllers;
 
 import artatawe.User;
-import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -35,7 +34,7 @@ public class MyProfileController {
     private Image targetImg;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
 
 
         User user = (User) SessionStorage.sessionData.get("loggedUser");

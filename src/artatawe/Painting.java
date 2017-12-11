@@ -2,13 +2,14 @@ package artatawe;
 
 /**
  * Stores data to construct a painting
+ *
  * @author Morgan David
  * @version 1.0
  * @since 27.10.2017
  */
 public class Painting extends Artwork {
     /**
-     *  Width of the painting
+     * Width of the painting
      */
     private double width;
     /**
@@ -18,6 +19,7 @@ public class Painting extends Artwork {
 
     /**
      * Painting constructor without artworkId.
+     *
      * @param title
      * @param description
      * @param artist
@@ -34,6 +36,7 @@ public class Painting extends Artwork {
 
     /**
      * Painting constructor with artworkId.
+     *
      * @param artworkId
      * @param title
      * @param description
@@ -48,15 +51,19 @@ public class Painting extends Artwork {
         this.width = width;
         this.height = height;
     }
+
     /**
      * Gets the width of the painting
+     *
      * @return Width of the painting
      */
     public double getWidth() {
         return this.width;
     }
+
     /**
      * Gets the height of the painting
+     *
      * @return Height of the painting
      */
     public double getHeight() {

@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * Database access object for the Artwork class
- * @author  Goh Shu Yu, Michael Lam
+ *
+ * @author Goh Shu Yu, Michael Lam
  * @version 1.0
  * @since 4/12/2017
  */
@@ -38,10 +39,11 @@ public class ArtworkDao {
 
     /**
      * Retrieve an artwork from database by given artwork's id.
+     *
      * @param artwork_id The artwork's id that is wanted to be searched.
      * @return Return an artwork by given artwork id, return null if it doesn't exist in database.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
+     */
     public Artwork getArtwork(int artwork_id) throws SQLException {
         String searchArtworkQuery = String.format("SELECT * FROM %s WHERE artwork_id = %d",
                 ARTWORK_TABLE, artwork_id);
@@ -54,9 +56,10 @@ public class ArtworkDao {
 
     /**
      * Retrieve all artworks from the database.
+     *
      * @return Return a list of artworks.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
+     */
     public List<Artwork> getAllArtwork() throws SQLException {
         List<Artwork> artworks = new ArrayList<>();
         String getQuery = String.format("SELECT * FROM %s", ARTWORK_TABLE);
@@ -66,12 +69,14 @@ public class ArtworkDao {
         }
         return artworks;
     }
+
     /**
      * Update the artwork information into the database.
+     *
      * @param artwork The artwork that is wanted to be updated into the database.
      * @return Return any integer except 0 if update successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
+     */
     public int updateArtwork(Artwork artwork) throws SQLException {
         System.out.println("trying ");
         String updateArtworkQuery = String.format("UPDATE %s SET title = '%s', description = '%s'," +
@@ -100,10 +105,11 @@ public class ArtworkDao {
 
     /**
      * Delete an artwork from the database.
+     *
      * @param artwork The artwork that is wanted to be removed from the database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
+     */
     public int deleteArtwork(Artwork artwork) throws SQLException {
         int result = 0;
         if (artwork instanceof Sculpture) {
@@ -120,12 +126,14 @@ public class ArtworkDao {
         }
         return 0;
     }
+
     /**
      * Insert an artwork into the database.
+     *
      * @param artwork The artwork that is wanted to be inserted into the database.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
+     */
     public int insertArtwork(Artwork artwork) throws SQLException {
         int lastId = getLastId();
         String type = "";
@@ -155,16 +163,17 @@ public class ArtworkDao {
 
     /**
      * Retrieve all of a sculpture's additional pictures from the database.
+     *
      * @param sculptureId Sculpture's id that is wanted to be able to get the additional pictures.
      * @return Return a list of string that contain sculpture additional pictures' url.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public List<String> getSculptureAdditionalPic(int sculptureId)throws SQLException{
+    public List<String> getSculptureAdditionalPic(int sculptureId) throws SQLException {
         List<String> sculpturePic = new ArrayList<>();
-        String retrieveQuery = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ",SCULPTURE_PIC,sculptureId);
+        String retrieveQuery = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", SCULPTURE_PIC, sculptureId);
         ResultSet rs = connection.query(retrieveQuery);
 
-        while (rs.next()){
+        while (rs.next()) {
             sculpturePic.add(rs.getString("picture_url"));
         }
         return sculpturePic;
@@ -172,34 +181,38 @@ public class ArtworkDao {
 
     /**
      * Insert an additional picture of a sculpture into the database.
+     *
      * @param sculptureId The sculpture that is wanted to be inserted new picture into the database.
-     * @param image_url The sculpture's image url.
+     * @param image_url   The sculpture's image url.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
-    public int insertSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
+     */
+    public int insertSculptureAdditionalPic(int sculptureId, String image_url) throws SQLException {
         String insertQuery = String.format("INSERT INTO %s (artwork_spec_id,picture_url) VALUES (%d,'%s')",
-                SCULPTURE_PIC,sculptureId,image_url);
+                SCULPTURE_PIC, sculptureId, image_url);
         return connection.insert(insertQuery);
     }
 
     /**
      * Delete an additional picture of a sculpture from the database.
+     *
      * @param sculptureId The sculpture  from which the user wants to delete a picture from the database.
-     * @param image_url The sculpture's image url that is wanted to be deleted from the database.
+     * @param image_url   The sculpture's image url that is wanted to be deleted from the database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
-     * */
-    public int deleteSculptureAdditionalPic(int sculptureId, String image_url)throws SQLException{
+     */
+    public int deleteSculptureAdditionalPic(int sculptureId, String image_url) throws SQLException {
         String insertQuery = String.format("DELETE FROM %s WHERE artwork_spec_id = %d and picture_url = '%s'",
-                SCULPTURE_PIC,sculptureId,image_url);
+                SCULPTURE_PIC, sculptureId, image_url);
         return connection.insert(insertQuery);
     }
+
     //get last artwork id of an artwork table in database.
     public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='artwork'";
         return connection.query(query).getInt("seq");
     }
+
     // A method to search and return an artwork from database regarding to different type of artwork (sculpture / painting)
     private Artwork searchArtworkByType(ResultSet rs) throws SQLException {
         if (rs.getString("artwork_type").equals(SCULPTURE)) {

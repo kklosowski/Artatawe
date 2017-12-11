@@ -11,19 +11,21 @@ import java.sql.Timestamp;
 
 /**
  * Contains various helpful functions related to database access.
+ *
  * @author Morgan David, Michael, Marcelli Wac, Tereza Pashinska, Kamil Klosowski, Goh Shu Yu
  * @version 1.0
  * @since 1-12-17
  */
-public class DBUtils{
+public class DBUtils {
 
-        /**
-         * Construct result set from user object
-         * @param rs Result set that wanted to construct into user object.
-         * @return Return a user object after construction.
-         * @throws SQLException Throws sql exception if there is any connection error.
-         */
-        public static User constructUserFromRS(ResultSet rs) throws SQLException {
+    /**
+     * Construct result set from user object
+     *
+     * @param rs Result set that wanted to construct into user object.
+     * @return Return a user object after construction.
+     * @throws SQLException Throws sql exception if there is any connection error.
+     */
+    public static User constructUserFromRS(ResultSet rs) throws SQLException {
         AddressDao addressDao = new AddressDao();
         UserDao userDao = new UserDao();
         return new User(rs.getInt("user_id"),
@@ -40,6 +42,7 @@ public class DBUtils{
 
     /**
      * Construct an address object from the result set.
+     *
      * @param rs The result set that is going to be used to construct an address object.
      * @return Return a address object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -55,6 +58,7 @@ public class DBUtils{
 
     /**
      * Construct an auction object from the result set.
+     *
      * @param rs The result set that is going to be used to construct an auction object.
      * @return Return a auction object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -74,7 +78,8 @@ public class DBUtils{
 
     /**
      * Construct a sculpute object from the result set.
-     * @param rsArtwork Artwork's result set that is going to be used to construct an artwork object.
+     *
+     * @param rsArtwork   Artwork's result set that is going to be used to construct an artwork object.
      * @param rsSculpture Sculpture's result set that is going to be used to construct a sculpute object.
      * @return Return a sculpture object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -97,7 +102,8 @@ public class DBUtils{
 
     /**
      * Construct a painting object from the result set.
-     * @param rsArtwork Artwork's result set that is going to be used to construct an artwork object.
+     *
+     * @param rsArtwork  Artwork's result set that is going to be used to construct an artwork object.
      * @param rsPainting Painting's result set that is going to be used to construct a painting object.
      * @return Return a painting object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -116,6 +122,7 @@ public class DBUtils{
 
     /**
      * Construct a bid object from the result set.
+     *
      * @param rs The result set that is going to be used to construct a bid object.
      * @return Return a bid object after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -128,6 +135,7 @@ public class DBUtils{
 
     /**
      * Construct a timestamp object from the result set.
+     *
      * @param rs The result set that is going to be used to construct a timestamp object.
      * @return Return a timestamp in millisecond after construction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -138,6 +146,7 @@ public class DBUtils{
 
     /**
      * Construct a favorite user's Id from result set.
+     *
      * @param rs The result set that is going to be used to construct a favorite user's Id.
      * @return Return a user's id after construction.
      * @throws SQLException Throws sql exception if there is any connection error.

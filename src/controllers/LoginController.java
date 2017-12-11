@@ -102,61 +102,63 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 /**
-*Class for handling the GUI for Login.
-* @author Marceli Wac
-* @version 1.0
-*/
+ * Class for handling the GUI for Login.
+ *
+ * @author Marceli Wac
+ * @version 1.0
+ */
 
-public class LoginController{
+public class LoginController {
 
     /**
-    *User object.
-    */
+     * User object.
+     */
     private User user;
-    
+
     /**
-    *Login button.
-    */
+     * Login button.
+     */
     @FXML
     private Button loginButton;
 
     /**
-    *Registration button.
-    */
+     * Registration button.
+     */
     @FXML
     private Button registerButton;
 
     /**
-    *Text for error message.
-    */
+     * Text for error message.
+     */
     @FXML
     private Text errorText;
 
     /**
-    *Text field for a user's username.
-    */
+     * Text field for a user's username.
+     */
     @FXML
     private TextField usernameTextField;
 
     /**
-    *Gets the username.
-    * @return The username of a user.
-    */
-    private String getUsername(){
+     * Gets the username.
+     *
+     * @return The username of a user.
+     */
+    private String getUsername() {
         return usernameTextField.getText();
     }
 
     /**
-    *Method verifying the user.
-    */
+     * Method verifying the user.
+     */
     @FXML
-    public void verifyUser(){
+    public void verifyUser() {
         InputValidator iv = new InputValidator();
         String username = getUsername();
-        if(!iv.validUsername(username)){
+        if (!iv.validUsername(username)) {
             showError("The username is not valid");
-        }else{
-            if(validateUser(username)){
+        } else {
+            if (validateUser(username)) {
                 UserDao userDao = new UserDao();
                 User user = null;
                 try {
@@ -166,60 +168,62 @@ public class LoginController{
                 }
                 SessionStorage.sessionData.put("loggedUser", user);
                 login();
-            }else{
+            } else {
                 showError("The user with this username does not exist.");
             }
         }
     }
 
-    
+
     /**
-    *Method to validate a user
-    *@param username The user's username
-    */
+     * Method to validate a user
+     *
+     * @param username The user's username
+     */
     private boolean validateUser(String username) {
-        try{
+        try {
             UserDao userDao = new UserDao();
             User u = userDao.getUserByUsername(username);
-            if(u != null){
+            if (u != null) {
                 this.user = u;
                 return true;
             }
             return false;
-        }catch(SQLException e){
+        } catch (SQLException e) {
             showError("Could not establish database up-link, Cap!\nAborting...");
             return false;
         }
     }
 
     /**
-    *Method for loading the scene.
-    */
-    private void login(){
-        if(this.user != null){
+     * Method for loading the scene.
+     */
+    private void login() {
+        if (this.user != null) {
             ViewLoader l = new ViewLoader();
             l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
             Stage s = (Stage) this.loginButton.getScene().getWindow();
             s.setScene(l.getView());
-        }else{
+        } else {
             showError("Something went wrong...");
         }
     }
 
     /**
-    *Method for showing a message with the error.
-    *@param message The message being displayed.
-    */
-    private void showError(String message){
+     * Method for showing a message with the error.
+     *
+     * @param message The message being displayed.
+     */
+    private void showError(String message) {
         this.errorText.setText(message);
     }
 
-    
+
     /**
-    *Method for loading the Registration Viem.
-    */
+     * Method for loading the Registration Viem.
+     */
     @FXML
-    public void register(){
+    public void register() {
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.REGISTER1_URL);
         Stage s = (Stage) this.loginButton.getScene().getWindow();

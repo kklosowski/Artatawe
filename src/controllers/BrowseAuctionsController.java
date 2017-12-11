@@ -4,11 +4,8 @@ import artatawe.Auction;
 import artatawe.User;
 import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -37,7 +34,7 @@ public class BrowseAuctionsController {
     private VBox auctions;
 
     @FXML
-    private void paintingsFilter(){
+    private void paintingsFilter() {
         this.type = "painting";
         this.paintingsFilterButton.setStyle(activeStyle);
         this.sculpturesFilterButton.setStyle(inactiveStyle);
@@ -47,7 +44,7 @@ public class BrowseAuctionsController {
     }
 
     @FXML
-    private void sculpturesFilter(){
+    private void sculpturesFilter() {
         this.type = "sculpture";
         this.paintingsFilterButton.setStyle(inactiveStyle);
         this.sculpturesFilterButton.setStyle(activeStyle);
@@ -58,7 +55,7 @@ public class BrowseAuctionsController {
     }
 
     @FXML
-    private void allFilter(){
+    private void allFilter() {
         this.type = "all";
         this.paintingsFilterButton.setStyle(inactiveStyle);
         this.sculpturesFilterButton.setStyle(inactiveStyle);
@@ -68,19 +65,18 @@ public class BrowseAuctionsController {
     }
 
     @FXML
-    private void onlyMine(){
+    private void onlyMine() {
         clearAuctions();
         getAuctions();
     }
 
-    private void clearAuctions(){
+    private void clearAuctions() {
         auctions.getChildren().setAll();
     }
 
 
-
     @FXML
-    private void getAuctions(){
+    private void getAuctions() {
         boolean onlyMine = this.onlyMineCheckbox.isSelected();
         ViewLoader l = new ViewLoader();
         AuctionDao ad = new AuctionDao();
@@ -89,7 +85,7 @@ public class BrowseAuctionsController {
             User currentUser = (User) SessionStorage.sessionData.get("loggedUser");
 
             List<Auction> fetchedAuctions = ad.getAllAuctions(this.type, onlyMine, ((currentUser.getUserId())));
-            for (Auction auction:fetchedAuctions){
+            for (Auction auction : fetchedAuctions) {
                 Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
                 p.applyCss();
 
@@ -104,7 +100,7 @@ public class BrowseAuctionsController {
                 auctions.getChildren().add(p);
                 System.out.println("Added!");
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

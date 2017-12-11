@@ -1,10 +1,6 @@
 import artatawe.Address;
 import artatawe.User;
-import controllers.InputValidator;
-import javafx.scene.image.Image;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Kamil Klosowski

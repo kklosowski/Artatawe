@@ -1,10 +1,10 @@
+import artatawe.Address;
+import dataAccessObjects.AddressDao;
 import org.junit.jupiter.api.Test;
 
-import artatawe.*;
-import dataAccessObjects.*;
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Kamil Klosowski
@@ -41,7 +41,7 @@ class AddressDaoTest {
             e.printStackTrace();
         }
 
-        assertEquals("99 Test Avenue",address.getAddress1());
+        assertEquals("99 Test Avenue", address.getAddress1());
         assertEquals("Testmill", address.getAddress2());
         assertEquals("Test", address.getAddress3());
         assertEquals("Testville", address.getCity());
