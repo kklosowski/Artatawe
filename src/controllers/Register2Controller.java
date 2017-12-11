@@ -27,7 +27,7 @@ public class Register2Controller {
     @FXML
     public void setSelectedAvatar(Event event){
         ImageView avatar = (ImageView) event.getSource();
-        String url = avatar.getImage().impl_getUrl();
+        String url = avatar.getImage().getUrl();
         SessionStorage.loggedUser.setProfilePicture(url.substring(url.lastIndexOf('/' + 1)));
         System.out.println(SessionStorage.loggedUser.toString());
     }

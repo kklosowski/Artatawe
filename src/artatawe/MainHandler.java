@@ -29,7 +29,7 @@ public class MainHandler extends Application {
 
 
         ViewLoader l = new ViewLoader();
-        l.loadViewController(ViewLoader.REGISTER1_URL);
+        l.loadViewController(ViewLoader.LOGIN_URL);
         primaryStage.setScene(l.getView());
         primaryStage.show();
 

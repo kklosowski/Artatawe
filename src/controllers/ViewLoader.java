@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public  class ViewLoader {
-    public static final String LAYOUT_FXML_URL = "/views/_layout.fxml";
+    public static final String LAYOUT_URL= "/views/_layout.fxml";
     public static final String ADD_AUCTION_ULR = "/views/add_auction.fxml";
     public static final String LOGIN_URL = "/views/login.fxml";
     public static final String REGISTER1_URL = "/views/register.fxml";
