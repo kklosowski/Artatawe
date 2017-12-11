@@ -1,6 +1,5 @@
 package artatawe;
 
-import controllers.StageSession;
 import controllers.ViewLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
