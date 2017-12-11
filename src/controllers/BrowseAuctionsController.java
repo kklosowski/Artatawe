@@ -72,7 +72,7 @@ public class BrowseAuctionsController {
             List<Auction> fetchedAuctions = ad.getAllAuctions();
             for (Auction auction:fetchedAuctions){
                 Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
-                p.setUserData(auction);
+                //p.setUserData(auction);
                 auctions.getChildren().add(p);
                 System.out.println("Added!");
             }
