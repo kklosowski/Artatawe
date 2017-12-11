@@ -116,7 +116,7 @@ public class RegisterController {
             showError("Country invalid");
             return false;
         }
-        if (!InputValidator.validPostcode(postcodeTextField.toString())) {
+        if (!InputValidator.validPostcode(postcodeTextField.toString().toUpperCase())) {
             showError("Postcode invalid");
             return false;
         }
