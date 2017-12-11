@@ -1,12 +1,5 @@
 package artatawe;
 
-/**
- * MainForDrawing.java
- *
- * @version 1.0
- * @author Tereza
- */
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +7,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
+/**
+ * Class launching the drawing subsytem.
+ *
+ * @version 1.0
+ * @author Tereza Pashinska
+ */
 
 public class MainForDrawing extends Application {
 
