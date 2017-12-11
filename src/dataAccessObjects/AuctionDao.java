@@ -22,8 +22,8 @@ public class AuctionDao {
     private final SQLiteSingleton connection = SQLiteSingleton.getConnection();
 
     /**
-     * Retrieve all of the auction from database..
-     * @return Return a list of auction from database.
+     * Retrieve all of the auctions from the database.
+     * @return Return a list of auctions from the database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public List<Auction> getAllAuctions() throws SQLException {
@@ -38,8 +38,8 @@ public class AuctionDao {
         return auctions;
     }
     /**
-     * Retrieve those auctions that user participated from database.
-     * @return Return a list of auction from database.
+     * Retrieve those auctions that user has participated in from the database.
+     * @return Return a list of auctions from the database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public List<Auction> getAutionsByUser(int userId) throws SQLException {
@@ -57,9 +57,9 @@ public class AuctionDao {
         return auctions;
     }
     /**
-     * Get an auction from database by auction id.
-     * @param auctionId The id of an auction that wanted to search.
-     * @return Return an searched auction.
+     * Get an auction from database by auction's id.
+     * @param auctionId The id of an auction that is wanted to be searched.
+     * @return Return the wanted auction.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
 
@@ -75,8 +75,8 @@ public class AuctionDao {
         return auction;
     }
     /**
-     * Update an auction information into database.
-     * @param auction The auction that wanted to update into database.
+     * Update an auction information into the database.
+     * @param auction The auction that is wanted to be update into the database.
      * @return Return any integer except 0 if update successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -91,8 +91,8 @@ public class AuctionDao {
                 auctionId));
     }
     /**
-     * Insert an auction into database.
-     * @param auction The auction that wanted to insert into database.
+     * Insert an auction into the database.
+     * @param auction The auction that is wanted to be inserted into the database.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -108,8 +108,8 @@ public class AuctionDao {
         return connection.insert(query);
     }
     /**
-     * Delete an auction from database.
-     * @param auction The auction that wanted to delete from database.
+     * Delete an auction from the database.
+     * @param auction The auction that is wanted to be deleted from database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -120,7 +120,7 @@ public class AuctionDao {
 
     }
 
-    //get last auction id of an auction table in database.
+    //get last auction's id of an auction table in the database.
     private int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='auction'";
         return connection.query(query).getInt("seq");
