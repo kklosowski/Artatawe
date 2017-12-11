@@ -63,6 +63,8 @@ public class RegisterController {
                     usernameTextField.getText(),
                     mobileTextField.getText(), a);
 
+            SessionStorage.loggedUser = u;
+
             ViewLoader l = new ViewLoader();
             l.loadViewController(ViewLoader.REGISTER2_URL);
             Stage s = (Stage) this.continueButton.getScene().getWindow();

@@ -230,7 +230,7 @@ public class UserDao {
     }
 
     //last user id in user table in database.
-    private int getLastId() throws SQLException {
+    public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='user'";
         return connection.query(query).getInt("seq");
     }

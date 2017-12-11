@@ -258,4 +258,20 @@ public class User {
     public List<Integer> getFavouriteUsers() {
         return this.favouriteUsers;
     }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", mobileNo='" + mobileNo + '\'' +
+                ", address=" + address +
+                ", lastLoggedIn=" + lastLoggedIn +
+                ", profilePicture='" + profilePicture + '\'' +
+                ", favouriteUsers=" + favouriteUsers +
+                '}';
+    }
 }
