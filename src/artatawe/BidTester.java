@@ -94,6 +94,8 @@ public class BidTester {
 //                bidDao.insertBid(bidList.get(i),(int)(Math.random()*11));
 //            }
 
+            List<Auction> auctionList = auctionDao.getAllAuctionsUserParticipated(3);
+            System.out.println("size " + auctionList.size());
 
             addressDao.getAddress(1);
 
