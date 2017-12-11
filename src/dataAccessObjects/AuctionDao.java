@@ -98,7 +98,7 @@ public class AuctionDao {
         System.out.println("time "+ auction.getDateAdded());
         String query = String.format("INSERT INTO Auction (artwork_id,bids_total,reserved_price,timestamp,user_id)" +
                         " VALUES(%d, %d, %.2f, %d, %d)",
-                auction.getArtwork().getArtworkId(),
+                getLastId()+1,
                 auction.getMaxBids(),
                 auction.getReservePrice(),
                 auction.getDateAdded().getTime(),
@@ -118,7 +118,8 @@ public class AuctionDao {
 
     }
 
-    public int getLastId() throws SQLException {
+    //get last auction id of an auction table in database.
+    private int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='auction'";
         return connection.query(query).getInt("seq");
     }
