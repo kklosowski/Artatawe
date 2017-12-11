@@ -121,7 +121,7 @@ public class AuctionDao {
     }
 
     //get last auction's id of an auction table in the database.
-    private int getLastId() throws SQLException {
+    public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='auction'";
         return connection.query(query).getInt("seq");
     }

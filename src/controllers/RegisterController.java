@@ -63,7 +63,7 @@ public class RegisterController {
                     usernameTextField.getText(),
                     mobileTextField.getText(), a);
 
-            SessionStorage.loggedUser = u;
+            SessionStorage.sessionData.put("loggedUser", u);
 
             ViewLoader l = new ViewLoader();
             l.loadViewController(ViewLoader.REGISTER2_URL);

@@ -1,5 +1,6 @@
 package controllers;
 
+import artatawe.User;
 import dataAccessObjects.UserDao;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -28,8 +29,8 @@ public class Register2Controller {
     public void setSelectedAvatar(Event event){
         ImageView avatar = (ImageView) event.getSource();
         String url = avatar.getImage().impl_getUrl();
-        SessionStorage.loggedUser.setProfilePicture(url.substring(url.lastIndexOf('/' + 1)));
-        System.out.println(SessionStorage.loggedUser.toString());
+        ((User)SessionStorage.sessionData.get("loggedUser")).setProfilePicture(url.substring(url.lastIndexOf('/' + 1)));
+        System.out.println(((User)SessionStorage.sessionData.get("loggedUser")).toString());
     }
 //
 //    @FXML
@@ -48,7 +49,7 @@ public class Register2Controller {
     public void login(){
         UserDao userDao = new UserDao();
         try {
-            userDao.insertUser(SessionStorage.loggedUser);
+            userDao.insertUser((User)SessionStorage.sessionData.get("loggedUser"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
