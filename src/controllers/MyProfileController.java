@@ -32,12 +32,21 @@ public class MyProfileController {
     private ImageView avatar;
 
     @FXML
+    private Image targetImg;
+
+    @FXML
     public void initialize(){
 
+
         User user = (User) SessionStorage.sessionData.get("loggedUser");
-//        avatar.setImage(new Image(getClass().getResource( user.getProfilePicture()).toExternalForm()));
-//        Image image = new Image("file:123.jpg");
-//        avatar.setImage(image);
+//        try {
+//            Image i = new Image("file:src/views/123.jpg");
+//            System.out.println(i);
+//            System.out.println(i.toString());
+//            avatar.setImage(i);
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
         username.setText(user.getUserName());
         firstName.setText(user.getFirstName());
         lastName.setText(user.getLastName());
