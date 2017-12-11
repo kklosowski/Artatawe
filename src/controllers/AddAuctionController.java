@@ -68,7 +68,7 @@ public class AddAuctionController{
             auctionDao.insertAuction(auction);
 
             ViewLoader l = new ViewLoader();
-            l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL);
+            l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
             Stage s = (Stage) creationDate.getScene().getWindow();
             s.setScene(l.getView());
 

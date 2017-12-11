@@ -196,7 +196,7 @@ public class ArtworkDao {
         return connection.insert(insertQuery);
     }
     //get last artwork id of an artwork table in database.
-    private int getLastId() throws SQLException {
+    public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='artwork'";
         return connection.query(query).getInt("seq");
     }

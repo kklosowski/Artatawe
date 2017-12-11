@@ -1,3 +1,4 @@
+/*
 import artatawe.*;
 import dataAccessObjects.AuctionDao;
 import org.junit.jupiter.api.Test;
@@ -10,11 +11,13 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+*/
 /**
  * @author Kamil Klosowski
  * @project Artatawe
  * @since 08/12/2017
- */
+ *//*
+
 class AuctionDaoTest {
 
     Address address = new Address("Swansea University", "Cefn Bryn Rhossili", "Singleton Park", "SWANSEA", "SA2 8PT", "UK");
@@ -90,4 +93,4 @@ class AuctionDaoTest {
         assertEquals(1, result);
     }
 
-}
+}*/
