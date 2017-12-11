@@ -48,7 +48,6 @@ public  class ViewLoader {
             this.content = FXMLLoader.load(getClass().getResource(FxmlUrl));
         } catch (IOException e){
             e.printStackTrace();
-            //TODO implement ErrorController
         }
     }
 
