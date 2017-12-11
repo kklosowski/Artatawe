@@ -1,107 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MyProfileController">
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MyProfileController">
     <children>
-        <GridPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                  minWidth="-Infinity" prefHeight="410.0" prefWidth="560.0">
+        <GridPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="560.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="280.0" prefWidth="280.0"/>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="280.0" minWidth="280.0"
-                                   prefWidth="280.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="410.0" minHeight="410.0" prefHeight="410.0" valignment="CENTER"
-                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="410.0" minHeight="410.0" prefHeight="410.0" valignment="CENTER" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                      prefHeight="400.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-                      GridPane.valignment="CENTER">
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <children>
                         <Label text="Username">
                             <VBox.margin>
-                                <Insets/>
+                                <Insets />
                             </VBox.margin>
                         </Label>
-                        <Label text="Username">
+                        <Label fx:id="username">
                             <font>
-                                <Font size="17.0"/>
+                                <Font size="17.0" />
                             </font>
                         </Label>
                         <Label text="First name">
                             <VBox.margin>
-                                <Insets top="10.0"/>
+                                <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label text="First name">
+                        <Label fx:id="firstName">
                             <font>
-                                <Font size="17.0"/>
+                                <Font size="17.0" />
                             </font>
                         </Label>
                         <Label text="Last name">
                             <VBox.margin>
-                                <Insets top="10.0"/>
+                                <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label text="Last name">
+                        <Label fx:id="lastName">
                             <font>
-                                <Font size="17.0"/>
+                                <Font size="17.0" />
                             </font>
                         </Label>
                         <Label text="UK mobile phone">
                             <VBox.margin>
-                                <Insets top="10.0"/>
+                                <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label text="UK mobile phone">
+                        <Label fx:id="mobile">
                             <font>
-                                <Font size="17.0"/>
+                                <Font size="17.0" />
                             </font>
                         </Label>
                         <Label text="UK address">
                             <VBox.margin>
-                                <Insets top="10.0"/>
+                                <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label text="UK address">
+                        <Label fx:id="address">
                             <font>
-                                <Font size="17.0"/>
+                                <Font size="17.0" />
                             </font>
                         </Label>
                         <Label text="Postcode">
                             <VBox.margin>
-                                <Insets top="10.0"/>
+                                <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label text="Postcode">
+                        <Label fx:id="postcode">
                             <font>
-                                <Font size="17.0"/>
+                                <Font size="17.0" />
                             </font>
                         </Label>
                     </children>
                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </GridPane.margin>
                 </VBox>
                 <GridPane>
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <ImageView fitHeight="260.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true"
-                                   GridPane.valignment="TOP">
+                        <ImageView fx:id="avatar" fitHeight="260.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" GridPane.valignment="TOP">
                             <GridPane.margin>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </GridPane.margin>
                         </ImageView>
                     </children>
@@ -110,6 +107,6 @@
         </GridPane>
     </children>
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </Pane>
