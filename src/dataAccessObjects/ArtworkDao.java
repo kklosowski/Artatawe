@@ -38,7 +38,7 @@ public class ArtworkDao {
 
     /**
      * Retrieve an artwork from database by given artwork's id.
-     * @param artwork_id The artwork's id that want to search.
+     * @param artwork_id The artwork's id that is wanted to be searched.
      * @return Return an artwork by given artwork id, return null if it doesn't exist in database.
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
@@ -53,8 +53,8 @@ public class ArtworkDao {
     }
 
     /**
-     * Retrieve all artworks from database.
-     * @return Return list of artworks.
+     * Retrieve all artworks from the database.
+     * @return Return a list of artworks.
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
     public List<Artwork> getAllArtwork() throws SQLException {
@@ -85,8 +85,8 @@ public class ArtworkDao {
     }
 
     /**
-     * Update the artwork information into database.
-     * @param artwork The artwork that wanted to update into database.
+     * Update the artwork information into the database.
+     * @param artwork The artwork that is wanted to be updated into the database.
      * @return Return any integer except 0 if update successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
@@ -117,8 +117,8 @@ public class ArtworkDao {
     }
 
     /**
-     * Delete an artwork from database.
-     * @param artwork The artwork that wanted to remove from database.
+     * Delete an artwork from the database.
+     * @param artwork The artwork that is wanted to be removed from the database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
@@ -139,8 +139,8 @@ public class ArtworkDao {
         return 0;
     }
     /**
-     * Insert an artwork into database.
-     * @param artwork The artwork that wanted to insert into database.
+     * Insert an artwork into the database.
+     * @param artwork The artwork that is wanted to be inserted into the database.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
@@ -172,8 +172,8 @@ public class ArtworkDao {
     }
 
     /**
-     * Retrieve all sculpture additional pictures from database.
-     * @param sculptureId Sculpture's id that wanted to get the additional pictures.
+     * Retrieve all of a sculpture's additional pictures from the database.
+     * @param sculptureId Sculpture's id that is wanted to be able to get the additional pictures.
      * @return Return a list of string that contain sculpture additional pictures' url.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -189,8 +189,8 @@ public class ArtworkDao {
     }
 
     /**
-     * Insert an additional picture of a sculpture into database.
-     * @param sculptureId The sculpture that wanted to insert new picture into database.
+     * Insert an additional picture of a sculpture into the database.
+     * @param sculptureId The sculpture that is wanted to be inserted new picture into the database.
      * @param image_url The sculpture's image url.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -202,9 +202,9 @@ public class ArtworkDao {
     }
 
     /**
-     * Delete an additional picture of a sculpture from database.
-     * @param sculptureId The sculpture that wanted to delete picture from database.
-     * @param image_url The sculpture's image url that wanted to delete from database.
+     * Delete an additional picture of a sculpture from the database.
+     * @param sculptureId The sculpture  from which the user wants to delete a picture from the database.
+     * @param image_url The sculpture's image url that is wanted to be deleted from the database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      * */
@@ -217,6 +217,23 @@ public class ArtworkDao {
     private int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='artwork'";
         return connection.query(query).getInt("seq");
+    }
+    // A method to search and return an artwork from database regarding to different type of artwork (sculpture / painting)
+    private Artwork searchArtworkByType(ResultSet rs) throws SQLException {
+        if (rs.getString("artwork_type").equals(SCULPTURE)) {
+            String searchSculpture = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", SCULPTURE, rs.getInt("artwork_id"));
+            ResultSet sculptureRs = connection.query(searchSculpture);
+            if (sculptureRs.next()) {
+                return DBUtils.constructSculpture(rs, sculptureRs);
+            }
+        } else if (rs.getString("artwork_type").equals(PAINTING)) {
+            String searchPainting = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", PAINTING, rs.getInt("artwork_id"));
+            ResultSet paintingRs = connection.query(searchPainting);
+            if (paintingRs.next()) {
+                return DBUtils.constructPaintingFromRS(rs, paintingRs);
+            }
+        }
+        return null;
     }
 
 }
