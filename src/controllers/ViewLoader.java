@@ -52,8 +52,6 @@ public  class ViewLoader {
         } catch (IOException e){
             e.printStackTrace();
             //TODO implement ErrorController
-            //ErrorController ec = new ErrorController(e);
-            //this.errorView = ec.getView();
         }
     }
 
@@ -61,8 +59,7 @@ public  class ViewLoader {
         try {
             this.layout = FXMLLoader.load(getClass().getResource(FxmlUrl));
         } catch (IOException e) {
-            //ErrorController ec = new ErrorController(e);
-            //this.errorView = ec.getView();
+            e.printStackTrace();
         }
     }
 
