@@ -6,13 +6,13 @@ import artatawe.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Database access object for the Artwork class
- * @author Goh Shu Yu
+ *
+ * @author Goh Shu Yu, Kamil Klosowski
  * @since 2/12/2017
  */
 public class UserDao {

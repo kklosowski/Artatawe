@@ -1,6 +1,5 @@
 package dataAccessObjects;
 
-import artatawe.Artwork;
 import artatawe.Auction;
 import artatawe.DBUtils;
 import artatawe.SQLiteSingleton;
@@ -12,6 +11,7 @@ import java.util.List;
 
 /**
  * Database access object for the Auction class
+ *
  * @author Kamil Klosowski, Morgan David
  * @version 1.0
  * @since 1-12-17
@@ -24,6 +24,7 @@ public class AuctionDao {
 
     /**
      * Retrieve all of the auctions from the database.
+     *
      * @return Return a list of auctions from the database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -31,10 +32,10 @@ public class AuctionDao {
         System.out.println(type + " " + byUser + " " + userId);
         List<Auction> auctions = new ArrayList<>();
         String query = "SELECT * FROM Auction INNER JOIN Artwork ON Auction.artwork_id = Artwork.artwork_id";
-        if(type != "all"){
+        if (type != "all") {
             query += " WHERE Artwork.artwork_type = '" + type + "'";
         }
-        if(byUser){
+        if (byUser) {
             query += " AND Auction.user_id = " + userId + ";";
         }
         ResultSet auctionResultSet = connection.query(String.format(query));
@@ -46,8 +47,10 @@ public class AuctionDao {
 
         return auctions;
     }
+
     /**
      * Retrieve those auctions that user has participated in from the database.
+     *
      * @return Return a list of auctions from the database.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
@@ -55,7 +58,7 @@ public class AuctionDao {
         List<Auction> auctions = new ArrayList<>();
         String retrieveQuery = String.format("SELECT * FROM auction a, " +
                 "(SELECT auction_id FROM bid WHERE user_id = %d ) b " +
-                "WHERE a.auction_id = b.auction_id ",userId);
+                "WHERE a.auction_id = b.auction_id ", userId);
         ResultSet auctionResultSet = connection.query(retrieveQuery);
 
         while (auctionResultSet.next()) {
@@ -65,8 +68,10 @@ public class AuctionDao {
 
         return auctions;
     }
+
     /**
      * Get an auction from database by auction's id.
+     *
      * @param auctionId The id of an auction that is wanted to be searched.
      * @return Return the wanted auction.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -83,8 +88,10 @@ public class AuctionDao {
 
         return auction;
     }
+
     /**
      * Update an auction information into the database.
+     *
      * @param auction The auction that is wanted to be update into the database.
      * @return Return any integer except 0 if update successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
@@ -99,14 +106,16 @@ public class AuctionDao {
                 auction.getMaxBids(),
                 auctionId));
     }
+
     /**
      * Insert an auction into the database.
+     *
      * @param auction The auction that is wanted to be inserted into the database.
      * @return Return any integer except 0 if insert successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int insertAuction(Auction auction) throws SQLException{
-        System.out.println("time "+ auction.getDateAdded());
+    public int insertAuction(Auction auction) throws SQLException {
+        System.out.println("time " + auction.getDateAdded());
 
         ArtworkDao artworkDao = new ArtworkDao();
         artworkDao.insertArtwork(auction.getArtwork());
@@ -121,8 +130,10 @@ public class AuctionDao {
 
         return connection.insert(query);
     }
+
     /**
      * Delete an auction from the database.
+     *
      * @param auction The auction that is wanted to be deleted from database.
      * @return Return any integer except 0 if delete successfully, if not it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.

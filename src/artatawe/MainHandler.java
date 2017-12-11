@@ -1,15 +1,15 @@
 package artatawe;
 
 import controllers.ViewLoader;
-import dataAccessObjects.UserDao;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
  * Loads default login view.
+ *
  * @author Marceli Wac
- * @since 10-12-17
  * @version 1.0
+ * @since 10-12-17
  */
 public class MainHandler extends Application {
     private final double WINDOW_WIDTH = 800;

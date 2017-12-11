@@ -2,49 +2,51 @@ package artatawe;
 
 /**
  * Stores general information for artworks.
+ *
  * @author Morgan David
  * @version 1.0
- * @since  27.11.2017
+ * @since 27.11.2017
  */
 public abstract class Artwork {
-    
+
     /**
      * The ID of the Artwork.
-     * */
+     */
     protected int artworkId;
     /**
      * The title of the Artwork.
-     * */
+     */
     protected String title;
     /**
      * The description of the Artwork.
-     * */
+     */
     protected String description;
     /**
      * The name of the artist who created the Artwork.
-     * */
+     */
     protected String artist;
-     /**
+    /**
      * The path to the primary picture of the Artwork.
-     * */
+     */
     protected String primaryPicture;
-     /**
+    /**
      * The year the Artwork was created.
-     * */
+     */
     protected int yearCreated;
 
     protected String type;
 
-    
-     /**
+
+    /**
      * Artwork constructor with the information specifying the artwork, including specifiying artworkId.
-     *  @param artworkId        The id of an artwork.
-     *  @param title            The title of an artwork.
-     *  @param description      The description of an artwork.
-     *  @param artist           The artist who created the artwork.
-     *  @param primaryPicture   The path to the primary picture of an artwork.
-     *  @param yearCreated      The year the artwork was created.
-     * */
+     *
+     * @param artworkId      The id of an artwork.
+     * @param title          The title of an artwork.
+     * @param description    The description of an artwork.
+     * @param artist         The artist who created the artwork.
+     * @param primaryPicture The path to the primary picture of an artwork.
+     * @param yearCreated    The year the artwork was created.
+     */
     public Artwork(int artworkId, String title, String description, String artist, String primaryPicture, int yearCreated) {
         this.artworkId = artworkId;
         this.title = title;
@@ -53,15 +55,16 @@ public abstract class Artwork {
         this.primaryPicture = primaryPicture;
         this.yearCreated = yearCreated;
     }
-    
-      /**
+
+    /**
      * Artwork constructor with the information specifying the artwork.
-     *  @param title            The title of an artwork.
-     *  @param description      The description of an artwork.
-     *  @param artist           The artist who created the artwork.
-     *  @param primaryPicture   The path to the primary picture of an artwork.
-     *  @param yearCreated      The year the artwork was created.
-     * */
+     *
+     * @param title          The title of an artwork.
+     * @param description    The description of an artwork.
+     * @param artist         The artist who created the artwork.
+     * @param primaryPicture The path to the primary picture of an artwork.
+     * @param yearCreated    The year the artwork was created.
+     */
 
     public Artwork(String title, String description, String artist, String primaryPicture, int yearCreated) {
         this.title = title;
@@ -73,6 +76,7 @@ public abstract class Artwork {
 
     /**
      * Gets the ID of this artwork.
+     *
      * @return The ID of this artwork.
      */
     public int getArtworkId() {
@@ -81,6 +85,7 @@ public abstract class Artwork {
 
     /**
      * Gets the title of this artwork.
+     *
      * @return The title of this artwork.
      */
     public String getTitle() {
@@ -89,6 +94,7 @@ public abstract class Artwork {
 
     /**
      * Sets the title of this artwork.
+     *
      * @param title the title of this artwork.
      */
     public void setTitle(String title) {
@@ -97,6 +103,7 @@ public abstract class Artwork {
 
     /**
      * Gets the description of this artwork.
+     *
      * @return The description of this artwork.
      */
     public String getDescription() {
@@ -105,6 +112,7 @@ public abstract class Artwork {
 
     /**
      * Sets the description of this artwork.
+     *
      * @param description The description of this artwork.
      */
     public void setDescription(String description) {
@@ -113,6 +121,7 @@ public abstract class Artwork {
 
     /**
      * Sets the artist of this artwork.
+     *
      * @return The artist of this artwork.
      */
     public String getArtist() {
@@ -121,6 +130,7 @@ public abstract class Artwork {
 
     /**
      * Sets the artist of this artwork.
+     *
      * @param artist The artist of this artwork.
      */
     public void setArtist(String artist) {
@@ -129,6 +139,7 @@ public abstract class Artwork {
 
     /**
      * Gets the year this artwork was created.
+     *
      * @return The year this artwork was created
      */
     public int getYearCreated() {
@@ -137,6 +148,7 @@ public abstract class Artwork {
 
     /**
      * Sets the year this artwork was created.
+     *
      * @param yearCreated The year this artwork was created
      */
     public void setYearCreated(int yearCreated) {
@@ -145,6 +157,7 @@ public abstract class Artwork {
 
     /**
      * Gets the path of the primary picture of this artwork.
+     *
      * @return The path of the primary picture of this artwork.
      */
     public String getPrimaryPicture() {

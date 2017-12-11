@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Auction is a class to create new auctions containing 
+ * Auction is a class to create new auctions containing
  * all the needed information for an auction and handling the actions
  * associated with an auction.
  *
@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 public class Auction {
-    
+
     /**
      * The ID of an auction.
      */
@@ -41,21 +41,22 @@ public class Auction {
      */
     private double reservePrice;
     /**
-     *The date the auction was created.
+     * The date the auction was created.
      */
     private Timestamp dateAdded;
     /**
-     *The maximum number of bids that can be placed on a auction.
+     * The maximum number of bids that can be placed on a auction.
      */
     private int maxBids;
 
     /**
      * An auction constructor with the information specifying an auction.
-     *  @param creator The user who created the auction.
-     *  @param currentPrice The current price of the artwork being auctioned.
-     *  @param reservePrice The minimum reversation price of the artwork being auctioned.
-     *  @param maxBids The maximum number of bids that can be placed on a auction.
-     *  @param artwork The artwork being placed for auctioning.
+     *
+     * @param creator      The user who created the auction.
+     * @param currentPrice The current price of the artwork being auctioned.
+     * @param reservePrice The minimum reversation price of the artwork being auctioned.
+     * @param maxBids      The maximum number of bids that can be placed on a auction.
+     * @param artwork      The artwork being placed for auctioning.
      */
     public Auction(User creator, double currentPrice, double reservePrice, int maxBids, Artwork artwork) {
         this.artwork = artwork;
@@ -68,12 +69,13 @@ public class Auction {
 
     /**
      * An auction constructor with the information specifying an auction.
-     *  @param actionId The ID of the auction.
-     *  @param creator The user who created the auction.
-     *  @param currentPrice The current price of the artwork being auctioned.
-     *  @param reservePrice The minimum reversation price of the artwork being auctioned.
-     *  @param maxBids The maximum number of bids that can be placed on a auction.
-     *  @param artwork The artwork being placed for auctioning.
+     *
+     * @param actionId     The ID of the auction.
+     * @param creator      The user who created the auction.
+     * @param currentPrice The current price of the artwork being auctioned.
+     * @param reservePrice The minimum reversation price of the artwork being auctioned.
+     * @param maxBids      The maximum number of bids that can be placed on a auction.
+     * @param artwork      The artwork being placed for auctioning.
      */
     public Auction(int actionId, User creator, double currentPrice, double reservePrice, int maxBids, Artwork artwork) {
         this(creator, currentPrice, reservePrice, maxBids, artwork);
@@ -82,6 +84,7 @@ public class Auction {
 
     /**
      * Method for placing a bid on a auction.
+     *
      * @return 0 If the bid is placed successfully, 1 or 2 otherwise.
      */
     public int placeBid(User user, double amount) {
@@ -107,6 +110,7 @@ public class Auction {
 
     /**
      * Method that assigns a new list for bids, all values from the old list are lost.
+     *
      * @param bids Sets the amount of bids on an auction.
      */
     public void setNewBidList(List<Bid> bids) {
@@ -115,6 +119,7 @@ public class Auction {
 
     /**
      * Method for getting the number of allowed bids left on an auction.
+     *
      * @return bids The amount of bids left on an auction.
      */
     public int bidsLeft() {
@@ -123,6 +128,7 @@ public class Auction {
 
     /**
      * Method getting the most recently placed bid on a auction.
+     *
      * @return The most recently placed bid.
      */
     public Bid getMostRecentBid() {
@@ -131,6 +137,7 @@ public class Auction {
 
     /**
      * Method getting a bid at the specified positon in the list.
+     *
      * @return The Bid object at the specified position.
      */
     public Bid getBidByIndex(int index) {
@@ -139,6 +146,7 @@ public class Auction {
 
     /**
      * Gets the artwork being placed on an auction.
+     *
      * @return The artwork placed on an auction.
      */
     public Artwork getArtwork() {
@@ -147,6 +155,7 @@ public class Auction {
 
     /**
      * Gets the user who created the auction.
+     *
      * @return The user who created the auction.
      */
     public User getCreator() {
@@ -155,6 +164,7 @@ public class Auction {
 
     /**
      * Gets the current price of the artwork.
+     *
      * @return The current price of the artwork.
      */
     public double getCurrentPrice() {
@@ -163,6 +173,7 @@ public class Auction {
 
     /**
      * Gets the reserve price of the auction.
+     *
      * @return The reserve price of the auction
      */
     public double getReservePrice() {
@@ -171,6 +182,7 @@ public class Auction {
 
     /**
      * Gets the creation date of the auction.
+     *
      * @return The creation date of the auction.
      */
     public Timestamp getDateAdded() {
@@ -179,22 +191,25 @@ public class Auction {
 
     /**
      * Gets the maximum amount of bids allowed.
+     *
      * @return The maximum amount of bids allowed
      */
     public int getMaxBids() {
         return maxBids;
     }
-    
+
     /**
      * Gets the Id of the auction.
+     *
      * @return The Id of the auction.
      */
     public int getAuctionId() {
         return auctionId;
     }
-    
+
     /**
      * Sets the Id of the auction.
+     *
      * @param auctionId The ID of the auction.
      */
     public void setAuctionId(int auctionId) {

@@ -1,7 +1,5 @@
 package controllers;
 
-import artatawe.User;
-
 import java.util.HashMap;
 
 /**

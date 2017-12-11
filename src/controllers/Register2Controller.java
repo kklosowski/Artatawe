@@ -3,7 +3,6 @@ package controllers;
 import artatawe.User;
 import dataAccessObjects.UserDao;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -11,7 +10,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
-import java.util.EventListener;
+
+/**
+ * @author Kamil Klosowski
+ */
+
 
 public class Register2Controller {
 
@@ -22,15 +25,15 @@ public class Register2Controller {
     private GridPane avatarGrid;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
     }
 
     @FXML
-    public void setSelectedAvatar(Event event){
+    public void setSelectedAvatar(Event event) {
         ImageView avatar = (ImageView) event.getSource();
         String url = avatar.getImage().impl_getUrl();
-        ((User)SessionStorage.sessionData.get("loggedUser")).setProfilePicture(url.substring(url.lastIndexOf('/' + 1)));
-        System.out.println(((User)SessionStorage.sessionData.get("loggedUser")).toString());
+        ((User) SessionStorage.sessionData.get("loggedUser")).setProfilePicture(url.substring(url.lastIndexOf('/' + 1)));
+        System.out.println(((User) SessionStorage.sessionData.get("loggedUser")).toString());
     }
 //
 //    @FXML
@@ -46,10 +49,10 @@ public class Register2Controller {
 //    }
 
     @FXML
-    public void login(){
+    public void login() {
         UserDao userDao = new UserDao();
         try {
-            userDao.insertUser((User)SessionStorage.sessionData.get("loggedUser"));
+            userDao.insertUser((User) SessionStorage.sessionData.get("loggedUser"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -13,9 +13,15 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
-import java.util.Date;
 
-public class AddAuctionController{
+
+/**
+ * @author Kamil Klosowski, Marceli Wac
+
+ */
+
+
+public class AddAuctionController {
 
     @FXML
     private TextField title;
@@ -36,13 +42,13 @@ public class AddAuctionController{
     private TextArea description;
 
     @FXML
-    TextField w,h,d;
+    TextField w, h, d;
 
     @FXML
     private Button createButton;
 
 
-    public void createAuction(){
+    public void createAuction() {
         Artwork artwork = new Sculpture(
                 title.getText(),
                 description.getText(),

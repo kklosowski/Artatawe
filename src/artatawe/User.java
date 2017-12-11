@@ -117,11 +117,11 @@ public class User {
      * Class constructor specifying all of user information except
      * the last login date, lastLoggedIn, profilePicture and favouriteUsers.
      *
-     * @param firstName      user's first name
-     * @param lastName       user's last name
-     * @param userName       user's nickname (or username)
-     * @param mobileNo       user's mobile number
-     * @param address        user's postal address
+     * @param firstName user's first name
+     * @param lastName  user's last name
+     * @param userName  user's nickname (or username)
+     * @param mobileNo  user's mobile number
+     * @param address   user's postal address
      */
     public User(String firstName,
                 String lastName,
@@ -137,6 +137,7 @@ public class User {
 
     /**
      * Gets the ID of the user .
+     *
      * @return Return user's id.
      */
     public int getUserId() {
@@ -145,6 +146,7 @@ public class User {
 
     /**
      * Gets the first name of the user .
+     *
      * @return Return user's first name.
      */
     public String getFirstName() {
@@ -153,6 +155,7 @@ public class User {
 
     /**
      * Gets the last name of the user.
+     *
      * @return Return user's last name.
      */
     public String getLastName() {
@@ -161,6 +164,7 @@ public class User {
 
     /**
      * Gets the user name of the user .
+     *
      * @return Return user's username.
      */
     public String getUserName() {
@@ -169,6 +173,7 @@ public class User {
 
     /**
      * Gets the mobile number of the user .
+     *
      * @return Return user's mobile number.
      */
     public String getMobileNo() {
@@ -177,74 +182,84 @@ public class User {
 
     /**
      * Gets the address of the user.
+     *
      * @return Return an address object that stored user's address detail.
      */
     public Address getAddress() {
         return this.address;
     }
 
-    /** Gets the timpstamp of the last successful login
+    /**
+     * Gets the timpstamp of the last successful login
+     *
      * @return Return user's last logged in timestamp
-    */
+     */
     public Timestamp getLastLoggedIn() {
         return this.lastLoggedIn;
     }
 
     /**
-     *  Gets the name of the profile picture
-     *  @return Return user's profile picture url.
+     * Gets the name of the profile picture
+     *
+     * @return Return user's profile picture url.
      */
     public String getProfilePicture() {
         return this.profilePicture;
     }
 
     /**
-    * Sets the mobile number of the user
-    * @param newMobileNo New mobile number of the user.
-    */
+     * Sets the mobile number of the user
+     *
+     * @param newMobileNo New mobile number of the user.
+     */
     public void setMobileNo(String newMobileNo) {
         this.mobileNo = newMobileNo;
     }
 
     /**
-    * Sets the address of the user
-    * @param newAddress A new address that stored user's address detail.
-    */    
+     * Sets the address of the user
+     *
+     * @param newAddress A new address that stored user's address detail.
+     */
     public void setAddress(Address newAddress) {
         this.address = newAddress;
     }
 
     /**
-    * Sets the last logged in timestamp of the user
-    * @param newLastLoggedIn Timestamp of the last login
-    */
+     * Sets the last logged in timestamp of the user
+     *
+     * @param newLastLoggedIn Timestamp of the last login
+     */
     public void setLastLoggedIn(Timestamp newLastLoggedIn) {
         this.lastLoggedIn = newLastLoggedIn;
     }
 
     /**
-    * Sets the name of the profile picture of the user
-    * @param newProfilePicture URL of the profile picture
-    */
+     * Sets the name of the profile picture of the user
+     *
+     * @param newProfilePicture URL of the profile picture
+     */
     public void setProfilePicture(String newProfilePicture) {
         this.profilePicture = newProfilePicture;
     }
 
     /**
-    * Add an user to the favourite list
-    * @param nextFav A favourite user object
-    */
+     * Add an user to the favourite list
+     *
+     * @param nextFav A favourite user object
+     */
     public void addFavourite(int nextFav) {
         this.favouriteUsers.add(nextFav);
     }
 
     /**
-    * Remove an user from the favourite list
-    * @param favId UserID of the user to be removed
-    */
+     * Remove an user from the favourite list
+     *
+     * @param favId UserID of the user to be removed
+     */
     public void removeFavourite(int favId) {
-        for (int i = 0; i<favouriteUsers.size();i++){
-            if (favouriteUsers.get(i)==favId){
+        for (int i = 0; i < favouriteUsers.size(); i++) {
+            if (favouriteUsers.get(i) == favId) {
                 favouriteUsers.remove(i);
                 return;
             }
@@ -252,9 +267,10 @@ public class User {
     }
 
     /**
-    * Gets the list of favourite users of this user
-    * @return List of favourite users
-    */
+     * Gets the list of favourite users of this user
+     *
+     * @return List of favourite users
+     */
     public List<Integer> getFavouriteUsers() {
         return this.favouriteUsers;
     }

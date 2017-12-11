@@ -1,13 +1,17 @@
 package controllers;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public  class ViewLoader {
-    public static final String LAYOUT_URL= "/views/_layout.fxml";
+/**
+ * @author Marceli Wac
+ */
+
+public class ViewLoader {
+    public static final String LAYOUT_URL = "/views/_layout.fxml";
     public static final String ADD_AUCTION_ULR = "/views/add_auction.fxml";
     public static final String LOGIN_URL = "/views/login.fxml";
     public static final String REGISTER1_URL = "/views/register.fxml";
@@ -46,7 +50,7 @@ public  class ViewLoader {
     private void loadContent(String FxmlUrl) {
         try {
             this.content = FXMLLoader.load(getClass().getResource(FxmlUrl));
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -59,7 +63,7 @@ public  class ViewLoader {
         }
     }
 
-    public Pane loadPane(String FxmlUrl){
+    public Pane loadPane(String FxmlUrl) {
         try {
             return FXMLLoader.load(getClass().getResource(FxmlUrl));
         } catch (IOException e) {

@@ -6,7 +6,13 @@ import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 
-public class AuctionController{
+
+/**
+ * @author Kamil Klosowski, Marceli Wac
+ */
+
+
+public class AuctionController {
     @FXML
     private Text title;
     @FXML
@@ -21,7 +27,7 @@ public class AuctionController{
     private Text description;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         String auctionId = (String) SessionStorage.sessionData.get("currentAuctionId");
         AuctionDao ad = new AuctionDao();
         try {
@@ -30,9 +36,9 @@ public class AuctionController{
             type.setText(a.getArtwork().getType());
             currentBid.setText(String.valueOf(a.getCurrentPrice()));
             remainingBids.setText(String.valueOf(a.bidsLeft()));
-            size.setText(String.valueOf(((Sculpture)a.getArtwork()).getWidth()) + "cm x " + String.valueOf(((Sculpture)a.getArtwork()).getHeight()) + "cm");
+            size.setText(String.valueOf(((Sculpture) a.getArtwork()).getWidth()) + "cm x " + String.valueOf(((Sculpture) a.getArtwork()).getHeight()) + "cm");
             description.setText(a.getArtwork().getDescription());
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
