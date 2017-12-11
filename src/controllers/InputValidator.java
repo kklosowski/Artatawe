@@ -4,6 +4,7 @@ public class InputValidator {
     private static final String ALNUM_PATTERN = "^[a-zA-Z0-9]*$";
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
     private static final String TEXT_PATTERN = "^[a-zA-Z0-9.,;?!]*$";
+    private static final String POSTCODE_PATTERN = "([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\\s?[0-9][A-Za-z]{2})";
     private static final int ARTWORK_TITLE_MAX_LENGTH = 20;
     private static final int ARTWORK_DESCRIPTION_MAX_LENGTH = 225;
     private static final int USERNAME_MAX_LENGTH = 20;
@@ -14,6 +15,10 @@ public class InputValidator {
 
     public static boolean validEmail(String s){
         return s.matches(EMAIL_PATTERN);
+    }
+
+    public static boolean validPostcode(String postcode){
+        return postcode.matches(POSTCODE_PATTERN);
     }
 
     public static boolean validNumber(String s){
