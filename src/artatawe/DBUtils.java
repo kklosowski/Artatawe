@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 
 /**
  * Contains various helpful functions related to database access.
- * @author Morgan David, randompasser (Michael), Marcelli Wac, Tereza Pashinska, Kamil Klosowski, Goh Shu Yu
+ * @author Morgan David, Michael, Marcelli Wac, Tereza Pashinska, Kamil Klosowski, Goh Shu Yu
  * @version 1.0
  * @since 1-12-17
  */
@@ -20,7 +20,7 @@ public class DBUtils{
         /**
          * Construct result set from user object
          * @param rs Result set that wanted to construct into user object.
-         * @return Return a user object after construct.
+         * @return Return a user object after construction.
          * @throws SQLException Throws sql exception if there is any connection error.
          */
         public static User constructUserFromRS(ResultSet rs) throws SQLException {
