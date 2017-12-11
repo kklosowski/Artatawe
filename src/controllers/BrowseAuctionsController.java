@@ -3,11 +3,13 @@ package controllers;
 import artatawe.Auction;
 import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -72,7 +74,13 @@ public class BrowseAuctionsController {
             List<Auction> fetchedAuctions = ad.getAllAuctions();
             for (Auction auction:fetchedAuctions){
                 Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
-                //p.setUserData(auction);
+                p.applyCss();
+                for (Node n:p.getChildren()) {
+                    if(n.getId() == "title"){
+                        Text t = (Text) n;
+                        t.setText(auction.getArtwork().getTitle());
+                    }
+                }
                 auctions.getChildren().add(p);
                 System.out.println("Added!");
             }
