@@ -2,7 +2,7 @@ package artatawe;
 
 /**
  * Stores data to construct a painting
- * @author TODO: add author
+ * @author Morgan David
  * @version 1.0
  * @since 27.10.2017
  */

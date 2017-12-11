@@ -42,7 +42,6 @@ public class Sculpture extends Artwork {
      * @param depth The depth of the sculpture.
      * @param width The width of the sculpture.
      */
-    //TODO add list
     public Sculpture(String title,
                      String description,
                      String artist,
@@ -63,7 +62,9 @@ public class Sculpture extends Artwork {
 
      /**
      * Constructs an object of type Sculpture
+     * @param artworkId The Id of the sculpture.
      * @param material The material of the sculpture.
+     * @param additionalPictures List of additional photos added.
      * @param height The height of the sculpture.
      * @param depth The depth of the sculpture.
      * @param width The width of the sculpture.
