@@ -36,6 +36,9 @@ public class MyProfileController {
     @FXML
     private Image targetImg;
 
+    /**
+     * Handle the content binding with the spaces on the layout
+     */
     @FXML
     public void initialize() {
 

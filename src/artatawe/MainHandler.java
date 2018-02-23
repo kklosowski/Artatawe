@@ -18,6 +18,11 @@ public class MainHandler extends Application {
     private final boolean FULLSCREEN = false;
     private final boolean RESIZABLE = false;
 
+
+    /**
+     * Launches the main application
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setWidth(WINDOW_WIDTH);
@@ -25,8 +30,7 @@ public class MainHandler extends Application {
         primaryStage.setMaximized(MAXIMISED);
         primaryStage.setFullScreen(FULLSCREEN);
         primaryStage.setResizable(RESIZABLE);
-        primaryStage.setTitle("Artatawe bidding");
-
+        primaryStage.setTitle("Artatawe bidding system");
 
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.LOGIN_URL);

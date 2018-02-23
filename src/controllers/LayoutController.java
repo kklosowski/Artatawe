@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
+ * This class usses view loader to redirect the user to apropriate views
  * @author Marceli Wac
  */
 

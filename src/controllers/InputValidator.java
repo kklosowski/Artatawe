@@ -4,7 +4,10 @@ package controllers;
  * @author Kamil Klosowski, Marceli Wac
  */
 
-
+/**
+ * @Author Marceli Wac, Kamil Klosowski
+ * Handles the input validation
+ */
 public class InputValidator {
     private static final String ALNUM_PATTERN = "^[a-zA-Z0-9]*$";
     private static final String ALPHA_PATTERN = "^[a-zA-Z]*$";
@@ -27,10 +30,22 @@ public class InputValidator {
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 20;
 
+    /**
+     * Only allows alphanumeric characters
+     * @param s string to be validated
+     * @return
+     */
     public static boolean validAlnum(String s) {
         return s.matches(ALNUM_PATTERN);
     }
 
+    /**
+     * Only allows Alphanumeric characters between the set range
+     * @param s
+     * @param minLength
+     * @param maxLength
+     * @return
+     */
     public static boolean validAlnum(String s, int minLength, int maxLength) {
         if (s.matches(ALNUM_PATTERN) && s.length() >= minLength && s.length() <= maxLength) {
             return true;
@@ -38,10 +53,22 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * Only allows the alphabetic characters
+     * @param s
+     * @return
+     */
     public static boolean validAlpha(String s) {
         return s.matches(ALPHA_PATTERN);
     }
 
+    /**
+     * Only allows the alphabetic characters
+     * @param s
+     * @param minLength
+     * @param maxLength
+     * @return
+     */
     public static boolean validAlpha(String s, int minLength, int maxLength) {
         if (s.matches(ALPHA_PATTERN) && s.length() >= minLength && s.length() <= maxLength) {
             return true;
@@ -49,14 +76,29 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * validates the email address
+     * @param s
+     * @return
+     */
     public static boolean validEmail(String s) {
         return s.matches(EMAIL_PATTERN);
     }
 
+    /**
+     * Validates the UK postcode
+     * @param postcode
+     * @return
+     */
     public static boolean validPostcode(String postcode) {
         return postcode.matches(POSTCODE_PATTERN);
     }
 
+    /**
+     * Validates the integer number
+     * @param s
+     * @return
+     */
     public static boolean validInteger(String s) {
         try {
             Integer.parseInt(s);
@@ -66,6 +108,11 @@ public class InputValidator {
         return true;
     }
 
+    /**
+     * Validates the Double types
+     * @param s
+     * @return
+     */
     public static boolean validDouble(String s) {
         try {
             Double.parseDouble(s);
@@ -75,10 +122,23 @@ public class InputValidator {
         return true;
     }
 
+    /**
+     * Validates the text to only contain alphanum characters and spaces and interpunction
+     * @param s
+     * @return
+     */
     public static boolean validText(String s) {
         return s.matches(TEXT_PATTERN);
     }
 
+    /**
+     * alidates the text to only contain alphanum characters and spaces and interpunction in
+     * apropriate range
+     * @param s
+     * @param minLength
+     * @param maxLength
+     * @return
+     */
     public static boolean validText(String s, int minLength, int maxLength) {
         if (s.matches(TEXT_PATTERN) && s.length() >= minLength && s.length() <= maxLength) {
             return true;
@@ -86,6 +146,11 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * Validates the mobile phone number
+     * @param s
+     * @return
+     */
     public static boolean validMobile(String s) {
         if (s.matches(MOBILE_PATTERN) && s.length() >= MOBILE_MIN_LENGTH && s.length() <= MOBILE_MAX_LENGTH) {
             return true;
@@ -93,6 +158,11 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * Validates the Address field
+     * @param s
+     * @return
+     */
     public static boolean validAddress(String s) {
         if (validText(s, ADDRESS_MIN_LENGTH, ADDRESS_MAX_LENGTH)) {
             return true;
@@ -100,6 +170,11 @@ public class InputValidator {
         return false;
     }
 
+    /**v
+     * validates the city field
+     * @param s
+     * @return
+     */
     public static boolean validCity(String s) {
         if (validText(s, CITY_MIN_LENGTH, CITY_MAX_LENGTH)) {
             return true;
@@ -107,6 +182,11 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * Validates the country field
+     * @param s
+     * @return
+     */
     public static boolean validCountry(String s) {
         if (validText(s, COUNTRY_MIN_LENGTH, COUNTRY_MAX_LENGTH)) {
             return true;
@@ -114,6 +194,9 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * Validates the name field
+     */
     public static boolean validName(String s) {
         if (validText(s, NAME_MIN_LENGTH, NAME_MAX_LENGTH)) {
             return true;
@@ -121,6 +204,11 @@ public class InputValidator {
         return false;
     }
 
+    /**
+     * Validates the username field
+     * @param s
+     * @return
+     */
     public static boolean validUsername(String s) {
         if (validAlnum(s, USERNAME_MIN_LENGTH, USERNAME_MAX_LENGTH)) {
             return true;
@@ -129,6 +217,11 @@ public class InputValidator {
         }
     }
 
+    /**
+     * Validates the artwork title
+     * @param s
+     * @return
+     */
     public static boolean validArtworkTitle(String s) {
         if (validText(s) && s.length() <= ARTWORK_TITLE_MAX_LENGTH) {
             return true;
@@ -137,16 +230,16 @@ public class InputValidator {
         }
     }
 
+    /**
+     * validates the artwork description
+     * @param s
+     * @return
+     */
     public static boolean validArtworkDescription(String s) {
         if (validText(s) && s.length() <= ARTWORK_DESCRIPTION_MAX_LENGTH) {
             return true;
         } else {
             return false;
         }
-    }
-
-    public static void main(String[] args) {
-        String a = "";
-        System.out.println(validArtworkDescription(a));
     }
 }

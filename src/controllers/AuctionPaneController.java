@@ -67,17 +67,17 @@ public class AuctionPaneController{
 
     @FXML
     public void loadAuction(){
+        SessionStorage.sessionData.put("currentAuctionId", this.currentAuctionId.getText());
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.AUCTION_URL, ViewLoader.LAYOUT_URL);
         Scene s = (Scene) l.getView();
-        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox1").lookup("#vbox11").lookup("#title")).setText(title.getText());
-        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox1").lookup("#vbox11").lookup("#type")).setText(type.getText());
-        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox5").lookup("#vbox4").lookup("#description")).setText(description.getText());
-        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox5").lookup("#vbox4").lookup("#hbox6").lookup("#currentPrice")).setText(currentPrice.getText());
-        ((Text) s.lookup("#mainPane").lookup("#vbox1").lookup("#hbox5").lookup("#vbox4").lookup("#hbox7").lookup("#bidsLeft")).setText(bidsLeft.getText());
+        ((Text) s.lookup("#title")).setText(title.getText());
+        ((Text) s.lookup("#type")).setText(type.getText());
+        ((Text) s.lookup("#description")).setText(description.getText());
+        ((Text) s.lookup("#currentPrice")).setText(currentPrice.getText());
+        ((Text) s.lookup("#bidsLeft")).setText(bidsLeft.getText());
 
         Stage ss = (Stage) this.title.getScene().getWindow();
-        SessionStorage.sessionData.put("currentAuctionId", this.currentAuctionId.getText());
         ss.setScene(s);
 
     }

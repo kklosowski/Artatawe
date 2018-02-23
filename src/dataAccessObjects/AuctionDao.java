@@ -29,7 +29,6 @@ public class AuctionDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public List<Auction> getAllAuctions(String type, boolean byUser, int userId) throws SQLException {
-        System.out.println(type + " " + byUser + " " + userId);
         List<Auction> auctions = new ArrayList<>();
         String query = "SELECT * FROM Auction INNER JOIN Artwork ON Auction.artwork_id = Artwork.artwork_id";
         if (type != "all") {

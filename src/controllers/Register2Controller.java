@@ -24,10 +24,10 @@ public class Register2Controller {
     @FXML
     private GridPane avatarGrid;
 
-    @FXML
-    public void initialize() {
-    }
-
+    /**
+     * Allows user to select the avater
+     * @param event
+     */
     @FXML
     public void setSelectedAvatar(Event event) {
         ImageView avatar = (ImageView) event.getSource();
@@ -35,19 +35,10 @@ public class Register2Controller {
         ((User) SessionStorage.sessionData.get("loggedUser")).setProfilePicture(url.substring(url.lastIndexOf('/' + 1)));
         System.out.println(((User) SessionStorage.sessionData.get("loggedUser")).toString());
     }
-//
-//    @FXML
-//    public void highlight(){
-//        avatarGrid.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent event) {
-//                GridPane gridPane = (GridPane) event.getSource();
-//                gridPane.getChildren().
-//                event.consume();
-//            }
-//        });
-//    }
 
+    /**
+     * proceeds with the validation of the user and transports them to the browsing page
+     */
     @FXML
     public void login() {
         UserDao userDao = new UserDao();
@@ -63,6 +54,9 @@ public class Register2Controller {
         s.setScene(l.getView());
     }
 
+    /**
+     * Open the custom drowing page
+     */
     @FXML
     public void addNewAvatar() {
         ViewLoader l = new ViewLoader();

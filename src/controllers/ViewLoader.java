@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 /**
+ * Handles the loading of the views and requesting them. It supports the layout based views
  * @author Marceli Wac
  */
 
@@ -32,21 +33,37 @@ public class ViewLoader {
     public Pane content;
     private Pane layout;
 
-
+    /**
+     * Load view without the layout
+     * @param contentFxmlUrl
+     */
     public void loadViewController(String contentFxmlUrl) {
         this.loadContent(contentFxmlUrl);
     }
 
+    /**
+     * Load view with the layout
+     * @param contentFxmlUrl
+     * @param layoutFxmlUrl
+     */
     public void loadViewController(String contentFxmlUrl, String layoutFxmlUrl) {
         this.loadContent(contentFxmlUrl);
         this.loadLayout(layoutFxmlUrl);
     }
 
+    /**
+     * Return the combined view or just the content
+     * @return
+     */
     public Scene getView() {
         this.buildView();
         return this.view;
     }
 
+    /**
+     * plots the content from the file
+     * @param FxmlUrl
+     */
     private void loadContent(String FxmlUrl) {
         try {
             this.content = FXMLLoader.load(getClass().getResource(FxmlUrl));
@@ -55,6 +72,10 @@ public class ViewLoader {
         }
     }
 
+    /**
+     * Plots the layout from the file
+     * @param FxmlUrl
+     */
     private void loadLayout(String FxmlUrl) {
         try {
             this.layout = FXMLLoader.load(getClass().getResource(FxmlUrl));
@@ -63,6 +84,11 @@ public class ViewLoader {
         }
     }
 
+    /**
+     * handles loading of the panes that are returned straight to the calling method
+     * @param FxmlUrl
+     * @return
+     */
     public Pane loadPane(String FxmlUrl) {
         try {
             return FXMLLoader.load(getClass().getResource(FxmlUrl));
@@ -72,6 +98,9 @@ public class ViewLoader {
         }
     }
 
+    /**
+     * combines the layout with content views
+     */
     private void buildView() {
         if (this.content == null) {
             throw new IllegalStateException("The content of the current view is not set");
@@ -84,6 +113,10 @@ public class ViewLoader {
         }
     }
 
+    /**
+     * Provides the rew content pane
+     * @return
+     */
     public Pane getContent() {
         return content;
     }
