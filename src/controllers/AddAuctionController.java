@@ -1,21 +1,32 @@
 package controllers;
 
 import artatawe.*;
+import dataAccessObjects.ArtworkDao;
 import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -48,7 +59,7 @@ public class AddAuctionController {
     @FXML
     private ImageView mainPhoto;
     @FXML
-    private GridPane additionalGallery;
+    private HBox additionalGallery;
     @FXML
     private Button optionalPhotosButton;
     @FXML
@@ -62,9 +73,11 @@ public class AddAuctionController {
 
     public void createAuction() {
         Artwork artwork;
+        int id = new Random().nextInt();
 
-        if (getArtworkType() == 'P') {
+        if (paintingRadioButton.isSelected()) {
             artwork = new Painting(
+                    id,
                     title.getText(),
                     description.getText(),
                     artist.getText(),
@@ -76,6 +89,7 @@ public class AddAuctionController {
 
         } else {
             artwork = new Sculpture(
+                    id,
                     title.getText(),
                     description.getText(),
                     artist.getText(),
@@ -129,13 +143,18 @@ public class AddAuctionController {
         }
     }
 
-    public char getArtworkType() {
-        if (paintingRadioButton.isSelected()){
-            return 'P';
-        } else if (sculptureRadioButton.isSelected()){
-            return 'S';
-        } else {
-            return 0;
+
+    public void saveSelectedPicture(File picture){
+        Path currentRelativePath = Paths.get("");
+        String pathToSave = currentRelativePath.toAbsolutePath().toString()
+                + "\\src\\views\\images\\"
+                + ((User)SessionStorage.sessionData.get("loggedUser")).getUserName() + "\\"
+                + picture.getName();
+        try {
+            Files.createDirectories(Paths.get(pathToSave).getParent());
+            Files.copy(picture.toPath(), Paths.get(pathToSave), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -147,7 +166,8 @@ public class AddAuctionController {
                 new FileChooser.ExtensionFilter("PNG", "*.png"));
         File photo = fileChooser.showOpenDialog(title.getScene().getWindow());
         mainPhoto.setImage(new Image(photo.toURI().toString()));
-        System.out.println(photo.toURI().toString());
+        saveSelectedPicture(photo);
+        primaryPicture = ((User)SessionStorage.sessionData.get("loggedUser")).getUserName() + "\\" + photo.getName();
     }
 
     public void addAdditionalPhotos() {
@@ -158,5 +178,14 @@ public class AddAuctionController {
                 new FileChooser.ExtensionFilter("PNG", "*.png"));
         fileChooser.setTitle("Select Additional Photos");
         List<File> photo = fileChooser.showOpenMultipleDialog(title.getScene().getWindow());
+
+        photo.forEach( x -> {
+            ImageView image = new ImageView(x.toURI().toString());
+            image.setFitWidth(110);
+            image.setFitHeight(110);
+            additionalGallery.getChildren().add(image);
+            saveSelectedPicture(x);
+            additionalPictures.add(((User)SessionStorage.sessionData.get("loggedUser")).getUserName() + "\\" + x.getName());
+        });
     }
 }

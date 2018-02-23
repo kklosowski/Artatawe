@@ -6,10 +6,15 @@ import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -94,7 +99,12 @@ public class BrowseAuctionsController {
                 p.applyCss();
 
                 //Set Image
-                //((ImageView) p.lookup("#vbox").lookup("#gPane").lookup("#thumbnail")).setImage();
+                String pictureName = auction.getArtwork().getPrimaryPicture();
+                if (pictureName.length() > 0){
+                    URL urlToImage = this.getClass().getResource("/views/images/" + pictureName);
+                    System.out.println(urlToImage.toString());
+                    ((ImageView) p.lookup("#thumbnail")).setImage(new Image(urlToImage.toString()));
+                }
                 ((Text) p.lookup("#title")).setText(auction.getArtwork().getTitle());
                 ((Text) p.lookup("#currentPrice")).setText(String.valueOf(auction.getCurrentPrice()));
                 ((Text) p.lookup("#type")).setText(auction.getArtwork().getType());

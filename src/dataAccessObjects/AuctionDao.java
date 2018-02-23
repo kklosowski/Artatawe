@@ -119,7 +119,7 @@ public class AuctionDao {
         ArtworkDao artworkDao = new ArtworkDao();
         artworkDao.insertArtwork(auction.getArtwork());
 
-        String query = String.format("INSERT INTO Auction (artwork_id,bids_total,reserved_price,timestamp,user_id)" +
+        String query = String.format("INSERT INTO Auction (artwork_id,max_bids,reserved_price,timestamp,user_id)" +
                         " VALUES(%d, %d, %.2f, %d, %d)",
                 artworkDao.getLastId(),
                 auction.getMaxBids(),

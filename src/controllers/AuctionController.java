@@ -1,15 +1,18 @@
 package controllers;
 
-import artatawe.Auction;
-import artatawe.Painting;
-import artatawe.Sculpture;
+import artatawe.*;
 import dataAccessObjects.AuctionDao;
+import dataAccessObjects.BidDao;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-import java.awt.*;
+
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 
 /**
@@ -31,10 +34,16 @@ public class AuctionController {
     @FXML
     private Text description;
     @FXML
+    private Text username;
+    @FXML
     private ImageView mainPicture;
+    @FXML
+    private Button placeBidButton;
+    @FXML
+    private TextField bidAmount;
 
     private Auction auction;
-
+    private User user;
 
 
     @FXML
@@ -44,10 +53,11 @@ public class AuctionController {
         AuctionDao ad = new AuctionDao();
         try {
             this.auction = ad.getAuction(Integer.parseInt(auctionId));
+            System.out.println(auction.toString());
+            this.user = (User)SessionStorage.sessionData.get("loggedUser");
             title.setText(auction.getArtwork().getTitle());
             type.setText(auction.getArtwork().getType());
             currentPrice.setText(String.valueOf(auction.getCurrentPrice()));
-            bidsLeft.setText(String.valueOf(auction.bidsLeft()));
             bidsLeft.setText(String.valueOf(auction.bidsLeft()));
             if (auction.getArtwork() instanceof Sculpture){
                 Sculpture s = (Sculpture) auction.getArtwork();
@@ -57,11 +67,25 @@ public class AuctionController {
                 size.setText(String.valueOf((p.getWidth()) + "cm x " + String.valueOf(p.getHeight()) + "cm"));
             }
             description.setText(auction.getArtwork().getDescription());
-            mainPicture.setImage(new Image(getClass().getResourceAsStream("../views/images/logo.png")));
+            mainPicture.setImage(new Image(getClass().getResourceAsStream("../views/images/" + auction.getArtwork().getPrimaryPicture())));
+            username.setText(((User)SessionStorage.sessionData.get("loggedUser")).getUserName());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public void placeBid(){
+        //TODO: Validation
+        BidDao bidDao = new BidDao();
+        try {
+            bidDao.insertBid(
+                    new Bid(user.getUserId(),
+                    Double.valueOf(bidAmount.getText()),
+                    new Timestamp(System.currentTimeMillis())), auction);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

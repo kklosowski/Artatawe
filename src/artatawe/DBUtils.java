@@ -67,12 +67,12 @@ public class DBUtils {
         UserDao userDao = new UserDao();
         ArtworkDao artworkDao = new ArtworkDao();
         BidDao bidDao = new BidDao();
-        Bid highestBid = bidDao.getHighestBid(rs.getInt("user_id"));
+        Bid highestBid = bidDao.getHighestBid(rs.getInt("auction_id"));
         return new Auction(rs.getInt("auction_id"),
                 userDao.getUser(rs.getInt("user_id")),
                 highestBid != null ? highestBid.getAmount() : 0,
                 rs.getDouble("reserved_price"),
-                rs.getInt("bids_left"),
+                rs.getInt("max_bids"),
                 artworkDao.getArtwork(rs.getInt("artwork_id")));
     }
 

@@ -51,7 +51,7 @@
                                         </ImageView>
                                         <VBox fx:id="bbox2" prefHeight="200.0" prefWidth="100.0">
                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname Lastname" wrappingWidth="140.0">
+                                                <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname Lastname" wrappingWidth="140.0">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
@@ -213,12 +213,12 @@
                                 </HBox>
                                 <HBox fx:id="hbox8" prefHeight="40.0" prefWidth="260.0">
                                     <children>
-                                        <TextField prefHeight="25.0" prefWidth="173.0" promptText="Place bid...">
+                                        <TextField fx:id="bidAmount" prefHeight="25.0" prefWidth="173.0" promptText="Place bid...">
                                             <opaqueInsets>
                                                 <Insets />
                                             </opaqueInsets>
                                         </TextField>
-                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Place bid" HBox.hgrow="ALWAYS">
+                                        <Button mnemonicParsing="false" onMouseClicked="#placeBid" prefHeight="25.0" prefWidth="82.0" text="Place bid" HBox.hgrow="ALWAYS">
                                             <HBox.margin>
                                                 <Insets left="10.0" />
                                             </HBox.margin>
