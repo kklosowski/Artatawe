@@ -172,6 +172,15 @@ public class User {
     }
 
     /**
+     * Gets the full name of the user .
+     *
+     * @return Return formatted full name.
+     */
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    /**
      * Gets the mobile number of the user .
      *
      * @return Return user's mobile number.
@@ -232,6 +241,16 @@ public class User {
      */
     public void setLastLoggedIn(Timestamp newLastLoggedIn) {
         this.lastLoggedIn = newLastLoggedIn;
+    }
+
+    /**
+     * Check is user has other user in favourites
+     *
+     * @param userId
+     * @return True if is favourite else false
+     */
+    public boolean isFavourite(int userId){
+        return favouriteUsers.contains(userId);
     }
 
     /**

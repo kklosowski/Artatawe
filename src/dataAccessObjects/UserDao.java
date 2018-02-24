@@ -105,7 +105,7 @@ public class UserDao {
      * @return If delete successfully it will return any integer except 0, if unable to delete it will return 0.
      * @throws SQLException Throws sql exception if there is any connection error.
      */
-    public int deleteFavouriteUser(int userId, int favouriteId) throws SQLException {
+    public int removeFavourite(int userId, int favouriteId) throws SQLException {
         String deleteQuery = String.format("DELETE FROM %s WHERE user_id = %d and fav_id = %d ", FAVOURITE_TABLE, userId, favouriteId);
         return connection.insert(deleteQuery);
     }

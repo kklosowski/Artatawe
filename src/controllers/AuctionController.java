@@ -38,8 +38,6 @@ public class AuctionController {
     @FXML
     private ImageView mainPicture;
     @FXML
-    private Button placeBidButton;
-    @FXML
     private TextField bidAmount;
 
     private Auction auction;

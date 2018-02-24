@@ -43,6 +43,11 @@ public class BrowseAuctionsController {
     private VBox auctions;
 
     @FXML
+    private void initialize(){
+        getAuctions();
+    }
+
+    @FXML
     private void paintingsFilter() {
         this.type = "painting";
         this.paintingsFilterButton.setStyle(activeStyle);
