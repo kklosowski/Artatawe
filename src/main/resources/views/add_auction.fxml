@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddAuctionController">
+    <children>
+        <GridPane layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="560.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="280.0" prefWidth="280.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="280.0" prefWidth="280.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <VBox prefHeight="450.0" prefWidth="600.0" GridPane.columnIndex="1">
+                    <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="280.0">
+                            <children>
+                                <RadioButton fx:id="sculptureRadioButton" contentDisplay="CENTER" maxWidth="130.0" minWidth="130.0" mnemonicParsing="false" onMouseClicked="#changeType" prefWidth="130.0" selected="true" text="Sculpture" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="typeRadios" />
+                           </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="paintingRadioButton" contentDisplay="CENTER" maxWidth="130.0" minWidth="130.0" mnemonicParsing="false" onMouseClicked="#changeType" prefWidth="130.0" text="Painting" textAlignment="CENTER" toggleGroup="$typeRadios">
+                                    <padding>
+                                        <Insets right="20.0" />
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets right="10.0" />
+                                    </HBox.margin>
+                                </RadioButton>
+                            </children>
+                        </HBox>
+                        <TextField fx:id="title" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" promptText="Title of artwork">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="artist" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" promptText="Name of artist">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <DatePicker fx:id="creationDate" maxWidth="280.0" minWidth="280.0" prefHeight="25.0" prefWidth="280.0" promptText="Date of creation">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </DatePicker>
+                        <TextField fx:id="reservedPrice" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" promptText="Reserved price">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="bidsAllowed" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" promptText="Number of bids allowed">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                  <TextField fx:id="material" layoutX="10.0" layoutY="180.0" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" promptText="Material">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></TextField>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="280.0">
+                            <children>
+                                <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="100.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width:">
+                                            <VBox.margin>
+                                                <Insets bottom="5.0" left="5.0" />
+                                            </VBox.margin>
+                                        </Text>
+                                        <TextField fx:id="w" maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Width" />
+                                    </children>
+                                </VBox>
+                                <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="100.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Height:">
+                                            <VBox.margin>
+                                                <Insets bottom="5.0" left="5.0" />
+                                            </VBox.margin>
+                                        </Text>
+                                        <TextField fx:id="h" maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Height" />
+                                    </children>
+                                </VBox>
+                                <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="100.0">
+                                    <children>
+                                        <Text fx:id="depthLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Depth:">
+                                            <VBox.margin>
+                                                <Insets bottom="5.0" left="5.0" />
+                                            </VBox.margin>
+                                        </Text>
+                                        <TextField fx:id="d" maxWidth="80.0" minWidth="80.0" prefHeight="25.0" prefWidth="272.0" promptText="Depth" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <TextArea fx:id="description" maxWidth="280.0" minWidth="280.0" prefHeight="97.0" prefWidth="280.0" promptText="Description (optional)">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TextArea>
+                        <Button fx:id="createButton" mnemonicParsing="false" onMouseClicked="#createAuction" prefHeight="25.0" prefWidth="283.0" text="Create Auction" />
+                    </children>
+                </VBox>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="260.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                    <children>
+                        <ImageView fx:id="mainPhoto" fitHeight="220.0" fitWidth="220.0" onMouseClicked="#setMainPhoto" pickOnBounds="true" preserveRatio="true">
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                            <image>
+                                <Image url="@images/Image_Placeholder.jpg" />
+                            </image>
+                        </ImageView>
+                  <ScrollPane maxHeight="130.0" maxWidth="220.0" prefHeight="130.0" prefWidth="220.0">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" />
+                     </VBox.margin>
+                     <content>
+                        <HBox fx:id="additionalGallery" prefHeight="93.0" prefWidth="219.0" spacing="5.0" />
+                     </content>
+                  </ScrollPane>
+                        <Button fx:id="selectMainPhotoButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#setMainPhoto" prefWidth="220.0" text="Select main photo">
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="optionalPhotosButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#addAdditionalPhotos" prefWidth="220.0" text="Upload optional photos">
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <GridPane.margin>
+                        <Insets right="20.0" />
+                    </GridPane.margin>
+                </VBox>
+            </children>
+        </GridPane>
+    </children>
+</Pane>

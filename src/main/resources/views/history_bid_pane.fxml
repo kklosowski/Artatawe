@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0"
+      prefWidth="580.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0"
+              prefWidth="580.0">
+            <children>
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="40.0" prefWidth="580.0">
+                    <children>
+                        <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Artwork title"
+                              wrappingWidth="345.0">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Text>
+                        <Text id="bids-left" strokeType="OUTSIDE" strokeWidth="0.0" text="bid amount:"
+                              wrappingWidth="100.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Text>
+                        <Text id="current-price" strokeType="OUTSIDE" strokeWidth="0.0" text="159"
+                              wrappingWidth="100.0">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="5.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="580.0">
+                    <children>
+                        <Text id="type" strokeType="OUTSIDE" strokeWidth="0.0" text="Painting" wrappingWidth="345.0">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Text>
+                        <Text id="bids-left" strokeType="OUTSIDE" strokeWidth="0.0" text="date:" wrappingWidth="100.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Text>
+                        <Text id="current-price" strokeType="OUTSIDE" strokeWidth="0.0" text="10 / 12 / 2017"
+                              wrappingWidth="100.0">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</Pane>
