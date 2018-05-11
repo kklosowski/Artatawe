@@ -44,14 +44,6 @@ public class MyProfileController {
 
 
         User user = (User) SessionStorage.sessionData.get("loggedUser");
-//        try {
-//            Image i = new Image("file:src/views/123.jpg");
-//            System.out.println(i);
-//            System.out.println(i.toString());
-//            avatar.setImage(i);
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
         username.setText(user.getUserName());
         firstName.setText(user.getFirstName());
         lastName.setText(user.getLastName());

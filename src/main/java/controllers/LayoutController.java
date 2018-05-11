@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 
 /**
  * This class usses view loader to redirect the user to apropriate views
+ *
  * @author Marceli Wac
  */
 
@@ -43,7 +44,6 @@ public class LayoutController {
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
-        //TODO change the view
         s.setScene(l.getView());
     }
 
@@ -60,7 +60,6 @@ public class LayoutController {
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
-        //TODO change the view
         s.setScene(l.getView());
     }
 
@@ -69,7 +68,6 @@ public class LayoutController {
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.BROWSE_AUCTIONS_URL, ViewLoader.LAYOUT_URL);
         Stage s = (Stage) logoutButton.getScene().getWindow();
-        //TODO change the view
         s.setScene(l.getView());
     }
 

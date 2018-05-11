@@ -168,7 +168,6 @@ public class UserDao {
      */
     public int insertUser(User user) throws SQLException {
         int lastUserId = getLastId();
-        System.out.println("last user id  " + lastUserId);
 
         String insertQuery = String.format("INSERT INTO %s " +
                         "(user_id, first_name,last_name,username,mobile_number,avatar_filename) " +
@@ -176,7 +175,6 @@ public class UserDao {
                 user.getUserName(), user.getMobileNo(),
                 user.getProfilePicture());
         int result = connection.insert(insertQuery);
-        System.out.println("result insert user " + result);
         if (result > 0) {
             AddressDao addressDao = new AddressDao();
             result = addressDao.insertAddress(user.getAddress(), getUserByUsername(user.getUserName()).getUserId());

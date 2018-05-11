@@ -223,7 +223,7 @@
                                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                     </padding>
                                 </HBox>
-                        <Button fx:id="wishButton" graphicTextGap="2.0" mnemonicParsing="false" onAction="#wishToggle" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #eee;" text="Add to wish list" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <Button fx:id="wishButton" graphicTextGap="2.0" mnemonicParsing="false" onAction="#wishToggle" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #ededed;" text="Add to wish list" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="230.0">
                                     <font>
                                         <Font size="18.0" />

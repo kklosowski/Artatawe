@@ -107,7 +107,6 @@ public class BrowseAuctionsController {
                 String pictureName = auction.getArtwork().getPrimaryPicture();
                 if (pictureName.length() > 0){
                     URL urlToImage = this.getClass().getResource("/views/images/" + pictureName);
-                    System.out.println(urlToImage.toString());
                     ((ImageView) p.lookup("#thumbnail")).setImage(new Image(urlToImage.toString()));
                 }
                 ((Text) p.lookup("#title")).setText(auction.getArtwork().getTitle());

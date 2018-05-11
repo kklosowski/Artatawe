@@ -5,7 +5,6 @@ import artatawe.User;
 import dataAccessObjects.AuctionDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -16,16 +15,23 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Controller for Wish List
+ */
 public class WishListController {
 
     @FXML
     private VBox wished;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         getWishedAuctions();
     }
 
+
+    /**
+     * Loads the auctions tha user added to his wish-list
+     */
     @FXML
     private void getWishedAuctions() {
         ViewLoader l = new ViewLoader();
@@ -34,15 +40,14 @@ public class WishListController {
         try {
             User currentUser = (User) SessionStorage.sessionData.get("loggedUser");
 
-            List<Auction> fetchedAuctions = ad.getAutionsWishedByUser((currentUser.getUserId()));
+            List<Auction> fetchedAuctions = ad.getAuctionsWishedByUser((currentUser.getUserId()));
             for (Auction auction : fetchedAuctions) {
                 Pane p = l.loadPane(ViewLoader.AUCTION_PANE_URL);
                 p.applyCss();
 
                 String pictureName = auction.getArtwork().getPrimaryPicture();
-                if (pictureName.length() > 0){
+                if (pictureName.length() > 0) {
                     URL urlToImage = this.getClass().getResource("/views/images/" + pictureName);
-                    System.out.println(urlToImage.toString());
                     ((ImageView) p.lookup("#thumbnail")).setImage(new Image(urlToImage.toString()));
                 }
                 ((Text) p.lookup("#title")).setText(auction.getArtwork().getTitle());
@@ -52,8 +57,8 @@ public class WishListController {
                 ((Text) p.lookup("#description")).setText(auction.getArtwork().getDescription());
                 ((Text) p.lookup("#currentAuctionId")).setText(String.valueOf(auction.getAuctionId()));
 
-
-                Button removeWish = new Button("Remove");
+                Button removeWish = (Button) p.lookup("#removeBtn");
+                removeWish.setVisible(true);
                 removeWish.setOnMouseClicked(event -> {
                     try {
                         ad.updateWished(currentUser.getUserId(),
@@ -64,8 +69,6 @@ public class WishListController {
                         e.printStackTrace();
                     }
                 });
-
-                p.getChildren().add(removeWish);
 
                 wished.getChildren().add(p);
             }

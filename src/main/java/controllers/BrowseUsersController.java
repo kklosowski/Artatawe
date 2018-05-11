@@ -16,7 +16,6 @@ import java.util.List;
 /**
  * Manage the user browsing view
  */
-//TODO: Implement filtering of users by favourite
 public class BrowseUsersController {
 
     @FXML
@@ -46,7 +45,6 @@ public class BrowseUsersController {
                 String pictureName = user.getProfilePicture();
                 if (pictureName.length() > 0) {
                     URL urlToImage = this.getClass().getResource("/views/images/" + pictureName);
-                    System.out.println(urlToImage.toString());
                     ((ImageView) p.lookup("#thumbnail")).setImage(new Image(urlToImage.toString()));
                 }
                 ((Text) p.lookup("#fullname")).setText(user.getFullName());
@@ -75,6 +73,13 @@ public class BrowseUsersController {
                         e.printStackTrace();
                     }
                 });
+
+                ImageView chatIcon = ((ImageView) p.lookup("#chatIcon"));
+                chatIcon.setOnMouseClicked(event -> {
+                    int clickedUserId = Integer.valueOf(((Text) p.lookup("#userId")).getText());
+                    SessionStorage.sessionData.put("messagedUser", clickedUserId);
+                });
+
 
                 users.getChildren().add(p);
             }

@@ -45,15 +45,17 @@ public class AuctionController {
     private Auction auction;
     private User user;
 
+    //TODO: Comments
 
+    /**
+     * Initializes the auction view with data of selected auction
+     */
     @FXML
     public void initialize() {
-        System.out.println(SessionStorage.sessionData.toString());
         String auctionId = (String) SessionStorage.sessionData.get("currentAuctionId");
         AuctionDao ad = new AuctionDao();
         try {
             this.auction = ad.getAuction(Integer.parseInt(auctionId));
-            System.out.println(auction.toString());
             this.user = (User) SessionStorage.sessionData.get("loggedUser");
             title.setText(auction.getArtwork().getTitle());
             type.setText(auction.getArtwork().getType());
@@ -79,6 +81,10 @@ public class AuctionController {
         }
     }
 
+    /**
+     * Allows the user to add or remove an auction from his wish list
+     */
+    @FXML
     public void wishToggle() {
         AuctionDao ad = new AuctionDao();
         try {
@@ -95,8 +101,10 @@ public class AuctionController {
         }
     }
 
+    /**
+     * Places a bit in a given auction
+     */
     public void placeBid() {
-        //TODO: Validation
         BidDao bidDao = new BidDao();
         try {
             bidDao.insertBid(

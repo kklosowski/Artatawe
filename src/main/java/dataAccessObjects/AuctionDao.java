@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Auction dao.
+ */
 public class AuctionDao {
     /**
      * Get the connection form the class - SQLiteSingleton.
@@ -107,7 +110,6 @@ public class AuctionDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public int insertAuction(Auction auction) throws SQLException {
-        System.out.println("time " + auction.getDateAdded());
 
         ArtworkDao artworkDao = new ArtworkDao();
         artworkDao.insertArtwork(auction.getArtwork());
@@ -137,7 +139,13 @@ public class AuctionDao {
 
     }
 
-    //get last auction's id of an auction table in the database.
+
+    /**
+     * Gets last auction's id of an auction table in the database.
+     *
+     * @return last auction's id
+     * @throws SQLException
+     */
     public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='auction'";
         return connection.query(query).getInt("seq");
@@ -158,6 +166,16 @@ public class AuctionDao {
         return wishedResultSet.isBeforeFirst();
     }
 
+
+    /**
+     * Either adds or removes an auction from wished.
+     *
+     * @param userId    the user id
+     * @param auctionId the auction id
+     * @param wish      wish status
+     * @return result code
+     * @throws SQLException the sql exception
+     */
     public int updateWished(int userId, int auctionId, boolean wish) throws SQLException {
         String query;
         if (wish) {
@@ -168,7 +186,15 @@ public class AuctionDao {
         return connection.insert(query);
     }
 
-    public List<Auction> getAutionsWishedByUser(int userId) throws SQLException {
+
+    /**
+     * Gets auctions wished by user.
+     *
+     * @param userId the user id
+     * @return the auctions wished by user
+     * @throws SQLException the sql exception
+     */
+    public List<Auction> getAuctionsWishedByUser(int userId) throws SQLException {
         List<Auction> auctions = new ArrayList<>();
         ResultSet wishedResultSet = connection.query(
                 String.format("SELECT auction_id FROM wish_list WHERE user_id = %s", userId));

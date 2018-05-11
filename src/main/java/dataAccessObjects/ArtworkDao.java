@@ -78,13 +78,10 @@ public class ArtworkDao {
      * @throws SQLException Throws sql exception if there is any connection error.
      */
     public int updateArtwork(Artwork artwork) throws SQLException {
-        System.out.println("trying ");
         String updateArtworkQuery = String.format("UPDATE %s SET title = '%s', description = '%s'," +
                         " artist = '%s', year_created = %d WHERE artwork_id = %d", ARTWORK_TABLE, artwork.getTitle(), artwork.getDescription(),
                 artwork.getArtist(), artwork.getYearCreated(), artwork.getArtworkId());
-        System.out.println("update " + updateArtworkQuery);
         int result = connection.insert(updateArtworkQuery);
-        System.out.println("result " + result);
         if (result > 0) {
             if (artwork instanceof Sculpture) {
                 Sculpture sculpture = (Sculpture) artwork;
@@ -207,13 +204,22 @@ public class ArtworkDao {
         return connection.insert(insertQuery);
     }
 
-    //get last artwork id of an artwork table in database.
+    /**
+     *  Get last artwork id of an artwork table in database.
+     *  return Last id
+     */
     public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='artwork'";
         return connection.query(query).getInt("seq");
     }
 
-    // A method to search and return an artwork from database regarding to different type of artwork (sculpture / painting)
+
+    /**
+     * A method to search and return an artwork from database regarding to different type of artwork (sculpture / painting)
+     * @param rs Result set
+     * @return Artwork
+     * @throws SQLException
+     */
     private Artwork searchArtworkByType(ResultSet rs) throws SQLException {
         if (rs.getString("artwork_type").equals(SCULPTURE)) {
             String searchSculpture = String.format("SELECT * FROM %s WHERE artwork_spec_id = %d ", SCULPTURE, rs.getInt("artwork_id"));

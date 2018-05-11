@@ -42,6 +42,14 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Button>
+                  <Button fx:id="wishButton" layoutX="10.0" layoutY="185.0" mnemonicParsing="false" onAction="#wishList" prefHeight="25.0" prefWidth="180.0" text="Wish List" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
                         <Button fx:id="myFavouritesButton" mnemonicParsing="false" onAction="#myFavourites" opacity="0.0" prefHeight="25.0" prefWidth="180.0" text="My favourites" textAlignment="CENTER">
                             <font>
                                 <Font name="Arial" size="12.0" />
@@ -66,7 +74,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="historyButton" mnemonicParsing="false" onAction="#history" prefHeight="25.0" prefWidth="180.0" text="History" textAlignment="CENTER">
+                        <Button fx:id="historyButton" mnemonicParsing="false" onAction="#history" prefHeight="25.0" prefWidth="180.0" text="History" textAlignment="CENTER" visible="false">
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font>
@@ -74,14 +82,6 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Button>
-                  <Button fx:id="wishButton" layoutX="10.0" layoutY="185.0" mnemonicParsing="false" onAction="#wishList" prefHeight="25.0" prefWidth="180.0" text="Wish List" textAlignment="CENTER">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
                     </children>
                     <GridPane.margin>
                         <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
