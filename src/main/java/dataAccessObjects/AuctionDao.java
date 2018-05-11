@@ -9,13 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Database access object for the Auction class
- *
- * @author Kamil Klosowski, Morgan David
- * @version 1.0
- * @since 1-12-17
- */
 public class AuctionDao {
     /**
      * Get the connection form the class - SQLiteSingleton.
@@ -148,5 +141,42 @@ public class AuctionDao {
     public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='auction'";
         return connection.query(query).getInt("seq");
+    }
+
+
+    /**
+     * Checks if user has an auction in wishlist
+     *
+     * @param userId    the user id
+     * @param auctionId the auction id
+     * @return isWished boolean
+     * @throws SQLException the sql exception
+     */
+    public boolean isWished(int userId, int auctionId) throws SQLException {
+        ResultSet wishedResultSet = connection.query(
+                String.format("SELECT * FROM wish_list WHERE auction_id = %s and user_id = %s", auctionId, userId));
+        return wishedResultSet.isBeforeFirst();
+    }
+
+    public int updateWished(int userId, int auctionId, boolean wish) throws SQLException {
+        String query;
+        if (wish) {
+            query = String.format("INSERT INTO wish_list (user_id, auction_id) VALUES(%s, %s)", userId, auctionId);
+        } else {
+            query = String.format("DELETE FROM wish_list WHERE auction_id = %s and user_id = %s", auctionId, userId);
+        }
+        return connection.insert(query);
+    }
+
+    public List<Auction> getAutionsWishedByUser(int userId) throws SQLException {
+        List<Auction> auctions = new ArrayList<>();
+        ResultSet wishedResultSet = connection.query(
+                String.format("SELECT auction_id FROM wish_list WHERE user_id = %s", userId));
+
+        while (wishedResultSet.next()) {
+            auctions.add(getAuction(wishedResultSet.getInt("auction_id")));
+        }
+
+        return auctions;
     }
 }

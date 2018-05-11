@@ -26,7 +26,7 @@ public class LayoutDisplayController {
 
     /**
      * returns the combined view
-     * @return
+     * @return view
      */
     public Scene getView() {
         this.buildView();

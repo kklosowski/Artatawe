@@ -27,6 +27,8 @@ public class ViewLoader {
     public static final String HISTORY_FINISHED_AUCTION_PANE = "/views/history_finished_auction_pane.fxml";
     public static final String USER_PANE = "/views/user_pane.fxml";
     public static final String AUCTION_URL = "/views/auction.fxml";
+    public static final String WISH_LIST_URL = "/views/wish_list.fxml";
+
 
 
     private Scene view;

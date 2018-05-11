@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 /**
  * @author Kamil Klosowski
  */
-
+//TODO: Load profile pic
 public class MyProfileController {
 
     @FXML

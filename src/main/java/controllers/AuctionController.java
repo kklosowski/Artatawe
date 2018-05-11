@@ -39,6 +39,8 @@ public class AuctionController {
     private ImageView mainPicture;
     @FXML
     private TextField bidAmount;
+    @FXML
+    private Button wishButton;
 
     private Auction auction;
     private User user;
@@ -52,34 +54,55 @@ public class AuctionController {
         try {
             this.auction = ad.getAuction(Integer.parseInt(auctionId));
             System.out.println(auction.toString());
-            this.user = (User)SessionStorage.sessionData.get("loggedUser");
+            this.user = (User) SessionStorage.sessionData.get("loggedUser");
             title.setText(auction.getArtwork().getTitle());
             type.setText(auction.getArtwork().getType());
             currentPrice.setText(String.valueOf(auction.getCurrentPrice()));
             bidsLeft.setText(String.valueOf(auction.bidsLeft()));
-            if (auction.getArtwork() instanceof Sculpture){
+            if (auction.getArtwork() instanceof Sculpture) {
                 Sculpture s = (Sculpture) auction.getArtwork();
                 size.setText(String.valueOf((s.getWidth()) + "cm x " + String.valueOf(s.getHeight()) + "cm x " + String.valueOf(s.getDepth())));
-            } else if( auction.getArtwork() instanceof Painting){
+            } else if (auction.getArtwork() instanceof Painting) {
                 Painting p = (Painting) auction.getArtwork();
                 size.setText(String.valueOf((p.getWidth()) + "cm x " + String.valueOf(p.getHeight()) + "cm"));
             }
+            if (ad.isWished(user.getUserId(), Integer.valueOf(auctionId))) {
+                wishButton.setText("Remove from wish list");
+            } else {
+                wishButton.setText("Add to wish list");
+            }
             description.setText(auction.getArtwork().getDescription());
             mainPicture.setImage(new Image(getClass().getResourceAsStream("../views/images/" + auction.getArtwork().getPrimaryPicture())));
-            username.setText(((User)SessionStorage.sessionData.get("loggedUser")).getUserName());
+            username.setText(user.getUserName());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void placeBid(){
+    public void wishToggle() {
+        AuctionDao ad = new AuctionDao();
+        try {
+             if (wishButton.getText().contains("Add")) {
+                wishButton.setText("Remove from wish list");
+                ad.updateWished(user.getUserId(), auction.getAuctionId(), true);
+
+            } else {
+                wishButton.setText("Add to wish list");
+                 ad.updateWished(user.getUserId(), auction.getAuctionId(), false);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void placeBid() {
         //TODO: Validation
         BidDao bidDao = new BidDao();
         try {
             bidDao.insertBid(
                     new Bid(user.getUserId(),
-                    Double.valueOf(bidAmount.getText()),
-                    new Timestamp(System.currentTimeMillis())), auction);
+                            Double.valueOf(bidAmount.getText()),
+                            new Timestamp(System.currentTimeMillis())), auction);
         } catch (SQLException e) {
             e.printStackTrace();
         }

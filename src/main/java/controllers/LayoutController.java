@@ -90,6 +90,14 @@ public class LayoutController {
     }
 
     @FXML
+    private void wishList() {
+        ViewLoader l = new ViewLoader();
+        l.loadViewController(ViewLoader.WISH_LIST_URL, ViewLoader.LAYOUT_URL);
+        Stage s = (Stage) logoutButton.getScene().getWindow();
+        s.setScene(l.getView());
+    }
+
+    @FXML
     private void myProfile() {
         ViewLoader l = new ViewLoader();
         l.loadViewController(ViewLoader.MY_PROFILE_URL, ViewLoader.LAYOUT_URL);

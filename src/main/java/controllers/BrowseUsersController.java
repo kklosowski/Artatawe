@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * Manage the user browsing view
  */
+//TODO: Implement filtering of users by favourite
 public class BrowseUsersController {
 
     @FXML
