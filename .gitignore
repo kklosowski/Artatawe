@@ -39,6 +39,8 @@ out/
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
+*.mp4
+
 # JIRA plugin
 atlassian-ide-plugin.xml
 

@@ -14,6 +14,8 @@ C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\artatawe\DBUtils.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\artatawe\User.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\InputValidator.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\AddAuctionController.java
+C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\WishListController.java
+C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\artatawe\Message.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\dataAccessObjects\AuctionDao.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\LayoutDisplayController.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\artatawe\Bid.java
@@ -23,6 +25,7 @@ C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\BrowseHis
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\LayoutController.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\ViewLoader.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\CanvasController.java
+C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\ChatController.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\Register2Controller.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\dataAccessObjects\UserDao.java
 C:\Users\eterd\Desktop\JavaProjects\Artatawe\src\main\java\controllers\RegisterController.java

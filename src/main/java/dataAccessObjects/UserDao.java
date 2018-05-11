@@ -1,6 +1,7 @@
 package dataAccessObjects;
 
 import artatawe.DBUtils;
+import artatawe.Message;
 import artatawe.SQLiteSingleton;
 import artatawe.User;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * Database access object for the Artwork class
  *
  * @author Goh Shu Yu, Kamil Klosowski
- * @since 2/12/2017
+ * @since 2 /12/2017
  */
 public class UserDao {
 
@@ -231,5 +232,43 @@ public class UserDao {
     public int getLastId() throws SQLException {
         String query = "SELECT seq FROM sqlite_sequence WHERE name='user'";
         return connection.query(query).getInt("seq");
+    }
+
+
+    /**
+     * Sends message.
+     *
+     * @param fromUserId sending user id
+     * @param toUserId   receiving user id
+     * @param content    content of the message
+     * @return status code
+     * @throws SQLException the sql exception
+     */
+    public int sendUserMessage(int fromUserId, int toUserId, String content) throws SQLException {
+        String insertQuery = String.format("INSERT INTO message (from_user_id, to_user_id, timestamp, content) VALUES (%d, %d, %d, \"%s\")",
+                        fromUserId, toUserId, System.currentTimeMillis(), content);
+
+        return connection.insert(insertQuery);
+    }
+
+    /**
+     * Gets user messages.
+     *
+     * @param fromUserId sending user id
+     * @param toUserId   receiving user id
+     * @return user messages
+     * @throws SQLException the sql exception
+     */
+    public List<Message> getUserMessages(int fromUserId, int toUserId) throws SQLException {
+        String query = String.format("SELECT * FROM message WHERE from_user_id = %d and to_user_id = %d " +
+                "OR to_user_id = %d and from_user_id = %d "  , fromUserId, toUserId, fromUserId, toUserId);
+        ResultSet rs = connection.query(query);
+        List<Message> messages = new ArrayList<>();
+
+        while (rs.next()) {
+            messages.add(DBUtils.constructMessageFromRS(rs));
+        }
+
+        return messages;
     }
 }

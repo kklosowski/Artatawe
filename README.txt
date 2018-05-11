@@ -3,12 +3,16 @@ and some of the funtionality is missing. This however shouldn't affect the featu
 
 Features implemented:
 Wish List
+Private Chat
 
 Edited classes for the purpose of A3:
 AuctionController.java
 LayoutController.java
 WishListController.java
 AuctionDao.java
+ChatController.java
+Message.java
+UserDao.Java
 
 
 To compile use:

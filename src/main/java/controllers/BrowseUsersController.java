@@ -1,14 +1,19 @@
 package controllers;
 
+import artatawe.Auction;
 import artatawe.User;
+import dataAccessObjects.AuctionDao;
 import dataAccessObjects.UserDao;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.awt.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -77,7 +82,14 @@ public class BrowseUsersController {
                 ImageView chatIcon = ((ImageView) p.lookup("#chatIcon"));
                 chatIcon.setOnMouseClicked(event -> {
                     int clickedUserId = Integer.valueOf(((Text) p.lookup("#userId")).getText());
-                    SessionStorage.sessionData.put("messagedUser", clickedUserId);
+                    SessionStorage.sessionData.put("messagedUser", Integer.valueOf(clickedUserId));
+
+                    ViewLoader viewLoader = new ViewLoader();
+                    viewLoader.loadViewController(ViewLoader.CHAT_URL, ViewLoader.LAYOUT_URL);
+                    Scene scene = (Scene) viewLoader.getView();
+                    Stage ss = (Stage) users.getScene().getWindow();
+                    ss.setScene(scene);
+
                 });
 
 

@@ -155,4 +155,11 @@ public class DBUtils {
         return rs.getInt("fav_id");
     }
 
+    public static Message constructMessageFromRS(ResultSet rs) throws SQLException {
+        UserDao userDao = new UserDao();
+        return new Message(userDao.getUser(rs.getInt("from_user_id")),
+                        userDao.getUser(rs.getInt("to_user_id")),
+                rs.getString("content"),
+                rs.getLong("timestamp"));
+    }
 }
