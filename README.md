@@ -7,3 +7,8 @@ The project consisted of developing an auctioning portal dedicated to art. We wo
 To compile use:
 mvn package
 java -cp target/Artatawe-1.0.jar artatawe.MainHandler
+
+</br>
+
+
+![Description](./demo/screnshots.png)
